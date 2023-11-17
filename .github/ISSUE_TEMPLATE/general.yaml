@@ -1,0 +1,11 @@
+name: '🔧 General Request'
+description: Create a general request (any other type of request that has no template for it)
+title: "🔧 OTHER: "
+labels: ["status: waiting", "priority: low"]
+body:
+- type: textarea
+  attributes:
+    label: Description
+    description: Provide a clear and concise description of your request.
+  validations:
+    required: true
