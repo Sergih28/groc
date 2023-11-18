@@ -14,10 +14,11 @@
     "allowImportingTsExtensions": true,
     "moduleDetection": "force",
     "jsx": "react-jsx",
-    "allowJs": true, // allow importing `.js` from `.ts`
-    "esModuleInterop": true, // allow default imports for CommonJS modules
+    "allowJs": true,
+    "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "jsxImportSource": "react"
   }
 }
