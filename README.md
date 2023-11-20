@@ -7,3 +7,6 @@ You can check the [app README](./app/README.md) for more information about the p
 ## 📃 License
 
 This project is licensed under the [MIT License](./LICENSE).
+
+## 🤝 Code Of Conduct
+We believe in fostering a welcoming and inclusive community. Please review our [Code of Conduct](./CODE_OF_CONDUCT.md) to understand the standards of behavior for everyone involved.
