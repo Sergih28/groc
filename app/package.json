@@ -10,6 +10,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests --fix"
   },
   "dependencies": {
     "@astrojs/check": "0.3.1",
