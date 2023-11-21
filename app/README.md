@@ -29,3 +29,6 @@
 - `bun lint`: run eslint on all project and test files.
 - `bun lint:fix`: run eslint and fix errors on all project and test files.
 - `bun prettier:fix`: run prettier and autoformat files.
+- `bun lint:md`: run markdownlint on all markdown files, including files outside the `/app` folder.
+- `bun lint:md:fix`: run markdownlint and fix all markdown files, including files outside the `/app` folder.
+
