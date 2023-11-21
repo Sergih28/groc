@@ -28,3 +28,4 @@
 - `bun test:e2e:ui`: run playwright tests in UI mode.
 - `bun lint`: run eslint on all project and test files.
 - `bun lint:fix`: run eslint and fix errors on all project and test files.
+- `bun prettier:fix`: run prettier and autoformat files.
