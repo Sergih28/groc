@@ -23,7 +23,7 @@
 
 ## 🧞 Commands
 
-- `bun dev`: start the development server.
+- `bun dev`: start the development server, including storybook (and tailwind).
 - `bun test:e2e`: run playwright tests in headless mode.
 - `bun test:e2e:ui`: run playwright tests in UI mode.
 - `bun lint`: run eslint on all project and test files.
@@ -38,3 +38,7 @@ the `/app` folder.
 - `bun lint:commit`: run commitlint on the last commit. This is just
 informative, but it does not need to be used as a proper husky hook will be set
 up for it.
+- `bun storybook`: run storybook. This should not be used standalone as it will
+be missing tailwind.
+- `bun tailwind`: run tailwind output in watch mode. This is needed for
+storybook
