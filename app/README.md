@@ -29,10 +29,12 @@
 - `bun lint`: run eslint on all project and test files.
 - `bun lint:fix`: run eslint and fix errors on all project and test files.
 - `bun prettier:fix`: run prettier and autoformat files.
-- `bun lint:md`: run markdownlint on all markdown files, including files outside
-  the `/app` folder.
-- `bun lint:md:fix`: run markdownlint and fix all markdown files, including
-  files outside the `/app` folder.
+- `bun lint:docs`: run markdownlint on all markdown files outside the `/app` folder.
+- `bun lint:docs:fix`: run markdownlint and fix errors all markdown files
+outside the `/app` folder.
+- `bun lint:md`: run markdownlint on all markdown files inside the `/app` folder.
+- `bun lint:md:fix`: run markdownlint and fix errors all markdown files inside
+the `/app` folder.
 - `bun lint:commit`: run commitlint on the last commit. This is just
-  informative, but it does not need to be used as a proper husky hook will be
-  set up for it.
+informative, but it does not need to be used as a proper husky hook will be set
+up for it.
