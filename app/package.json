@@ -12,8 +12,8 @@
     "astro": "astro",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests --fix",
-    "lint:commit": "commitlint --edit ${1}",
-    "prettier:fix": "prettier --write src/components/asdf.tsx src/pages/index.astro"
+    "lint:commit": "commitlint --edit \"$1\" --verbose",
+    "prettier:fix": "prettier --write src tests" 
   },
   "dependencies": {
     "@astrojs/check": "0.3.1",
@@ -39,6 +39,7 @@
     "eslint-plugin-astro": "0.29.1",
     "eslint-plugin-jsx-a11y": "6.8.0",
     "eslint-plugin-storybook": "0.6.15",
+    "husky": "8.0.3",
     "prettier": "3.1.0",
     "prettier-plugin-astro": "0.12.2",
     "prettier-plugin-tailwindcss": "0.5.7"
