@@ -10,7 +10,7 @@
 │   └── pages/
 ```
 
-## ⚙️ Initial Setup 
+## ⚙️ Initial Setup
 
 1. **Install bun:**
    Ensure you have [bun](https://bun.sh/) installed.
@@ -29,7 +29,10 @@
 - `bun lint`: run eslint on all project and test files.
 - `bun lint:fix`: run eslint and fix errors on all project and test files.
 - `bun prettier:fix`: run prettier and autoformat files.
-- `bun lint:md`: run markdownlint on all markdown files, including files outside the `/app` folder.
-- `bun lint:md:fix`: run markdownlint and fix all markdown files, including files outside the `/app` folder.
-- `bun lint:commit`: run commitlint on the last commit. This is just informative, but it does not need to be used as a proper husky hook will be set up for it.
-
+- `bun lint:md`: run markdownlint on all markdown files, including files outside
+  the `/app` folder.
+- `bun lint:md:fix`: run markdownlint and fix all markdown files, including
+  files outside the `/app` folder.
+- `bun lint:commit`: run commitlint on the last commit. This is just
+  informative, but it does not need to be used as a proper husky hook will be
+  set up for it.
