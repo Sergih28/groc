@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
-bun run lint:md:fix
 cd app
 bun run prettier:fix
+bun run lint:md:fix
+bun run lint:docs:fix
 bun run lint:fix

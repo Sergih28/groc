@@ -14,6 +14,10 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests --fix",
     "lint:commit": "commitlint --edit \"$1\" --verbose",
+    "lint:docs": "markdownlint ../*.md ../docs/*.md ../docs/**/*.md --ignore node_modules",
+    "lint:docs:fix": "markdownlint ../*.md ../docs/*.md ../docs/**/*.md --ignore node_modules --fix",
+    "lint:md": "eslint --ext .md ./ --ignore-pattern='node_modules'",
+    "lint:md:fix": "eslint --ext .md ./ --ignore-pattern='node_modules' --fix",
     "prettier:fix": "prettier --write src tests"
   },
   "dependencies": {
@@ -39,8 +43,11 @@
     "eslint": "8.54.0",
     "eslint-plugin-astro": "0.29.1",
     "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-markdownlint": "0.5.0",
     "eslint-plugin-storybook": "0.6.15",
     "husky": "8.0.3",
+    "markdownlint": "0.32.1",
+    "markdownlint-cli": "0.37.0",
     "prettier": "3.1.0",
     "prettier-plugin-astro": "0.12.2",
     "prettier-plugin-tailwindcss": "0.5.7"
