@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "prepare": "cd .. && husky install",
     "dev": "astro dev",
     "test:e2e": "bunx playwright test",
     "test:e2e:ui": "bunx playwright test --ui",
@@ -13,7 +14,7 @@
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests --fix",
     "lint:commit": "commitlint --edit \"$1\" --verbose",
-    "prettier:fix": "prettier --write src tests" 
+    "prettier:fix": "prettier --write src tests"
   },
   "dependencies": {
     "@astrojs/check": "0.3.1",
