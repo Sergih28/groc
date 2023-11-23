@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "prepare": "cd .. && husky install",
-    "dev": "tmuxinator --project-config=./config/tmuxinator-project.yml",
+    "dev": "tmuxinator start --project-config=./config/tmuxinator.yml",
     "dev:all": "concurrently \"bun dev:astro\" \"bun tailwind\" \"bun storybook\"",
     "dev:astro": "astro dev",
     "test:unit": "bun test tests/unit --watch",
