@@ -1,0 +1,14 @@
+name: tmuxinator-project
+root: ../
+
+windows:
+  - dev:
+      layout: even-horizontal
+      panes:
+        -
+        - bun run dev:all
+  - tests:
+      layout: even-horizontal
+      panes:
+        - bun run test:unit
+        - bun run test:e2e
