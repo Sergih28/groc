@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "scripts": {
     "prepare": "cd .. && husky install",
-    "dev": "concurrently \"bun dev:astro\" \"bun tailwind\" \"bun storybook\"",
+    "dev": "tmuxinator --project-config=./config/tmuxinator-project.yml",
+    "dev:all": "concurrently \"bun dev:astro\" \"bun tailwind\" \"bun storybook\"",
     "dev:astro": "astro dev",
     "test:unit": "bun test tests/unit --watch",
-    "test:e2e": "bunx playwright test",
+    "test:e2e": "bunx playwright-watch test",
     "test:e2e:ui": "bunx playwright test --ui",
     "start": "astro dev",
     "build": "astro check && astro build",
