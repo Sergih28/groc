@@ -1,12 +1,8 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "types": [
-      "bun-types"
-    ],
-    "lib": [
-      "esnext"
-    ],
+    "types": ["bun-types"],
+    "lib": ["esnext"],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
@@ -19,6 +15,14 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@pages/*": ["pages/*"],
+      "@stories/*": ["stories/*"],
+      "@styles": ["styles/*"]
+    }
   }
 }
