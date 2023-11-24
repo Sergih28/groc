@@ -21,9 +21,17 @@
 3. **Install Playwright dependencies:**
    Run `bunx playwright install` to install Playwright dependencies.
 
+### 🔩 Optional Setup
+
+4. **Install tmux and tmuxinator locally:**
+   To run 'bun dev', ensure you have tmux and tmuxinator installed locally.
+   - **Tmux:** Install Tmux using your package manager
+     (e.g., `apt install tmux` for a Debian/Ubuntu based distro).
+   - **Tmuxinator:** Follow the installation instructions for [Tmuxinator][1].
+
 ## 🧞 Commands
 
-- `bun dev`: start tmuxinator project template
+- `bun dev`: start tmuxinator project template.
 - `bun dev:all`: start the development server, including storybook (and tailwind).
 - `bun test:e2e`: run playwright tests in headless and watch mode.
 - `bun test:e2e:ui`: run playwright tests in UI mode.
@@ -42,4 +50,6 @@
 - `bun storybook`: run storybook. This should not be used standalone as it will
   be missing tailwind.
 - `bun tailwind`: run tailwind output in watch mode. This is needed for
-  storybook
+  storybook.
+
+[1]: https://github.com/tmuxinator/tmuxinator
