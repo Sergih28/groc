@@ -1,0 +1,119 @@
+[
+  {
+    "id": "1838f290-5dfc-478b-b21c-6d867ff1223a",
+    "startTime": 1637016765,
+    "endTime": 1637019982,
+    "pausedTimeRanges": [
+      {
+        "start": 1637017203,
+        "end": 1637017217
+      },
+      {
+        "start": 1637017164,
+        "end": 1637017176
+      }
+    ]
+  },
+  {
+    "id": "5e4dbe3e-c701-418a-9ad5-d781896e1e8d",
+    "startTime": 1636974084,
+    "endTime": 1636978667,
+    "pausedTimeRanges": [
+      {
+        "start": 1636974270,
+        "end": 1636974287
+      },
+      {
+        "start": 1636974580,
+        "end": 1636974588
+      },
+      {
+        "start": 1636974430,
+        "end": 1636974437
+      }
+    ]
+  },
+  {
+    "id": "430aefdb-ed34-4dfd-b1f6-a28447969a4b",
+    "startTime": 1636977890,
+    "endTime": 1636980702,
+    "pausedTimeRanges": [
+      {
+        "start": 1636977914,
+        "end": 1636977920
+      },
+      {
+        "start": 1636978130,
+        "end": 1636978148
+      },
+      {
+        "start": 1636978227,
+        "end": 1636978234
+      }
+    ]
+  },
+  {
+    "id": "5ab850b1-5a4d-41b4-b307-553b30f297a0",
+    "startTime": 1636980133,
+    "endTime": null,
+    "pausedTimeRanges": []
+  },
+  {
+    "id": "a48f047c-7508-4705-95d3-49a6db85559d",
+    "startTime": 1636995228,
+    "endTime": 1636999131,
+    "pausedTimeRanges": []
+  },
+  {
+    "id": "2efbd34f-8eaf-4387-ba27-3ae9d1089966",
+    "startTime": 1637019338,
+    "endTime": null,
+    "pausedTimeRanges": []
+  },
+  {
+    "id": "1a1ba1a7-487b-4bce-b9d5-8e6de7e4154d",
+    "startTime": 1637043328,
+    "endTime": 1637045551,
+    "pausedTimeRanges": [
+      {
+        "start": 1637043703,
+        "end": 1637043720
+      },
+      {
+        "start": 1637043745,
+        "end": 1637043765
+      }
+    ]
+  },
+  {
+    "id": "f8254340-0f32-4272-82fa-d4e827605953",
+    "startTime": 1636992151,
+    "endTime": 1636994219,
+    "pausedTimeRanges": []
+  },
+  {
+    "id": "a961d9c1-5348-41ec-a30f-6d897ef64001",
+    "startTime": 1637033836,
+    "endTime": 1637035234,
+    "pausedTimeRanges": []
+  },
+  {
+    "id": "65796cfe-a5dd-4d69-8ec1-0d81502c38e9",
+    "startTime": 1636988799,
+    "endTime": null,
+    "pausedTimeRanges": [
+      {
+        "start": 1636989282,
+        "end": 1636989302
+      },
+      {
+        "start": 1636988849,
+        "end": 1636988862
+      },
+      {
+        "start": 1636988988,
+        "end": 1636988999
+      }
+    ]
+  }
+]
