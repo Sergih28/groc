@@ -22,7 +22,8 @@
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
       "@stories/*": ["stories/*"],
-      "@styles": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@hooks/*": ["hooks/*"]
     }
   }
 }
