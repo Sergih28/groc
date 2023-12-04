@@ -23,7 +23,8 @@
       "@pages/*": ["pages/*"],
       "@stories/*": ["stories/*"],
       "@styles/*": ["styles/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@errors/*": ["errors/*"]
     }
   }
 }
