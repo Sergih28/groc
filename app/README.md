@@ -23,7 +23,7 @@
 
 ### 🔩 Optional Setup
 
-4. **Install tmux and tmuxinator locally:**
+1. **Install tmux and tmuxinator locally:**
    To run 'bun dev', ensure you have tmux and tmuxinator installed locally.
    - **Tmux:** Install Tmux using your package manager
      (e.g., `apt install tmux` for a Debian/Ubuntu based distro).
