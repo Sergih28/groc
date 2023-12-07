@@ -6,7 +6,7 @@
     "dev": "tmuxinator start --project-config=./config/tmuxinator.yml",
     "dev:all": "concurrently \"bun dev:astro\" \"bun tailwind\" \"bun storybook\"",
     "dev:astro": "astro dev",
-    "test:unit": "bun test tests/unit --watch",
+    "test:unit": "bun test tests/unit",
     "test:e2e": "bunx playwright-watch test",
     "test:e2e:ui": "bunx playwright test --ui",
     "start": "astro dev",
