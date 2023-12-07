@@ -10,5 +10,5 @@ windows:
   - tests:
       layout: even-horizontal
       panes:
-        - bun run test:unit
+        - bun run test:unit --watch
         - bun run test:e2e
