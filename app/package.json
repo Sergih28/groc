@@ -44,6 +44,7 @@
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
+    "@happy-dom/global-registrator": "12.10.3",
     "@playwright/test": "1.40.0",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
