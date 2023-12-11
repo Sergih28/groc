@@ -4,11 +4,11 @@
   "scripts": {
     "prepare": "cd .. && husky install",
     "dev": "tmuxinator start --project-config=./config/tmuxinator.yml",
-    "dev:all": "concurrently \"bun dev:astro\" \"bun tailwind\" \"bun storybook\"",
+    "dev:all": "concurrently \"pnpm dev:astro\" \"pnpm tailwind\" \"pnpm storybook\"",
     "dev:astro": "astro dev",
-    "test:unit": "bun test tests/unit --watch",
-    "test:e2e": "bunx playwright-watch test",
-    "test:e2e:ui": "bunx playwright test --ui",
+    "test:unit": "vitest --dir tests/unit --run",
+    "test:e2e": "pnpx playwright-watch test",
+    "test:e2e:ui": "pnpx playwright test --ui",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
@@ -23,7 +23,7 @@
     "prettier:fix": "prettier --write src tests",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "tailwind": "bunx tailwindcss -i ./src/styles/index.css -o ./dist/output.css --watch"
+    "tailwind": "pnpx tailwindcss -i ./src/styles/index.css -o ./dist/output.css --watch"
   },
   "dependencies": {
     "@astrojs/check": "0.3.1",
