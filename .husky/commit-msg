@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 cd app
-bun lint:commit
+pnpm lint:commit
 
