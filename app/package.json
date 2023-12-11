@@ -55,6 +55,7 @@
     "@storybook/react": "7.5.3",
     "@storybook/react-vite": "7.5.3",
     "@storybook/testing-library": "0.2.2",
+    "@testing-library/react": "14.1.2",
     "@types/node": "20.9.2",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
