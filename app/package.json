@@ -44,7 +44,6 @@
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
-    "@happy-dom/global-registrator": "12.10.3",
     "@playwright/test": "1.40.0",
     "@storybook/addon-essentials": "7.5.3",
     "@storybook/addon-interactions": "7.5.3",
@@ -55,11 +54,11 @@
     "@storybook/react": "7.5.3",
     "@storybook/react-vite": "7.5.3",
     "@storybook/testing-library": "0.2.2",
+    "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "14.1.2",
     "@types/node": "20.9.2",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
-    "bun-types": "1.0.12",
     "concurrently": "8.2.2",
     "eslint": "8.54.0",
     "eslint-plugin-astro": "0.29.1",
@@ -72,6 +71,7 @@
     "prettier": "3.1.0",
     "prettier-plugin-astro": "0.12.2",
     "prettier-plugin-tailwindcss": "0.5.7",
-    "storybook": "7.5.3"
+    "storybook": "7.5.3",
+    "vitest": "1.0.4"
   }
 }
