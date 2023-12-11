@@ -6,9 +6,9 @@ windows:
       layout: even-horizontal
       panes:
         -
-        - bun run dev:all
+        - pnpm run dev:all
   - tests:
       layout: even-horizontal
       panes:
-        - bun run test:unit
-        - bun run test:e2e
+        - pnpm run test:unit
+        - pnpm run test:e2e
