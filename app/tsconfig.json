@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "lib": ["esnext"],
+    "types": ["vitest/globals"],
     "module": "esnext",
     "target": "esnext",
     "moduleResolution": "bundler",
