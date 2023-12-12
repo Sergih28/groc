@@ -37,6 +37,7 @@
     "formik": "2.4.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-icons": "4.12.0",
     "sonner": "1.2.3",
     "tailwindcss": "3.0.24",
     "typescript": "5.2.2"
@@ -59,6 +60,7 @@
     "@types/node": "20.9.2",
     "@typescript-eslint/eslint-plugin": "6.11.0",
     "@typescript-eslint/parser": "6.11.0",
+    "@vitejs/plugin-react": "4.2.1",
     "concurrently": "8.2.2",
     "eslint": "8.54.0",
     "eslint-plugin-astro": "0.29.1",
@@ -66,12 +68,14 @@
     "eslint-plugin-markdownlint": "0.5.0",
     "eslint-plugin-storybook": "0.6.15",
     "husky": "8.0.3",
+    "jsdom": "23.0.1",
     "markdownlint": "0.32.1",
     "markdownlint-cli": "0.37.0",
     "prettier": "3.1.0",
     "prettier-plugin-astro": "0.12.2",
     "prettier-plugin-tailwindcss": "0.5.7",
     "storybook": "7.5.3",
+    "vite": "5.0.7",
     "vitest": "1.0.4"
   }
 }
