@@ -9,6 +9,7 @@ type Story = StoryObj<typeof ResetButton>
 
 export const Button: Story = {
   args: {
+    // eslint-disable-next-line no-console
     resetPomodoro: () => console.log('pomodoro reset'),
   },
 }

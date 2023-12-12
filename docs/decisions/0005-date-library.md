@@ -1,15 +1,15 @@
-# Decision: Date Library Selection 
+# Decision: Date Library Selection
 
 ## Context and Problem Statement
 
 - **What's the purpose of this decision?**
 
-Choosing the most suitable date library among Day.js, Date-fns, and Moment.js 
+Choosing the most suitable date library among Day.js, Date-fns, and Moment.js
 for integration into our project's codebase.
 
 - **What factors influence this decision?**
 
-Considerations include size, functionality, modularity, and alignment with 
+Considerations include size, functionality, modularity, and alignment with
 project goals while selecting a suitable date library.
 
 ## Considered Options
@@ -23,7 +23,7 @@ project goals while selecting a suitable date library.
 
 ## Decision Outcome
 
-After careful consideration, Day.js emerged as the optimal choice. Its modular 
-structure and minimalist API align perfectly with our 
-project's focus on avoiding unnecessary bloat while prioritizing essential 
+After careful consideration, Day.js emerged as the optimal choice. Its modular
+structure and minimalist API align perfectly with our
+project's focus on avoiding unnecessary bloat while prioritizing essential
 features.
