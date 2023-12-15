@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Settings component test > Default settings values snapshot 1`] = `
+{
+  "BREAK_DURATION": 5,
+  "LONG_BREAK_DURATION": 15,
+  "MODE": "manual",
+  "POMODORO_DURATION": 25,
+}
+`;
