@@ -1,0 +1,46 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NavBar component > NavBar elements snapshot 1`] = `
+[
+  {
+    "isEnabled": true,
+    "name": "Home",
+    "url": "/",
+  },
+  {
+    "isEnabled": false,
+    "name": "Pomodoro",
+    "url": "/pomodoro",
+  },
+  {
+    "isEnabled": false,
+    "name": "Notifications",
+    "url": "/notifications",
+  },
+  {
+    "isEnabled": false,
+    "name": "Settings",
+    "url": "/settings",
+  },
+  {
+    "isEnabled": false,
+    "name": "Stats",
+    "url": "/stats",
+  },
+  {
+    "isEnabled": false,
+    "name": "Challenges",
+    "url": "/challenges",
+  },
+  {
+    "isEnabled": false,
+    "name": "Export",
+    "url": "/export",
+  },
+  {
+    "isEnabled": false,
+    "name": "Help",
+    "url": "/help",
+  },
+]
+`;
