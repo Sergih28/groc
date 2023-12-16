@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test'
-const URL = 'http://localhost:4321'
+import { BASE_URL } from './utils'
+
+const URL = `${BASE_URL}/`
 
 test('has title', async ({ page }) => {
   await page.goto(URL)
@@ -15,6 +17,6 @@ test.describe('navbar navigation', () => {
 
     await homeLink.click()
 
-    await expect(page).toHaveURL(URL + '/')
+    await expect(page).toHaveURL(URL)
   })
 })
