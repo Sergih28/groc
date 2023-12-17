@@ -1,5 +1,7 @@
+import { getLangFromWindowUrl, useTranslations } from '../i18n/utils'
+
 type NavBarElement = {
-  name: string
+  key: string
   url: string
   isEnabled: boolean
 }
@@ -12,63 +14,66 @@ const NAVBAR_STYLES = {
 
 export const NAVBAR_ELEMENTS: NavBarElement[] = [
   {
-    name: 'Home',
+    key: 'home',
     url: '/',
     isEnabled: true,
   },
   {
-    name: 'Pomodoro',
+    key: 'pomodoro',
     url: '/pomodoro',
     isEnabled: false,
   },
   {
-    name: 'Notifications',
+    key: 'notifications',
     url: '/notifications',
     isEnabled: false,
   },
   {
-    name: 'Settings',
+    key: 'settings',
     url: '/settings',
     isEnabled: false,
   },
   {
-    name: 'Stats',
+    key: 'stats',
     url: '/stats',
     isEnabled: false,
   },
   {
-    name: 'Challenges',
+    key: 'challenges',
     url: '/challenges',
     isEnabled: false,
   },
   {
-    name: 'Export',
+    key: 'export',
     url: '/export',
     isEnabled: false,
   },
   {
-    name: 'Help',
+    key: 'help',
     url: '/help',
     isEnabled: false,
   },
 ]
 
 const NavBar = () => {
+  const lang = getLangFromWindowUrl()
+  const t = useTranslations(lang)
+
   return (
     <ul className={NAVBAR_STYLES.LIST}>
-      {NAVBAR_ELEMENTS.map(({ url, name, isEnabled }) => {
+      {NAVBAR_ELEMENTS.map(({ url, key, isEnabled }) => {
         const ListElement = () => (
           <li
             className={isEnabled ? NAVBAR_STYLES.ENABLED_ELEMENT : NAVBAR_STYLES.DISABLED_ELEMENT}
           >
-            {name}
+            {t(`nav.${key}`)}
           </li>
         )
 
-        if (!isEnabled) return <ListElement />
+        if (!isEnabled) return <ListElement key={key} />
 
         return (
-          <a href={url}>
+          <a key={key} href={url}>
             <ListElement />
           </a>
         )
