@@ -1,0 +1,17 @@
+---
+import { languages } from '../../i18n/ui'
+import { generateParamsLanguageList } from '../../i18n/utils'
+import Layout from '../../layouts/Layout.astro'
+import NavBar from '@components/NavBar'
+import '../../styles/index.css'
+
+export function getStaticPaths() {
+  return generateParamsLanguageList(languages)
+}
+
+const title = 'Groc'
+---
+
+<Layout title={title}>
+  <NavBar client:only="react" />
+</Layout>
