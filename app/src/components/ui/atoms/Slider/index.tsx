@@ -1,16 +1,6 @@
 import { useState, useId } from 'react'
-
-interface SliderProps {
-  initialValue: number
-  maxValue: number
-  minValue: number
-}
-
-const DEFAULT_SLIDER_VALUES = {
-  INITIAL: 0,
-  MAX: 25,
-  MIN: 0,
-}
+import type { SliderProps } from './types'
+import { DEFAULT_SLIDER_VALUES } from './constants'
 
 const Slider = ({
   initialValue = DEFAULT_SLIDER_VALUES.INITIAL,

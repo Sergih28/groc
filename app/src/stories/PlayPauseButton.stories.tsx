@@ -1,4 +1,4 @@
-import PlayPauseButton from '../components/PlayPauseButton'
+import PlayPauseButton from '../components/ui/atoms/Buttons/PlayPause/index'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof PlayPauseButton> = {

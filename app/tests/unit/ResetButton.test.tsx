@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import ResetButton from '@components/ResetButton'
+import ResetButton from '@atoms/Buttons/Reset/'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 
 describe('ResetButton component test', () => {

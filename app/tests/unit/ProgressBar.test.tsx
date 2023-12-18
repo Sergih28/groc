@@ -1,4 +1,4 @@
-import ProgressBar from '@components/ProgressBar'
+import ProgressBar from '@atoms/ProgressBar/'
 import { screen, render, cleanup } from '@testing-library/react'
 import { colorToRgb } from './helpers'
 

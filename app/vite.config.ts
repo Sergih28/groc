@@ -16,9 +16,16 @@ export default defineConfig({
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, './src/components'),
+      '@atoms': path.resolve(__dirname, './src/components/ui/atoms'),
+      '@molecules': path.resolve(__dirname, './src/components/ui/molecules'),
+      '@organisms': path.resolve(__dirname, './src/components/ui/organisms'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@errors': path.resolve(__dirname, './src/errors'),
       '@i18n': path.resolve(__dirname, './src/i18n'),
     },
   },
 })
+
+// "@atoms/*": ["components/ui/atoms/*"],
+//       "@organisms/*": ["components/ui/organisms"],
+//       "@molecules/*": ["components/ui/molecules/*"],

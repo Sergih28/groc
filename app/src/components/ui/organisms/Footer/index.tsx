@@ -1,12 +1,6 @@
 import useYearRange from '@hooks/useYearRange'
 import { FaGithub } from 'react-icons/fa'
-
-const URLS = {
-  OWNER: 'https://github.com/sergiheras',
-  CONTRIBUTORS: 'https://github.com/Sergih28/groc/graphs/contributors',
-  LICENSE: 'https://github.com/Sergih28/groc/blob/main/LICENSE',
-  REPO: 'https://github.com/Sergih28/groc',
-}
+import { URLS } from './constants'
 
 const Footer = () => {
   const CURRENT_YEAR = new Date().getFullYear()
