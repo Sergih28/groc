@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import PlayPauseButton from '@components/PlayPauseButton'
+import PlayPauseButton from '@atoms/Buttons/PlayPause/'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 
 describe('PlayPauseButton component test', () => {

@@ -1,9 +1,6 @@
 import { useState } from 'react'
-import Button from '@components/Button'
-
-interface PlayPauseButtonProps {
-  initialState: boolean
-}
+import Button from '@atoms/Buttons/Button/'
+import type { PlayPauseButtonProps } from './types'
 
 const PlayPauseButton = ({ initialState }: PlayPauseButtonProps) => {
   const [isPaused, setIsPaused] = useState(initialState)
