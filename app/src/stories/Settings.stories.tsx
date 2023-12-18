@@ -1,4 +1,4 @@
-import Settings from '../components/Settings'
+import Settings from '../components/ui/organisms/Settings/'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Settings> = {

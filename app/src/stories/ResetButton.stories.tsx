@@ -1,4 +1,4 @@
-import ResetButton from '../components/ResetButton'
+import ResetButton from '../components/ui/atoms/Buttons/Reset/index'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof ResetButton> = {

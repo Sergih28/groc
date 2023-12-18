@@ -1,4 +1,5 @@
-import NavBar, { NAVBAR_ELEMENTS } from '@components/NavBar'
+import NavBar from '@organisms/NavBar/'
+import { NAVBAR_ELEMENTS } from '@components/ui/organisms/NavBar/constants'
 import { render } from '@testing-library/react'
 
 describe('NavBar component', () => {

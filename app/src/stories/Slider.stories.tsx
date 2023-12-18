@@ -1,4 +1,4 @@
-import Slider from '../components/Slider'
+import Slider from '../components/ui/atoms/Slider/'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Slider> = {

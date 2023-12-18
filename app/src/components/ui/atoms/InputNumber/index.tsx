@@ -1,20 +1,6 @@
-import { useId, type ChangeEvent } from 'react'
-
-interface InputNumberProps {
-  name: string
-  value: number
-  description: string
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void
-  error: string | undefined
-}
-
-const STYLES = {
-  LABEL: 'block mb-2 font-semibold',
-  INPUT:
-    'block w-full border border-gray-300 rounded-md px-3 py-2 mb-3 focus:outline-none focus:border-yellow-500 font-light',
-
-  ERROR_MESSAGE: 'text-red-500 text-sm mt-1',
-} as const
+import { useId } from 'react'
+import { type InputNumberProps } from './types'
+import { STYLES } from './styles'
 
 const InputNumber = ({
   name,

@@ -1,17 +1,6 @@
-import { useId, type ChangeEvent } from 'react'
-
-const STYLES = {
-  RADIO_BUTTON: 'ml-2 cursor-pointer',
-  LABEL: 'block mb-2 font-semibold capitalize ',
-}
-
-interface InputRadioProps {
-  description: string
-  inputName: string
-  handleChange: (event: ChangeEvent<HTMLInputElement>) => void
-  checked: boolean
-  required?: boolean
-}
+import { useId } from 'react'
+import { type InputRadioProps } from './types'
+import { STYLES } from './styles'
 
 const InputRadio = ({
   description,
