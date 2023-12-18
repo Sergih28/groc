@@ -1,9 +1,5 @@
 import { useState, useId } from 'react'
-
-interface SwitchProps {
-  initialState: boolean
-  switchLabel: string
-}
+import type { SwitchProps } from './types'
 
 const Switch = ({ initialState, switchLabel }: SwitchProps) => {
   const [isOn, setIsOn] = useState(initialState)

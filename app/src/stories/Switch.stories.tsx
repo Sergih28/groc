@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Switch from '../components/Switch'
+import Switch from '../components/ui/atoms/Switch/'
 
 const meta: Meta<typeof Switch> = {
   component: Switch,

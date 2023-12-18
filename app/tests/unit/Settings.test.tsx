@@ -1,4 +1,5 @@
-import Settings, { DEFAULT_SETTINGS_VALUES } from '@components/Settings'
+import Settings from '@organisms/Settings/'
+import { DEFAULT_SETTINGS_VALUES } from '@organisms/Settings/constants'
 import { render, screen, cleanup } from '@testing-library/react'
 
 describe('Settings component test', () => {

@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import Button from '@components/Button'
+import Button from '@atoms/Buttons/Button/'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 
 describe('Button component test', () => {
@@ -8,11 +8,11 @@ describe('Button component test', () => {
   })
 
   test('renders the Button component', () => {
-    render(<Button></Button>)
+    render(<Button handleClick={() => {}}></Button>)
   })
 
   test('renders the main button with custom text', () => {
-    render(<Button>Main button text</Button>)
+    render(<Button handleClick={() => {}}>Main button text</Button>)
     const buttonElement = screen.getByRole('button')
 
     expect(buttonElement).toBeInTheDocument()

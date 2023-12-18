@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import Slider from '@components/Slider'
+import Slider from '@atoms/Slider/'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 
 describe('Slider component test', () => {

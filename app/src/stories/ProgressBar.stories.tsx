@@ -1,4 +1,4 @@
-import ProgressBar from '../components/ProgressBar'
+import ProgressBar from '../components/ui/atoms/ProgressBar/'
 import type { Meta, StoryObj } from '@storybook/react'
 import '../styles/index.css'
 
