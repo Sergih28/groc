@@ -24,7 +24,8 @@
       "@stories/*": ["stories/*"],
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
-      "@errors/*": ["errors/*"]
+      "@errors/*": ["errors/*"],
+      "@i18n/*": ["i18n/*"]
     }
   }
 }
