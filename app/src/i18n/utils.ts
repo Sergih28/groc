@@ -3,7 +3,7 @@ import { ui, fallbackLang, languages } from './ui'
 export const getLangFromLocalStorage = () => {
   const lang = localStorage.getItem('lng')
 
-  if (Object.keys(languages).includes(lang)) {
+  if (lang && Object.keys(languages).includes(lang)) {
     return lang
   }
 
