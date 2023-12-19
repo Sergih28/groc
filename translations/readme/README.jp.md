@@ -1,5 +1,12 @@
 # 🟡 GROC &middot; ![GitHubリポジトリサイズ][1] ![GitHubのコードサイズ（バイト）][2]
 
+## _他の言語で読む [こちら](./)_.
+
+![🇦🇩  カタルーニャ語][3] ·
+![🇬🇧 英語][4] ·
+![🇰🇷 韓国語][5] ·
+![🇪🇸 スペイン語][6]
+
 ## 🚀 アプリ
 
 プロジェクトコードに関する詳細については、[アプリの README](../../app/README.md)
@@ -16,3 +23,7 @@
 
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644
 [2]: https://img.shields.io/github/languages/code-size/sergih28/groc?style=for-the-badge&logo=visualstudiocode&label=Code&labelColor=0078d7&color=gray
+[3]: ./README.cat.md
+[4]: ../../README.md
+[5]: ./README.kr.md
+[6]: ./README.es.md

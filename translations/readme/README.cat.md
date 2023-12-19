@@ -1,5 +1,12 @@
 # 🟡 GROC &middot; ![Mida del repositori a GitHub][1] ![Mida del codi][2]
 
+## _Llegeix-ho en [altres idiomes](./)._
+
+![🇬🇧 Anglès][3] ·
+![🇯🇵 Japonès][4] ·
+![🇰🇷 Coreà][5] ·
+![🇪🇸 Espanyol][6]
+
 ## 🚀 Aplicació
 
 Pots revisar el [README de l'aplicació](../../app/README.md) per a més
@@ -17,4 +24,7 @@ estàndards de comportament per a tots els involucrats.
 
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644
 [2]: https://img.shields.io/github/languages/code-size/sergih28/groc?style=for-the-badge&logo=visualstudiocode&label=Code&labelColor=0078d7&color=gray
-
+[3]: ../../README.md
+[4]: ./README.jp.md
+[5]: ./README.kr.md
+[6]: ./README.es.md
