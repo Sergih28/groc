@@ -1,0 +1,10 @@
+{
+  "settings.pomodoro": "Durada del Pomodoro (minuts)",
+  "settings.break": "Durada de la Pausa (minuts)",
+  "settings.longBreak": "Durada de la Pausa Llarga (minuts)",
+  "settings.mode": "Selecciona Mode",
+  "settings.manual": "Manual",
+  "settings.auto": "Automàtic",
+  "settings.delete": "PERILL: ELIMINAR DADES",
+  "settings.submit": "Enviar"
+}

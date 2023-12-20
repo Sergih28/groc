@@ -1,0 +1,10 @@
+{
+  "settings.pomodoro": "Pomodoro duration (minutes)",
+  "settings.break": "Break duration (minutes)",
+  "settings.longBreak": "Long break duration (minutes)",
+  "settings.mode": "Select mode",
+  "settings.manual": "Manual",
+  "settings.auto": "Auto",
+  "settings.delete": "DANGER: REMOVE DATA",
+  "settings.submit": "Submit"
+}
