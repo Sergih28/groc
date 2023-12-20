@@ -1,32 +1,47 @@
 import type { SETTINGS_OPTIONS_TYPE } from './types'
+import { useTranslations, getLangFromWindowUrl } from '@i18n/utils'
+
+const language = getLangFromWindowUrl()
+const t = useTranslations(language)
 
 export const MODE_OPTIONS = {
   MANUAL: 'manual',
   AUTO: 'auto',
 } as const
-
+//TODO should 'description' (labels, translations) be a different object?
 export const SETTINGS_OPTIONS: SETTINGS_OPTIONS_TYPE = {
   POMODORO_DURATION: {
     name: 'pomodoroDuration',
-    description: 'Pomodoro duration (minutes)',
+    description: t('settings.pomodoro'),
   },
   BREAK_DURATION: {
     name: 'breakDuration',
-    description: 'Break duration (minutes)',
+    description: t('settings.break'),
   },
   LONG_BREAK_DURATION: {
     name: 'longBreakDuration',
-    description: 'Long break duration (minutes)',
+    description: t('settings.longBreak'),
   },
   MODE: {
     name: 'mode',
-    description: 'Select mode',
+    description: t('settings.mode'),
   },
-} as const
-
-export const MODE_OPTIONS = {
-  MANUAL: 'manual',
-  AUTO: 'auto',
+  MANUAL: {
+    name: MODE_OPTIONS.MANUAL,
+    description: t('settings.manual'),
+  },
+  AUTO: {
+    name: MODE_OPTIONS.AUTO,
+    description: t('settings.auto'),
+  },
+  DELETE: {
+    name: 'delete',
+    description: t('settings.delete'),
+  },
+  SUBMIT: {
+    name: 'submit',
+    description: t('settings.submit'),
+  },
 } as const
 
 export const DEFAULT_SETTINGS_VALUES = {
