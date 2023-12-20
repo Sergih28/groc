@@ -1,0 +1,10 @@
+{
+  "settings.pomodoro": "포모도로 기간 (분)",
+  "settings.break": "휴식 시간 (분)",
+  "settings.longBreak": "긴 휴식 시간 (분)",
+  "settings.mode": "모드 선택",
+  "settings.manual": "수동",
+  "settings.auto": "자동",
+  "settings.delete": "위험: 데이터 삭제",
+  "settings.submit": "제출"
+}

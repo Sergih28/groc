@@ -2,42 +2,42 @@ import type { NavBarElement } from './types'
 
 export const NAVBAR_ELEMENTS: NavBarElement[] = [
   {
-    name: 'Home',
+    key: 'home',
     url: '/',
     isEnabled: true,
   },
   {
-    name: 'Pomodoro',
+    key: 'pomodoro',
     url: '/pomodoro',
     isEnabled: false,
   },
   {
-    name: 'Notifications',
+    key: 'notifications',
     url: '/notifications',
     isEnabled: false,
   },
   {
-    name: 'Settings',
+    key: 'settings',
     url: '/settings',
     isEnabled: false,
   },
   {
-    name: 'Stats',
+    key: 'stats',
     url: '/stats',
     isEnabled: false,
   },
   {
-    name: 'Challenges',
+    key: 'challenges',
     url: '/challenges',
     isEnabled: false,
   },
   {
-    name: 'Export',
+    key: 'export',
     url: '/export',
     isEnabled: false,
   },
   {
-    name: 'Help',
+    key: 'help',
     url: '/help',
     isEnabled: false,
   },
