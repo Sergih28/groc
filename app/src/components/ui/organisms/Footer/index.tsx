@@ -1,10 +1,14 @@
 import useYearRange from '@hooks/useYearRange'
 import { FaGithub } from 'react-icons/fa'
 import { URLS } from './constants'
+import { useTranslations, getLangFromWindowUrl } from '@i18n/utils'
 
 const Footer = () => {
   const CURRENT_YEAR = new Date().getFullYear()
   const yearRange = useYearRange(CURRENT_YEAR)
+
+  const language = getLangFromWindowUrl()
+  const t = useTranslations(language)
 
   return (
     <footer>
@@ -15,13 +19,13 @@ const Footer = () => {
         </a>
         <span> & </span>
         <a href={URLS.CONTRIBUTORS} target="_blank">
-          Contributors
+          {t('footer.contributors')}
         </a>
       </p>
       <p>
-        Released under the{' '}
+        {t('footer.release_license')}{' '}
         <a href={URLS.LICENSE} target="_blank">
-          MIT License
+          {t('footer.license')}
         </a>
         <div>
           <a href={URLS.REPO} target="_blank">
