@@ -1,8 +1,13 @@
 import Settings from '@organisms/Settings/'
 import { DEFAULT_SETTINGS_VALUES } from '@organisms/Settings/constants'
 import { render, screen, cleanup } from '@testing-library/react'
+import { useTranslations } from '@i18n/utils'
+import { fallbackLang } from '@i18n/ui'
 
 describe('Settings component test', () => {
+  const DEFAULT_LANGUAGE = fallbackLang
+  const t = useTranslations(DEFAULT_LANGUAGE)
+
   afterEach(() => {
     cleanup()
   })
@@ -24,8 +29,8 @@ describe('Settings component test', () => {
     const inputLongBreakDuration = screen.getByTestId('longBreakDuration')
     const inputRadioManual = screen.getByTestId('radio-manual')
     const inputRadioAuto = screen.getByTestId('radio-auto')
-    const deletePomodoroButton = screen.getByRole('button', { name: 'DANGER: REMOVE DATA' })
-    const submitPomodoroButton = screen.getByRole('button', { name: 'Submit' })
+    const deletePomodoroButton = screen.getByRole('button', { name: t('settings.delete') })
+    const submitPomodoroButton = screen.getByRole('button', { name: t('settings.submit') })
 
     expect(formElement).toBeInTheDocument()
     expect(inputPomodoroDuration).toBeInTheDocument()

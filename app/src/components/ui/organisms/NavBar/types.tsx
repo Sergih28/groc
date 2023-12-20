@@ -1,5 +1,5 @@
 export type NavBarElement = {
-  name: string
+  key: string
   url: string
   isEnabled: boolean
 }

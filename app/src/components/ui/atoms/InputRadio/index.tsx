@@ -3,6 +3,7 @@ import { type InputRadioProps } from './types'
 import { STYLES } from './styles'
 
 const InputRadio = ({
+  value,
   description,
   inputName,
   handleChange,
@@ -19,11 +20,11 @@ const InputRadio = ({
         type="radio"
         name={inputName}
         id={labelId}
-        value={description}
+        value={value}
         checked={checked}
         onChange={handleChange}
         required={required}
-        data-testid={`radio-${description}`}
+        data-testid={`radio-${value}`}
       />
     </label>
   )

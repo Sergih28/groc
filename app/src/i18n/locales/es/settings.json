@@ -1,0 +1,10 @@
+{
+  "settings.pomodoro": "Duración del Pomodoro (minutos)",
+  "settings.break": "Duración de la Pausa (minutos)",
+  "settings.longBreak": "Duración de la Pausa Larga (minutos)",
+  "settings.mode": "Seleccionar Modo",
+  "settings.manual": "Manual",
+  "settings.auto": "Automático",
+  "settings.delete": "PELIGRO: BORRAR DATOS",
+  "settings.submit": "Enviar"
+}
