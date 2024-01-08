@@ -1,0 +1,10 @@
+{
+  "settings.pomodoro": "ポモドーロの長さ（分）",
+  "settings.break": "休憩時間の長さ（分）",
+  "settings.longBreak": "長い休憩時間の長さ（分）",
+  "settings.mode": "モード選択",
+  "settings.manual": "手動",
+  "settings.auto": "自動",
+  "settings.delete": "危険：データの削除",
+  "settings.submit": "提出"
+}

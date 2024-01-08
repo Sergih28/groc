@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import Footer from '@components/Footer'
+import Footer from '@organisms/Footer'
 import { render, screen, cleanup } from '@testing-library/react'
 
 describe('Footer component test', () => {

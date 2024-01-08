@@ -19,12 +19,16 @@
     "baseUrl": "./src",
     "paths": {
       "@components/*": ["components/*"],
+      "@atoms/*": ["components/ui/atoms/*"],
+      "@organisms/*": ["components/ui/organisms/*"],
+      "@molecules/*": ["components/ui/molecules/*"],
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
       "@stories/*": ["stories/*"],
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
-      "@errors/*": ["errors/*"]
+      "@errors/*": ["errors/*"],
+      "@i18n/*": ["i18n/*"]
     }
   }
 }

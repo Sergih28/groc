@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import NextButton from '@components/NextButton'
+import NextButton from '@atoms/Buttons/Next/'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 
 describe('NextButton component test', () => {

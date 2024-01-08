@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import Switch from '@components/Switch'
+import Switch from '@atoms/Switch/'
 import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 
 describe('Switch compontent test', () => {

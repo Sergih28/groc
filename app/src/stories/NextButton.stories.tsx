@@ -1,4 +1,4 @@
-import NextButton from '../components/NextButton'
+import NextButton from '../components/ui/atoms/Buttons/Next'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof NextButton> = {
