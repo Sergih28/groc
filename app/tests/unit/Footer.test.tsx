@@ -17,10 +17,10 @@ describe('Footer component test', () => {
   })
 
   test('given the same year as the initial year, should render the exact year without range', () => {
-    render(<Footer />)
-
     const newDate = new Date('2023-12-17T03:24:00')
     vi.setSystemTime(newDate)
+
+    render(<Footer />)
 
     const yearElement = screen.getByText('2023')
     expect(yearElement).toBeInTheDocument()
@@ -37,7 +37,11 @@ describe('Footer component test', () => {
   })
 
   test('given a year before the initial year, should render the initial year', () => {
+    const newDate = new Date('2022-12-17T03:24:00')
+    vi.setSystemTime(newDate)
+
     render(<Footer />)
+
     const yearElement = screen.getByText('2023')
     expect(yearElement).toBeInTheDocument()
   })
