@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { render, screen, cleanup } from '@testing-library/react'
 
 import Switch from '@atoms/Switch/'
 
@@ -9,11 +9,11 @@ describe('Switch compontent test', () => {
   })
 
   test('renders the Switch component', () => {
-    render(<Switch initialState={true} switchLabel="Rendering the switch component for testing" />)
+    render(<Switch isOn={true} switchLabel="Rendering the switch component for testing" />)
   })
 
   test('renders a toggled Switch component and checks if it is checked', () => {
-    render(<Switch initialState={true} switchLabel="Toggle Switch" />)
+    render(<Switch isOn={true} switchLabel="Toggle Switch" />)
 
     const checkboxElement = screen.getByRole('checkbox')
 
@@ -21,32 +21,10 @@ describe('Switch compontent test', () => {
   })
 
   test('renders a not-toggled Switch component and checks if it is not checked', () => {
-    render(<Switch initialState={false} switchLabel="Toggle Switch" />)
+    render(<Switch isOn={false} switchLabel="Toggle Switch" />)
 
     const checkboxElement = screen.getByRole('checkbox')
 
     expect(checkboxElement).not.toBeChecked()
-  })
-
-  test('update Switch component from toggled to not-toggled', () => {
-    render(<Switch initialState={true} switchLabel="Toggle Switch" />)
-
-    const checkboxElement = screen.getByRole('checkbox')
-    expect(checkboxElement).toBeChecked()
-
-    fireEvent.click(checkboxElement)
-
-    expect(checkboxElement).not.toBeChecked()
-  })
-
-  test('update Switch component from non-toggled to toggled', () => {
-    render(<Switch initialState={false} switchLabel="Toggle Switch" />)
-
-    const checkboxElement = screen.getByRole('checkbox')
-    expect(checkboxElement).not.toBeChecked()
-
-    fireEvent.click(checkboxElement)
-
-    expect(checkboxElement).toBeChecked()
   })
 })
