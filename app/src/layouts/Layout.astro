@@ -3,14 +3,15 @@ import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
   title: string
+  darkMode: boolean | undefined
 }
 
-const { title } = Astro.props
+const { title, darkMode } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class={darkMode ? 'dark' : ''}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -22,7 +23,7 @@ const lang = getLangFromUrl(Astro.url)
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class={' bg-gray-100 dark:bg-slate-800'}>
     <slot />
     <style is:global></style>
   </body>

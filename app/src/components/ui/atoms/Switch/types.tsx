@@ -1,4 +1,5 @@
 export interface SwitchProps {
-  initialState: boolean
+  isOn: boolean
+  handleChange?: () => void
   switchLabel: string
 }
