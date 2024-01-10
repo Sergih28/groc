@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+
 import { STYLES } from './styles'
 
 export const ContentWrapper = ({ children }: PropsWithChildren) => {

@@ -1,14 +1,17 @@
 import { useFormik } from 'formik'
-import Button from '@atoms/Buttons/Button/index'
-import { STYLES } from './styles'
+
 import type { Values } from './types'
-import { SETTINGS_OPTIONS, DEFAULT_SETTINGS_VALUES, MODE_OPTIONS } from './constants'
+
 import {
   InputBreakDuration,
   InputLongBreakDuration,
-  InputRadioMode,
   InputPomodoroDuration,
+  InputRadioMode,
 } from './components'
+import { DEFAULT_SETTINGS_VALUES, MODE_OPTIONS, SETTINGS_OPTIONS } from './constants'
+import Button from '@atoms/Buttons/Button/index'
+
+import { STYLES } from './styles'
 
 const validate = (values: Values) => {
   const errors: { [key: string]: string } = {}

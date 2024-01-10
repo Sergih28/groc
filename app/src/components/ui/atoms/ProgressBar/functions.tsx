@@ -1,6 +1,6 @@
 import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
-import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
 import { CurrentAboveTargetError } from '@errors/CurrentAboveTargetError'
+import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
 import { CurrentBelowTargetError } from '@errors/CurrentBelowTargetError'
 
 export const calculatePercentage = (current: number, base: number, target: number): number => {

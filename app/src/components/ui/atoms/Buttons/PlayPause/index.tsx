@@ -1,6 +1,7 @@
-import Button from '@atoms/Buttons/Button/'
 import type { PlayPauseButtonProps } from './types'
+
 import { PLAYPAUSE_BUTTON_TEXT } from './constants'
+import Button from '@atoms/Buttons/Button/'
 
 const PlayPauseButton = ({ isPaused, handleClick = () => {} }: PlayPauseButtonProps) => {
   return (

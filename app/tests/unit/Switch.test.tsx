@@ -1,6 +1,7 @@
 /// <reference lib="dom" />
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+
 import Switch from '@atoms/Switch/'
-import { render, screen, cleanup, fireEvent } from '@testing-library/react'
 
 describe('Switch compontent test', () => {
   afterEach(() => {

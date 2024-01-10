@@ -1,5 +1,7 @@
 import { useId } from 'react'
+
 import { type InputNumberProps } from './types'
+
 import { STYLES } from './styles'
 
 const InputNumber = ({

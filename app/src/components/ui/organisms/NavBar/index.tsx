@@ -1,6 +1,7 @@
-import { STYLES } from './styles'
 import { NAVBAR_ELEMENTS } from './constants'
 import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
+
+import { STYLES } from './styles'
 
 const NavBar = () => {
   const lang = getLangFromWindowUrl()

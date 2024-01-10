@@ -1,3 +1,4 @@
+import { fallbackLang } from '@i18n/ui'
 import {
   generateParamsLanguageList,
   getLangFromLocalStorage,
@@ -5,7 +6,6 @@ import {
   getLangFromWindowUrl,
   useTranslations,
 } from '@i18n/utils'
-import { fallbackLang } from '@i18n/ui'
 
 describe('i18n function tests', () => {
   describe('getFromLangLocaStorage()', () => {

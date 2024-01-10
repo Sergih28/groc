@@ -1,9 +1,11 @@
-import type { ProgressBarProps, ProgressBarContentProps, ProgressBarWrapperProps } from './types'
+import type { ProgressBarContentProps, ProgressBarProps, ProgressBarWrapperProps } from './types'
+
 import { DEFAULT_PROGRESSBAR_PROPS } from './constants'
 import { calculatePercentage } from './functions'
-import { STYLES } from './styles'
 import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
 import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
+
+import { STYLES } from './styles'
 
 const ProgressBarWrapper = ({ children, percentage, backgroundColor }: ProgressBarWrapperProps) => {
   return (

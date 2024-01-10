@@ -1,5 +1,6 @@
 import type { SETTINGS_OPTIONS_TYPE } from './types'
-import { useTranslations, getLangFromWindowUrl } from '@i18n/utils'
+
+import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
 
 const language = getLangFromWindowUrl()
 const t = useTranslations(language)

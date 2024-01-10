@@ -1,7 +1,8 @@
-import useCounter from '@hooks/useCounter'
 import type { CounterProps } from './types'
+
 import { ContentWrapper } from './components'
 import PlayPauseButton from '@atoms/Buttons/PlayPause'
+import useCounter from '@hooks/useCounter'
 
 const Counter = ({
   seconds,

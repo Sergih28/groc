@@ -1,6 +1,7 @@
-import ProgressBar from '@atoms/ProgressBar/'
-import { screen, render, cleanup } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
+
 import { colorToRgb } from './helpers'
+import ProgressBar from '@atoms/ProgressBar/'
 
 describe('ProgressBar component test', () => {
   afterEach(() => {

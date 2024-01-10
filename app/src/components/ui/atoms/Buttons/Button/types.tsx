@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react'
-import { BUTTON_TYPES, BUTTON_STYLES } from './constants'
+
+import { BUTTON_STYLES, BUTTON_TYPES } from './constants'
 
 export interface ButtonProps extends PropsWithChildren {
   handleClick: () => void

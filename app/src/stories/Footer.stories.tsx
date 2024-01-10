@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import Footer from '../components/ui/organisms/Footer/'
 
 const meta: Meta<typeof Footer> = {
