@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
+
 import { BASE_URL } from './utils'
 
 const URL = `${BASE_URL}/`

@@ -1,6 +1,7 @@
 /// <reference lib="dom" />
+import { cleanup, render, screen } from '@testing-library/react'
+
 import Footer from '@organisms/Footer'
-import { render, screen, cleanup } from '@testing-library/react'
 
 describe('Footer component test', () => {
   beforeEach(() => {

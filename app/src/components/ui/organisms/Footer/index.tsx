@@ -1,7 +1,8 @@
-import useYearRange from '@hooks/useYearRange'
 import { FaGithub } from 'react-icons/fa'
+
 import { URLS } from './constants'
-import { useTranslations, getLangFromWindowUrl } from '@i18n/utils'
+import useYearRange from '@hooks/useYearRange'
+import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
 
 const Footer = () => {
   const CURRENT_YEAR = new Date().getFullYear()

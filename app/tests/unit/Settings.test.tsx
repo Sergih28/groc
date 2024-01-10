@@ -1,8 +1,9 @@
+import { cleanup, render, screen } from '@testing-library/react'
+
+import { fallbackLang } from '@i18n/ui'
+import { useTranslations } from '@i18n/utils'
 import Settings from '@organisms/Settings/'
 import { DEFAULT_SETTINGS_VALUES } from '@organisms/Settings/constants'
-import { render, screen, cleanup } from '@testing-library/react'
-import { useTranslations } from '@i18n/utils'
-import { fallbackLang } from '@i18n/ui'
 
 describe('Settings component test', () => {
   const DEFAULT_LANGUAGE = fallbackLang

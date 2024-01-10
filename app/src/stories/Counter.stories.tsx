@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+
 import Counter from '../components/ui/organisms/Counter'
 import '../styles/index.css'
 

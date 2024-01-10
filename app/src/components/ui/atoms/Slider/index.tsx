@@ -1,5 +1,7 @@
-import { useState, useId } from 'react'
+import { useId, useState } from 'react'
+
 import type { SliderProps } from './types'
+
 import { DEFAULT_SLIDER_VALUES } from './constants'
 
 const Slider = ({

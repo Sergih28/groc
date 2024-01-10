@@ -1,4 +1,5 @@
-import { useState, useId } from 'react'
+import { useId, useState } from 'react'
+
 import type { SwitchProps } from './types'
 
 const Switch = ({ initialState, switchLabel }: SwitchProps) => {

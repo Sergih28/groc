@@ -1,4 +1,4 @@
-import { ui, fallbackLang, languages } from './ui'
+import { fallbackLang, languages, ui } from './ui'
 
 export const getLangFromLocalStorage = () => {
   const lang = localStorage.getItem('lng')

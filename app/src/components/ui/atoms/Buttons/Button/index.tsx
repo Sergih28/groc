@@ -1,6 +1,8 @@
 import type { ButtonProps } from './types'
+
+import { BUTTON_STYLES, BUTTON_TYPES } from './constants'
+
 import { STYLES } from './styles'
-import { BUTTON_TYPES, BUTTON_STYLES } from './constants'
 
 const Button = ({
   children,

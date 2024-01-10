@@ -1,6 +1,7 @@
 /// <reference lib="dom" />
+import { cleanup, render, screen } from '@testing-library/react'
+
 import PlayPauseButton from '@atoms/Buttons/PlayPause/'
-import { render, screen, cleanup } from '@testing-library/react'
 
 describe('PlayPauseButton component test', () => {
   afterEach(() => {

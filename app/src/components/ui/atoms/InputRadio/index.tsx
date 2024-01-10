@@ -1,5 +1,7 @@
 import { useId } from 'react'
+
 import { type InputRadioProps } from './types'
+
 import { STYLES } from './styles'
 
 const InputRadio = ({
