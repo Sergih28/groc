@@ -7,7 +7,102 @@
       {
         "allow": ["error"]
       }
+    ],
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
+        "allowSeparatedGroups": true
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "groups": ["builtin", "external", ["sibling", "parent", "internal", "index"], "object"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "hooks/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "./utils",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "./assets",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "./types",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "./styles",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "assets/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "pages/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "components/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "styles/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "*.scss",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "*.css",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "warnOnUnassignedImports": true
+      }
     ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    }
   },
   "extends": [
     "eslint:recommended",
@@ -16,7 +111,7 @@
     "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "import"],
   "overrides": [
     {
       // Define the configuration for `.astro` file.
