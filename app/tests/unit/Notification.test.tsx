@@ -1,5 +1,5 @@
 import Notification from '@components/Notification/'
-import Button from '@components/Button'
+import Button from '@atoms/Buttons/Button'
 import { toast } from 'sonner'
 import { screen, render, fireEvent, cleanup } from '@testing-library/react'
 
