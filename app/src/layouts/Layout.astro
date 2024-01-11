@@ -3,15 +3,14 @@ import { getLangFromUrl } from '../i18n/utils'
 
 interface Props {
   title: string
-  darkMode: boolean | undefined
 }
 
-const { title, darkMode } = Astro.props
+const { title } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 ---
 
 <!doctype html>
-<html lang={lang} class={darkMode ? 'dark' : ''}>
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -23,8 +22,28 @@ const lang = getLangFromUrl(Astro.url)
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class={' bg-gray-100 dark:bg-slate-800'}>
+  <body class="bg-gray-100 dark:bg-slate-800">
     <slot />
     <style is:global></style>
   </body>
 </html>
+
+<script is:inline>
+  const theme = (() => {
+    if (undefined == typeof localStorage && localStorage.getItem('darkMode')) {
+      return JSON.parse(localStorage.getItem('darkMode'))
+    }
+    if (matchMedia('(prefers-color-scheme: dark)').matches) {
+      return true
+    }
+    return false
+  })()
+
+  if (true === theme) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+
+  localStorage.setItem('darkMode', JSON.stringify(theme))
+</script>
