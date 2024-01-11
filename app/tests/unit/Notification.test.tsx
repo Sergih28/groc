@@ -1,7 +1,8 @@
-import Notification from '@components/Notification/'
-import Button from '@atoms/Buttons/Button'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { toast } from 'sonner'
-import { screen, render, fireEvent, cleanup } from '@testing-library/react'
+
+import Button from '@atoms/Buttons/Button'
+import Notification from '@components/Notification/'
 
 const NotificationWrapper = ({ message = 'Notification message' }: { message?: string }) => {
   return (
