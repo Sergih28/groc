@@ -1,4 +1,5 @@
 import { Toaster } from 'sonner'
+
 import type { ToasterProps } from './types'
 
 const Notification = ({ customization }: ToasterProps) => {

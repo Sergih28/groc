@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import { render, screen, cleanup } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 
 import Switch from '@atoms/Switch/'
 

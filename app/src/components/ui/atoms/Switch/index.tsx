@@ -1,4 +1,5 @@
 import { useId } from 'react'
+
 import type { SwitchProps } from './types'
 
 const Switch = ({ isOn, handleChange, switchLabel }: SwitchProps) => {
