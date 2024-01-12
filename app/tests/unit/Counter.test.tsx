@@ -1,6 +1,6 @@
 import { act, render, screen } from '@testing-library/react'
 
-import Counter from '@organisms/Counter'
+import Counter from '@components/ui/molecules/Counter'
 
 describe('Counter component test', () => {
   test('render Counter component', () => {

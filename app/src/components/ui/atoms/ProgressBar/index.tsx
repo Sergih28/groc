@@ -1,9 +1,11 @@
-import type { ProgressBarContentProps, ProgressBarProps, ProgressBarWrapperProps } from './types'
+import { useStore } from '@nanostores/react'
 
-import { DEFAULT_PROGRESSBAR_PROPS } from './constants'
+import type { ProgressBarContentProps, ProgressBarWrapperProps } from './types'
+
 import { calculatePercentage } from './functions'
 import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
 import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
+import { $counter, $phase, $settings } from '@store/Pomodoro'
 
 import { STYLES } from './styles'
 
@@ -36,20 +38,15 @@ const ProgressBarContent = ({
   )
 }
 
-const ProgressBar = ({
-  currentValue,
-  baseValue = DEFAULT_PROGRESSBAR_PROPS.baseValue,
-  targetValue = DEFAULT_PROGRESSBAR_PROPS.targetValue,
-  showPercentage = true,
-  fillColor = DEFAULT_PROGRESSBAR_PROPS.fillColor,
-  backgroundColor = DEFAULT_PROGRESSBAR_PROPS.backgroundColor,
-}: ProgressBarProps) => {
-  if (fillColor === backgroundColor) {
-    fillColor = DEFAULT_PROGRESSBAR_PROPS.fillColor
-    backgroundColor = DEFAULT_PROGRESSBAR_PROPS.backgroundColor
-  }
+const ProgressBar = () => {
+  const { counterValue } = useStore($counter)
+  const settings = useStore($settings)
+  const phase = useStore($phase)
 
   let percentage
+  const currentValue = counterValue
+  const baseValue = settings.isCountingUp ? 0 : settings[`${phase}Duration`]
+  const targetValue = settings.isCountingUp ? settings[`${phase}Duration`] : 0
 
   try {
     percentage = calculatePercentage(currentValue, baseValue, targetValue)
@@ -62,12 +59,12 @@ const ProgressBar = ({
   }
 
   return (
-    <ProgressBarWrapper percentage={percentage} backgroundColor={backgroundColor}>
+    <ProgressBarWrapper percentage={percentage} backgroundColor={settings.backgroundColor}>
       <ProgressBarContent
         percentage={percentage}
-        showPercentage={showPercentage}
-        backgroundColor={backgroundColor}
-        fillColor={fillColor}
+        showPercentage={settings.showPercentage}
+        backgroundColor={settings.backgroundColor}
+        fillColor={settings.fillColor}
       />
     </ProgressBarWrapper>
   )
