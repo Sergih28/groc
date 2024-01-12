@@ -1,0 +1,3 @@
+#navbar {
+  @apply row-span-5 bg-slate-900;
+}

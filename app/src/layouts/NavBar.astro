@@ -1,0 +1,15 @@
+---
+import ThemeToggle from '@components/ui/molecules/ThemeToggle'
+import NavBarComponent from '@components/ui/organisms/NavBar'
+import '@styles/NavBar.css'
+---
+
+<aside id="navbar">
+  <div
+    class="m-auto mb-10 mt-2 h-[100px] w-80 justify-self-center bg-yellow-300 text-center text-2xl text-white"
+  >
+    Groc
+  </div>
+  <NavBarComponent client:only="react" />
+  <ThemeToggle client:only="react" />
+</aside>
