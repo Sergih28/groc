@@ -6,7 +6,7 @@ import Button from '@atoms/Buttons/Button/'
 const PlayPauseButton = ({ isPaused, handleClick = () => {} }: PlayPauseButtonProps) => {
   return (
     <>
-      <Button handleClick={handleClick}>
+      <Button handleClick={handleClick} styles="counter">
         {isPaused ? PLAYPAUSE_BUTTON_TEXT.CONTINUE : PLAYPAUSE_BUTTON_TEXT.PAUSE}
       </Button>
     </>

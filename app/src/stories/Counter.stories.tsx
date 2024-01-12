@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import Counter from '../components/ui/organisms/Counter'
+import Counter from '../components/ui/molecules/Counter'
 import '../styles/index.css'
 
 const meta: Meta<typeof Counter> = {

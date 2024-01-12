@@ -28,7 +28,8 @@
       "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
       "@errors/*": ["errors/*"],
-      "@i18n/*": ["i18n/*"]
+      "@i18n/*": ["i18n/*"],
+      "@store/*": ["store/*"]
     }
   }
 }

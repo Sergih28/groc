@@ -12,7 +12,7 @@ const Footer = () => {
   const t = useTranslations(language)
 
   return (
-    <footer>
+    <footer className="col-span-4 col-start-2 row-start-5 flex flex-col justify-center border-y-2 border-slate-200 text-xl">
       <p>
         Copyright © <span>{yearRange}</span>,{' '}
         <a href={URLS.OWNER} target="_blank">

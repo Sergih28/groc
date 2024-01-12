@@ -9,7 +9,7 @@ export const MODE_OPTIONS = {
   MANUAL: 'manual',
   AUTO: 'auto',
 } as const
-//TODO should 'description' (labels, translations) be a different object?
+
 export const SETTINGS_OPTIONS: SETTINGS_OPTIONS_TYPE = {
   POMODORO_DURATION: {
     name: 'pomodoroDuration',

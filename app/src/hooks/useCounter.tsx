@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
+
+import { $counter } from '@store/Pomodoro'
 dayjs.extend(duration)
 
 const DEFAULT_VALUES = {
@@ -33,14 +35,14 @@ export default function useCounter(
   const [counterValue, setCounterValue] = useState(
     isCountingUp ? DEFAULT_VALUES.COUNTER_START : seconds,
   )
-  const [isPaused, setIsPaused] = useState(false)
+  const [isPaused, setIsPaused] = useState(true)
 
   const FORMATS = {
     seconds: `${counterValue}`,
     minutes: dayjs.duration(counterValue, 'seconds').format('mm:ss'),
   }
 
-  const isFinished =
+  let isFinished =
     (!isCountingUp && counterValue === 0) || (isCountingUp && counterValue === seconds)
 
   const counterContent = FORMATS[counterFormat]
@@ -49,6 +51,17 @@ export default function useCounter(
     if (isFinished) return
     setIsPaused((isPaused) => !isPaused)
   }
+
+  const handleReset = () => {
+    setCounterValue(!isCountingUp ? seconds : 0)
+    setIsPaused(true)
+    isFinished = false
+  }
+
+  useEffect(() => {
+    setCounterValue(isCountingUp ? DEFAULT_VALUES.COUNTER_START : seconds)
+    setIsPaused(true)
+  }, [seconds])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -59,8 +72,10 @@ export default function useCounter(
       })
     }, countingInterval * 1000)
 
-    return () => clearInterval(timer)
-  }, [isCountingUp, seconds, isPaused])
+    $counter.set({ counterValue, counterContent, handlePause, handleReset, isPaused, isFinished })
 
-  return { counterValue, counterContent, handlePause, isPaused, isFinished }
+    return () => clearInterval(timer)
+  }, [isCountingUp, seconds, isPaused, seconds, counterContent, counterFormat])
+
+  return { counterValue, counterContent, handlePause, handleReset, isPaused, isFinished }
 }
