@@ -7,6 +7,7 @@
     "dev:all": "concurrently \"pnpm dev:astro\" \"pnpm tailwind\" \"pnpm storybook\"",
     "dev:astro": "astro dev",
     "test:unit": "vitest --dir tests/unit --run",
+    "test:unit:watch": "vitest --dir tests/unit",
     "test:e2e": "pnpx playwright-watch test",
     "test:e2e:ui": "pnpx playwright test --ui",
     "start": "astro dev",
