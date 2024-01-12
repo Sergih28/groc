@@ -1,0 +1,3 @@
+#pomodoro {
+  @apply relative flex h-full flex-col justify-center;
+}
