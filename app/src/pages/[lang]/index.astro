@@ -1,10 +1,12 @@
 ---
-import NavBar from '@components/ui/organisms/NavBar/index'
 import { languages } from '@i18n/ui'
 import { generateParamsLanguageList } from '@i18n/utils'
+import Footer from '@layouts/Footer.astro'
 import Layout from '@layouts/Layout.astro'
+import Main from '@layouts/Main.astro'
+import NavBar from '@layouts/NavBar.astro'
+import Pomodoro from '@layouts/Pomodoro.astro'
 import '@styles/index.css'
-import ThemeToggle from '@components/ui/molecules/ThemeToggle'
 
 export function getStaticPaths() {
   return generateParamsLanguageList(languages)
@@ -14,6 +16,9 @@ const title = 'Groc'
 ---
 
 <Layout title={title}>
-  <NavBar client:only="react" />
-  <ThemeToggle client:only="react" />
+  <NavBar />
+  <Main>
+    <Pomodoro />
+  </Main>
+  <Footer />
 </Layout>
