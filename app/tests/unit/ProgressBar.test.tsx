@@ -3,12 +3,13 @@ import { DEFAULT_SETTINGS_VALUES } from '@store/constants'
 import { $counter, $settings } from '@store/Pomodoro'
 import { cleanup, render, screen } from '@testing-library/react'
 
-import { colorToRgb, resetGlobalState } from './helpers'
+import { colorToRgb, resetCounterState, resetSettingsState } from './helpers'
 
 describe('ProgressBar component test', () => {
   afterEach(() => {
     cleanup()
-    resetGlobalState()
+    resetSettingsState()
+    resetCounterState()
   })
 
   test('renders the ProgressBar component', () => {

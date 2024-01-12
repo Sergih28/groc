@@ -14,8 +14,20 @@ export const colorToRgb = (color: string) => {
   return computedColor
 }
 
-export const resetGlobalState = () => {
+export const resetCounterState = () => {
   $counter.set(DEFAULT_COUNTER_VALUES)
+}
+
+export const resetPhaseState = () => {
   $phase.set(DEFAULT_PHASE)
+}
+
+export const resetSettingsState = () => {
   $settings.set(DEFAULT_SETTINGS_VALUES)
+}
+
+export const resetGlobalState = () => {
+  resetCounterState()
+  resetPhaseState()
+  resetSettingsState()
 }

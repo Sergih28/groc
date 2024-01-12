@@ -2,12 +2,12 @@ import Counter from '@molecules/Counter'
 import { $settings } from '@store/Pomodoro'
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 
-import { resetGlobalState } from './helpers'
+import { resetSettingsState } from './helpers'
 
 describe('Counter component test', () => {
   afterEach(() => {
     cleanup()
-    resetGlobalState()
+    resetSettingsState()
   })
 
   test('render Counter component', () => {
