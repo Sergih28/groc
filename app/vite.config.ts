@@ -23,10 +23,8 @@ export default defineConfig({
       '@errors': path.resolve(__dirname, './src/errors'),
       '@i18n': path.resolve(__dirname, './src/i18n'),
       '@store': path.resolve(__dirname, './src/store/'),
+      '@utils': path.resolve(__dirname, './src/utils'),
+      '@data': path.resolve(__dirname, './src/data'),
     },
   },
 })
-
-// "@atoms/*": ["components/ui/atoms/*"],
-//       "@organisms/*": ["components/ui/organisms"],
-//       "@molecules/*": ["components/ui/molecules/*"],
