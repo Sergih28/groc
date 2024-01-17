@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import ProgressBar from '@atoms/ProgressBar'
 import Button from '@components/ui/atoms/Buttons/Button'
-import { checkLastPomodoro } from '@components/ui/molecules/Counter/functions'
+import { loadActivePomodoro } from '@components/ui/molecules/Counter/functions'
 import useCounter from '@hooks/useCounter'
 import Counter from '@molecules/Counter'
 import { updatePhase } from '@store/Pomodoro'
@@ -12,8 +12,9 @@ const Pomodoro = () => {
   useCounter()
 
   useEffect(() => {
-    checkLastPomodoro()
+    loadActivePomodoro()
   }, [])
+
   return (
     <>
       <ProgressBar />
