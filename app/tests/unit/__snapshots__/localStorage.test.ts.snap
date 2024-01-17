@@ -2,7 +2,8 @@
 
 exports[`localStorage tests > localStorage keys snapshot 1`] = `
 {
+  "activePomodoro": "activePomodoro",
   "darkMode": "darkMode",
-  "pomodoro": "pomodoro",
+  "pastPomodoros": "pastPomodoros",
 }
 `;

@@ -1,14 +1,12 @@
 import { type UUID } from 'crypto'
 
-import { $phase, $settings, handleNewId } from '@store/Pomodoro'
 
-import type { PomodoroType } from './types'
+import type { PausedTimeRange, PomodoroType, SavedPomodoroType } from './types'
 
 import { localStorageItems } from './keys'
+import { $phase, $settings, handleNewId } from '@store/Pomodoro'
 
-const ACTUAL_PHASE_DURATION = $settings.get()[`${$phase.get()}Duration`]
-
-export const getPomodoros = (): PomodoroType[] => {
+export const getPomodoros = (): SavedPomodoroType[] => {
   const localStorageValue = localStorage.getItem(localStorageItems.pastPomodoros)
 
   if (null == localStorageValue) return []
@@ -33,13 +31,19 @@ export const getPomodoroById = (id: UUID) => {
 
   const pomodoro = savedPomodoros.find((pomodoro) => pomodoro.id === id)
 
-  if (undefined == pomodoro) return false
+  if (null == pomodoro) return false
 
   return pomodoro
 }
 
-export const updatePomodoros = (pomodoros: PomodoroType[]) => {
+export const updatePomodoros = (pomodoros: SavedPomodoroType[]) => {
   localStorage.setItem(localStorageItems.pastPomodoros, JSON.stringify(pomodoros))
+}
+
+export const addSavedPomodoro = (pomodoro: SavedPomodoroType) => {
+  const updatedSavedPomodoros = [...getPomodoros(), pomodoro]
+
+  updatePomodoros(updatedSavedPomodoros)
 }
 
 export const updateActivePomodoro = (pomodoro: PomodoroType) => {
@@ -57,11 +61,13 @@ export const updateLastTick = () => {
 }
 
 export const generatePomodoro = () => {
+  const ACTUAL_PHASE_DURATION = $settings.get()[`${$phase.get()}Duration`]
+
   const newPomodoro: PomodoroType = {
     id: crypto.randomUUID(),
-    startTime: Date.now(),
+    startTime: null,
     endTime: null,
-    pausedTimeRanges: null,
+    pausedTimeRanges: [],
     phase: $phase.get(),
     expectedDuration: ACTUAL_PHASE_DURATION,
     lastTick: Date.now(),
@@ -112,7 +118,7 @@ export const startPauseTime = () => {
 
   const pauseTimes = { start: Date.now(), end: null }
 
-  if (null === activePomodoro.pausedTimeRanges) {
+  if (0 === activePomodoro.pausedTimeRanges.length) {
     activePomodoro.pausedTimeRanges = [pauseTimes]
   } else {
     activePomodoro.pausedTimeRanges.push(pauseTimes)
@@ -125,9 +131,57 @@ export const endPauseTime = () => {
   const activePomodoro = getActivePomodoro()
   if (null == activePomodoro) return
 
-  if (null === activePomodoro.pausedTimeRanges) return
+  if (0 === activePomodoro.pausedTimeRanges.length) return
 
   activePomodoro.pausedTimeRanges[activePomodoro.pausedTimeRanges.length - 1].end = Date.now()
 
   updateActivePomodoro(activePomodoro)
+}
+
+export const setActivePomodoroStartTime = () => {
+  const activePomoro = getActivePomodoro()
+
+  if (null == activePomoro) return
+
+  activePomoro.startTime = Date.now()
+
+  updateActivePomodoro(activePomoro)
+}
+
+export const checkLastTick = (activePomodoro: PomodoroType) => {
+  const hasStarted = null == activePomodoro.startTime
+  const isLastTickPreviousToNow = activePomodoro.lastTick < Date.now()
+
+  if (!hasStarted && isLastTickPreviousToNow) {
+    const newPause: PausedTimeRange = { start: activePomodoro.lastTick, end: null }
+    const hasBeenPaused = 0 !== activePomodoro.pausedTimeRanges.length
+    const isLastPauseFinished =
+      null !== activePomodoro.pausedTimeRanges[activePomodoro.pausedTimeRanges.length - 1].end
+
+    if (!hasBeenPaused || isLastPauseFinished) {
+      activePomodoro.pausedTimeRanges.push(newPause)
+    }
+  }
+  updateActivePomodoro(activePomodoro)
+}
+
+export const saveFinishedPomodoro = () => {
+  const activePomodoro = getActivePomodoro()
+
+  if (null == activePomodoro) return
+
+  const savedPomodoro: SavedPomodoroType = {
+    id: activePomodoro.id,
+    startTime: activePomodoro.startTime,
+    endTime: Date.now(),
+    expectedDuration: activePomodoro.expectedDuration,
+    pausedTimeRanges: activePomodoro.pausedTimeRanges,
+    phase: activePomodoro.phase,
+  }
+
+  addSavedPomodoro(savedPomodoro)
+}
+
+export const nextPomodoro = () => {
+  saveFinishedPomodoro()
 }
