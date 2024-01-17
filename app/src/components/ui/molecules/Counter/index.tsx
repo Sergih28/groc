@@ -3,20 +3,10 @@ import { useStore } from '@nanostores/react'
 import { ContentWrapper } from './components'
 import PlayPauseButton from '@atoms/Buttons/PlayPause'
 import ResetButton from '@atoms/Buttons/Reset'
-import { $counter, $phase, $settings } from '@store/Pomodoro'
-import useCounter from '@hooks/useCounter'
+import { $counter } from '@store/Pomodoro'
 
 const Counter = () => {
   const { counterContent, isPaused, handleReset, handlePause } = useStore($counter)
-  const phase = useStore($phase)
-  const settings = useStore($settings)
-
-  useCounter(
-    settings[`${phase}Duration`],
-    settings.isCountingUp,
-    settings.counterFormat,
-    settings.countingInterval,
-  )
 
   return (
     <>
