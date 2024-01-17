@@ -1,9 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
+import { useStore } from '@nanostores/react'
+import { $counter, $phase, $settings, updateCounter } from '@store/Pomodoro'
+import {
+  createActivePomodoro,
+  endPauseTime,
+  startPauseTime,
+  updateLastTick,
+} from '@utils/storage/pomodoro'
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
-
-import { $counter } from '@store/Pomodoro'
 dayjs.extend(duration)
 
 const DEFAULT_VALUES = {
@@ -11,71 +17,67 @@ const DEFAULT_VALUES = {
   COUNTING_INTERVAL: 1,
 } as const
 
-export const calculateCounter = (
-  prevCounter: number,
-  seconds: number,
-  isIncrementing: boolean,
-  countingInterval: number,
-) => {
-  if (isIncrementing) {
-    return prevCounter < seconds ? prevCounter + countingInterval : seconds
-  }
-
-  return prevCounter > 0 ? prevCounter - countingInterval : 0
+export const calculateCounter = (prevCounter: number, countingInterval: number) => {
+  return prevCounter + countingInterval
 }
 
-type COUNTER_FORMAT_TYPE = 'minutes' | 'seconds'
+export default function useCounter() {
+  const counter = useStore($counter)
+  const { id, counterValue, isPaused } = counter
+  const phase = useStore($phase)
+  const settings = useStore($settings)
+  const seconds = settings[`${phase}Duration`]
+  const { isCountingUp, countingInterval, counterFormat } = settings
 
-export default function useCounter(
-  seconds: number,
-  isCountingUp: boolean,
-  counterFormat: COUNTER_FORMAT_TYPE = 'minutes',
-  countingInterval: number = DEFAULT_VALUES.COUNTING_INTERVAL,
-) {
-  const [counterValue, setCounterValue] = useState(
-    isCountingUp ? DEFAULT_VALUES.COUNTER_START : seconds,
-  )
-  const [isPaused, setIsPaused] = useState(true)
-
+  const calculatedCounter = isCountingUp ? counterValue : seconds - counterValue
+  const hasStarted = counterValue > 0
   const FORMATS = {
-    seconds: `${counterValue}`,
-    minutes: dayjs.duration(counterValue, 'seconds').format('mm:ss'),
+    seconds: `${calculatedCounter}`,
+    minutes: dayjs.duration(calculatedCounter, 'seconds').format('mm:ss'),
   }
-
-  let isFinished =
-    (!isCountingUp && counterValue === 0) || (isCountingUp && counterValue === seconds)
-
+  const isFinished = counterValue === seconds
   const counterContent = FORMATS[counterFormat]
 
   const handlePause = () => {
     if (isFinished) return
-    setIsPaused((isPaused) => !isPaused)
+
+    updateCounter({ isPaused: !isPaused })
+    if (!isPaused) {
+      startPauseTime()
+    } else {
+      endPauseTime()
+    }
   }
 
   const handleReset = () => {
-    setCounterValue(!isCountingUp ? seconds : 0)
-    setIsPaused(true)
-    isFinished = false
+    updateCounter({ counterValue: DEFAULT_VALUES.COUNTER_START, isPaused: true })
+    createActivePomodoro()
   }
 
   useEffect(() => {
-    setCounterValue(isCountingUp ? DEFAULT_VALUES.COUNTER_START : seconds)
-    setIsPaused(true)
-  }, [seconds])
+    updateCounter({ handlePause, handleReset })
+  }, [])
+
+  useEffect(() => {
+    if (!hasStarted || null != id) return
+
+    createActivePomodoro()
+  }, [hasStarted])
 
   useEffect(() => {
     const timer = setInterval(() => {
       if (isPaused || isFinished) return
+      const newCounterValue = calculateCounter(counterValue, countingInterval)
 
-      setCounterValue((prevCounter) => {
-        return calculateCounter(prevCounter, seconds, isCountingUp, countingInterval)
-      })
+      updateCounter({ counterValue: newCounterValue })
     }, countingInterval * 1000)
 
-    $counter.set({ counterValue, counterContent, handlePause, handleReset, isPaused, isFinished })
-
+    updateCounter({ counterValue, counterContent, handlePause, handleReset })
+    updateLastTick()
     return () => clearInterval(timer)
-  }, [isCountingUp, seconds, isPaused, seconds, counterContent, counterFormat])
+  }, [isPaused, counterValue, phase])
 
-  return { counterValue, counterContent, handlePause, handleReset, isPaused, isFinished }
+  useEffect(() => {
+    handleReset()
+  }, [phase])
 }
