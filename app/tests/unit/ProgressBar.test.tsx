@@ -1,9 +1,9 @@
-import ProgressBar from '@atoms/ProgressBar/'
-import { DEFAULT_SETTINGS_VALUES } from '@store/constants'
-import { $counter, $settings } from '@store/Pomodoro'
 import { cleanup, render, screen } from '@testing-library/react'
 
 import { colorToRgb, resetCounterState, resetSettingsState } from './helpers'
+import ProgressBar from '@atoms/ProgressBar/'
+import { DEFAULT_SETTINGS_VALUES } from '@store/constants'
+import { $counter, $settings } from '@store/Pomodoro'
 
 describe('ProgressBar component test', () => {
   afterEach(() => {
