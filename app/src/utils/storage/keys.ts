@@ -1,4 +1,5 @@
 export const localStorageItems = {
-  pomodoro: 'pomodoro',
+  pastPomodoros: 'pastPomodoros',
+  activePomodoro: 'activePomodoro',
   darkMode: 'darkMode',
 }

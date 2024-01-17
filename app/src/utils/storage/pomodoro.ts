@@ -1,26 +1,31 @@
 import { type UUID } from 'crypto'
 
+import { $phase, $settings, handleNewId } from '@store/Pomodoro'
+
 import type { PomodoroType } from './types'
 
 import { localStorageItems } from './keys'
-import { $phase, $settings } from '@store/Pomodoro'
+
+const ACTUAL_PHASE_DURATION = $settings.get()[`${$phase.get()}Duration`]
 
 export const getPomodoros = (): PomodoroType[] => {
-  const localStorageValue = localStorage.getItem(localStorageItems.pomodoro)
+  const localStorageValue = localStorage.getItem(localStorageItems.pastPomodoros)
 
   if (null == localStorageValue) return []
 
-  const pomodoros = JSON.parse(localStorageValue)
+  const pastPomodoros = JSON.parse(localStorageValue) as PomodoroType[]
 
-  return pomodoros
+  return pastPomodoros
 }
 
-export const getLastPomodoro = () => {
-  const savedPomodoros = getPomodoros()
+export const getActivePomodoro = (): PomodoroType | null => {
+  const localStorageValue = localStorage.getItem(localStorageItems.activePomodoro)
 
-  if (savedPomodoros.length === 0) return null
+  if (null == localStorageValue) return null
 
-  return savedPomodoros[savedPomodoros.length - 1]
+  const activePomodoro = JSON.parse(localStorageValue) as PomodoroType
+
+  return activePomodoro
 }
 
 export const getPomodoroById = (id: UUID) => {
@@ -34,7 +39,21 @@ export const getPomodoroById = (id: UUID) => {
 }
 
 export const updatePomodoros = (pomodoros: PomodoroType[]) => {
-  localStorage.setItem(localStorageItems.pomodoro, JSON.stringify(pomodoros))
+  localStorage.setItem(localStorageItems.pastPomodoros, JSON.stringify(pomodoros))
+}
+
+export const updateActivePomodoro = (pomodoro: PomodoroType) => {
+  localStorage.setItem(localStorageItems.activePomodoro, JSON.stringify(pomodoro))
+}
+
+export const updateLastTick = () => {
+  const activePomodoro = getActivePomodoro()
+
+  if (null == activePomodoro) return
+
+  activePomodoro.lastTick = Date.now()
+
+  updateActivePomodoro(activePomodoro)
 }
 
 export const generatePomodoro = () => {
@@ -44,18 +63,18 @@ export const generatePomodoro = () => {
     endTime: null,
     pausedTimeRanges: null,
     phase: $phase.get(),
-    expectedDuration: $settings.get()[`${$phase.get()}Duration`],
+    expectedDuration: ACTUAL_PHASE_DURATION,
+    lastTick: Date.now(),
   }
 
   return newPomodoro
 }
 
-export const createPomodoro = (pomodoro: PomodoroType) => {
-  const updatedPomodoros = [...getPomodoros(), pomodoro]
+export const createActivePomodoro = () => {
+  const newPomodoro = generatePomodoro()
 
-  updatePomodoros(updatedPomodoros)
-
-  return { id: pomodoro.id }
+  updateActivePomodoro(newPomodoro)
+  handleNewId(newPomodoro.id)
 }
 
 export const deletePomodoro = (id: UUID) => {
@@ -80,64 +99,35 @@ export const deleteActivePomodoro = () => {
 }
 
 export const isPomodoroFinished = () => {
-  const savedPomodoros = getPomodoros()
+  const activePomodoro = getActivePomodoro()
 
-  if (savedPomodoros.length === 0 || null == savedPomodoros[savedPomodoros.length - 1].endTime)
-    return false
+  if (null == activePomodoro || null == activePomodoro.endTime) return false
 
   return true
 }
 
-export const updatePomodoroTime = (id: UUID) => {
-  const pomodoro = getPomodoroById(id)
-  if (!pomodoro) return
-
-  if (null === pomodoro.pausedTimeRanges) {
-    pomodoro.pausedTimeRanges = [{ start: Date.now(), end: null }]
-  }
-
-  pomodoro.pausedTimeRanges[pomodoro.pausedTimeRanges.length - 1].start = Date.now()
-
-  const savedPomodoros = getPomodoros()
-  const newPomodoros = savedPomodoros.map((storedPomodoro) =>
-    storedPomodoro.id !== id ? storedPomodoro : pomodoro,
-  )
-
-  updatePomodoros(newPomodoros)
-}
-
-export const startPauseTime = (id: UUID) => {
-  const pomodoro = getPomodoroById(id)
-  if (!pomodoro) return
+export const startPauseTime = () => {
+  const activePomodoro = getActivePomodoro()
+  if (null == activePomodoro) return
 
   const pauseTimes = { start: Date.now(), end: null }
 
-  if (null === pomodoro.pausedTimeRanges) {
-    pomodoro.pausedTimeRanges = [pauseTimes]
+  if (null === activePomodoro.pausedTimeRanges) {
+    activePomodoro.pausedTimeRanges = [pauseTimes]
   } else {
-    pomodoro.pausedTimeRanges.push(pauseTimes)
+    activePomodoro.pausedTimeRanges.push(pauseTimes)
   }
 
-  const savedPomodoros = getPomodoros()
-  const newPomodoros = savedPomodoros.map((storedPomodoro) =>
-    storedPomodoro.id !== id ? storedPomodoro : pomodoro,
-  )
-
-  updatePomodoros(newPomodoros)
+  updateActivePomodoro(activePomodoro)
 }
 
-export const endPauseTime = (id: UUID) => {
-  const pomodoro = getPomodoroById(id)
-  if (!pomodoro) return
+export const endPauseTime = () => {
+  const activePomodoro = getActivePomodoro()
+  if (null == activePomodoro) return
 
-  if (null === pomodoro.pausedTimeRanges) return
+  if (null === activePomodoro.pausedTimeRanges) return
 
-  pomodoro.pausedTimeRanges[pomodoro.pausedTimeRanges.length - 1].end = Date.now()
+  activePomodoro.pausedTimeRanges[activePomodoro.pausedTimeRanges.length - 1].end = Date.now()
 
-  const savedPomodoros = getPomodoros()
-  const newPomodoros = savedPomodoros.map((storedPomodoro) =>
-    storedPomodoro.id !== id ? storedPomodoro : pomodoro,
-  )
-
-  updatePomodoros(newPomodoros)
+  updateActivePomodoro(activePomodoro)
 }
