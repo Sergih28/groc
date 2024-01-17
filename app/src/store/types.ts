@@ -1,6 +1,17 @@
-import useCounter from '@hooks/useCounter'
+import type { UUID } from 'crypto'
 
-export type CounterType = ReturnType<typeof useCounter>
+import type { PomodoroType } from '@utils/storage/types'
+
+export type CounterType = {
+  counterContent: string
+  counterValue: number
+  handlePause: () => void
+  handleReset: () => void
+  isPaused: boolean
+  id: UUID | null
+}
+
+export type PhaseType = 'pomodoro' | 'break' | 'longBreak'
 
 export type SettingsType = {
   pomodoroDuration: number
@@ -13,3 +24,5 @@ export type SettingsType = {
   fillColor: string
   showPercentage: boolean
 }
+
+export type PomodoroStart = Pick<PomodoroType, 'id' | 'phase' | 'startTime'>
