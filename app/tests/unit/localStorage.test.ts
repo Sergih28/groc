@@ -1,20 +1,87 @@
-import * as sampleData from '@data/pomodoroSampleData.json'
 import { DEFAULT_PHASE, DEFAULT_SETTINGS_VALUES } from '@store/constants'
 import { localStorageItems } from '@utils/storage/keys'
 import {
-  createPomodoro,
   deletePomodoro,
   generatePomodoro,
-  getLastPomodoro,
+  getActivePomodoro,
   getPomodoros,
+  updateActivePomodoro,
   updatePomodoros,
 } from '@utils/storage/pomodoro'
 import type { PomodoroType } from '@utils/storage/types'
 
+const POMODORO_LIST: PomodoroType[] = [
+  {
+    id: '1838f290-5dfc-478b-b21c-6d867ff1223a',
+    phase: 'pomodoro',
+    startTime: 1637016765000,
+    endTime: 1637019982000,
+    pausedTimeRanges: [
+      {
+        start: 1637017203000,
+        end: 1637017217000,
+      },
+      {
+        start: 1637017164000,
+        end: null,
+      },
+    ],
+    expectedDuration: 1500,
+    lastTick: 1637017164300,
+  },
+  {
+    id: '5e4dbe3e-c701-418a-9ad5-d781896e1e8d',
+    phase: 'pomodoro',
+    startTime: 1636974084000,
+    endTime: 1636978667000,
+    pausedTimeRanges: [
+      {
+        start: 1636974270000,
+        end: 1636974287000,
+      },
+      {
+        start: 1636974580000,
+        end: 1636974588000,
+      },
+      {
+        start: 1636974430000,
+        end: 1636974437000,
+      },
+    ],
+    expectedDuration: 1200,
+    lastTick: 1636974437000,
+  },
+  {
+    id: '430aefdb-ed34-4dfd-b1f6-a28447969a4b',
+    phase: 'break',
+    startTime: 1636977890000,
+    endTime: 1636980702000,
+    pausedTimeRanges: [
+      {
+        start: 1636977914000,
+        end: 1636977920000,
+      },
+      {
+        start: 1636978130000,
+        end: 1636978148000,
+      },
+      {
+        start: 1636978227000,
+        end: 1636978234000,
+      },
+    ],
+    expectedDuration: 9000,
+    lastTick: 1636978234000,
+  },
+]
+
 describe('localStorage tests', () => {
+  const unixTime = 1689941745
   const mockedRandomUUID = '1838f290-5dfc-478b-b21c-6d867ff1223a'
+
   beforeAll(() => {
     crypto.randomUUID = vi.fn(() => mockedRandomUUID)
+    Date.now = vi.fn(() => unixTime)
   })
 
   afterAll(() => {
@@ -43,13 +110,14 @@ describe('localStorage tests', () => {
           id: crypto.randomUUID(),
           startTime: Date.now(),
           endTime: null,
-          pausedTimeRanges: null,
+          pausedTimeRanges: [],
           expectedDuration: 25,
           phase: 'pomodoro',
+          lastTick: Date.now(),
         },
       ]
 
-      localStorage.setItem(localStorageItems.pomodoro, JSON.stringify(pomodoro))
+      updatePomodoros([...pomodoro])
 
       const savedPomodoros = getPomodoros()
 
@@ -57,7 +125,7 @@ describe('localStorage tests', () => {
     })
   })
 
-  describe('createPomodoro()', () => {
+  describe('generatePomodoro()', () => {
     test('creates a new pomodoro object with default values', () => {
       const newPomodoro = generatePomodoro()
 
@@ -66,9 +134,10 @@ describe('localStorage tests', () => {
         id: crypto.randomUUID(),
         startTime: newPomodoro.startTime,
         endTime: null,
-        pausedTimeRanges: null,
+        pausedTimeRanges: [],
         phase: DEFAULT_PHASE,
         expectedDuration: DEFAULT_SETTINGS_VALUES[`${DEFAULT_PHASE}Duration`],
+        lastTick: Date.now(),
       })
     })
   })
@@ -76,7 +145,7 @@ describe('localStorage tests', () => {
   describe('deletePomodoro()', () => {
     test('given a pomodoro id, it should delete that given pomodoro from the localStorage', () => {
       const pomodoro = generatePomodoro()
-      createPomodoro(pomodoro)
+      updatePomodoros([pomodoro])
 
       let savedPomodoros = getPomodoros()
 
@@ -92,35 +161,28 @@ describe('localStorage tests', () => {
 
   describe('updatePomodoros()', () => {
     test('given a new array of pomodoros, should update the localStorage to that given list', () => {
-      const pomodoroList = sampleData as PomodoroType[]
+      updatePomodoros(POMODORO_LIST)
 
-      let savedPomodoros = getPomodoros()
+      const savedPomodoros = getPomodoros()
 
-      expect(savedPomodoros).toEqual([])
-
-      updatePomodoros(pomodoroList)
-
-      savedPomodoros = getPomodoros()
-
-      expect(savedPomodoros).toMatchObject(pomodoroList)
+      expect(savedPomodoros).toEqual(POMODORO_LIST)
     })
   })
 
-  describe('getLastPomodoro()', () => {
+  describe('getActivePomodoro()', () => {
     test('should return null if there is no pomodoro data', () => {
-      const pomodoro = getLastPomodoro()
+      const activePomodoro = getActivePomodoro()
 
-      expect(pomodoro).toBeNull()
+      expect(activePomodoro).toBeNull()
     })
-  })
 
-  test('should return the last pomodoro if there is data', () => {
-    const newPomodoro = generatePomodoro()
-    createPomodoro(newPomodoro)
+    test('should return the last pomodoro if there is data', () => {
+      const newPomodoro = generatePomodoro()
+      updateActivePomodoro(newPomodoro)
 
-    const lastPomodoro = getLastPomodoro()
-
-    expect(lastPomodoro).not.toBeNull()
-    expect(lastPomodoro).toBeDefined()
+      const activePomodoro = getActivePomodoro()
+      expect(activePomodoro).toBeDefined()
+      expect(activePomodoro).not.toBeNull()
+    })
   })
 })
