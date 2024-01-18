@@ -1,4 +1,4 @@
 export interface PlayPauseButtonProps {
-  isPaused: boolean
+  text?: string
   handleClick?: () => void
 }
