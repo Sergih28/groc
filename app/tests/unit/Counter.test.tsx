@@ -54,7 +54,7 @@ describe('Counter component test', () => {
     test('counter updates value after a few seconds', async () => {
       render(<CounterWrapper />)
 
-      const buttonContinue = screen.getByRole('button', { name: 'Continue' })
+      const buttonContinue = screen.getByRole('button', { name: 'Start' })
       fireEvent.click(buttonContinue)
 
       act(() => {
@@ -69,7 +69,7 @@ describe('Counter component test', () => {
 
       expect(screen.getByText('25:00'))
 
-      const buttonContinue = screen.getByRole('button', { name: 'Continue' })
+      const buttonContinue = screen.getByRole('button', { name: 'Start' })
       fireEvent.click(buttonContinue)
 
       act(() => {
@@ -79,7 +79,7 @@ describe('Counter component test', () => {
       expect(screen.findByText('00:00'))
     })
   })
-  describe('calculatElapsedTime', () => {
+  describe('calculatElapsedTime()', () => {
     beforeAll(() => {
       const unixTime = 1689941745
       Date.now = vi.fn(() => unixTime)
@@ -131,6 +131,14 @@ describe('Counter component test', () => {
       const elapsedTime = calculateElapsedTime(START_TIME, pausedTimes)
 
       expect(elapsedTime).toBe(3000)
+    })
+
+    test('given a null start time, returns 0', () => {
+      const START_TIME = null
+
+      const elapsedTime = calculateElapsedTime(START_TIME, [])
+
+      expect(elapsedTime).toBe(0)
     })
   })
 })
