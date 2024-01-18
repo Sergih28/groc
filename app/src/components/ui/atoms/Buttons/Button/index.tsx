@@ -9,9 +9,10 @@ const Button = ({
   handleClick,
   type = BUTTON_TYPES.button,
   styles = BUTTON_STYLES.general,
+  testId = '',
 }: ButtonProps) => {
   return (
-    <button onClick={handleClick} className={STYLES[styles]} type={type}>
+    <button onClick={handleClick} className={STYLES[styles]} type={type} data-testid={testId}>
       {children}
     </button>
   )
