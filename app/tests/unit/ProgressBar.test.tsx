@@ -18,11 +18,6 @@ describe('ProgressBar component test', () => {
 
   describe('ProgressBar component values', () => {
     test('given a progress bar with default pomodoro settings (25 minutes) should have the proper value', () => {
-      $counter.set({
-        ...$counter.get(),
-        counterValue: DEFAULT_SETTINGS_VALUES.pomodoroDuration,
-      })
-
       render(<ProgressBar />)
 
       const progressElement = screen.getByRole('progressbar')
@@ -47,7 +42,6 @@ describe('ProgressBar component test', () => {
   describe('ProgressBar component percentage rendering', () => {
     test('given a progres bar with percentage, should render the percentage', () => {
       $settings.set({ ...$settings.get(), showPercentage: true })
-      $counter.set({ ...$counter.get(), counterValue: DEFAULT_SETTINGS_VALUES.pomodoroDuration })
 
       render(<ProgressBar />)
 
