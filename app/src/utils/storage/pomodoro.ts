@@ -1,6 +1,5 @@
 import { type UUID } from 'crypto'
 
-
 import type { PausedTimeRange, PomodoroType, SavedPomodoroType } from './types'
 
 import { localStorageItems } from './keys'
@@ -156,6 +155,7 @@ export const checkLastTick = (activePomodoro: PomodoroType) => {
     const newPause: PausedTimeRange = { start: activePomodoro.lastTick, end: null }
     const hasBeenPaused = 0 !== activePomodoro.pausedTimeRanges.length
     const isLastPauseFinished =
+      hasBeenPaused &&
       null !== activePomodoro.pausedTimeRanges[activePomodoro.pausedTimeRanges.length - 1].end
 
     if (!hasBeenPaused || isLastPauseFinished) {
