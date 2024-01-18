@@ -9,21 +9,21 @@ describe('PlayPauseButton component test', () => {
   })
 
   test('render PlayPauseButton component', () => {
-    render(<PlayPauseButton isPaused={true} />)
+    render(<PlayPauseButton />)
   })
 
-  test('given a false initial state, should render a PlayPauseButton with  "Pause" text', () => {
-    render(<PlayPauseButton isPaused={false} />)
+  test('given no props, should render "Play" text', () => {
+    render(<PlayPauseButton />)
 
-    const buttonElement = screen.getByText(/Pause/i)
+    const buttonElement = screen.getByText(/play/i)
 
     expect(buttonElement).toBeInTheDocument()
   })
 
-  test('given a true initial state, should render a PlayPauseButton with  "Continue" text', () => {
-    render(<PlayPauseButton isPaused={true} />)
+  test('given a text prop, should render a PlayPauseButton with that text', () => {
+    render(<PlayPauseButton text="Pause" />)
 
-    const buttonElement = screen.getByText(/Continue/i)
+    const buttonElement = screen.getByText(/Pause/i)
 
     expect(buttonElement).toBeInTheDocument()
   })
