@@ -4,7 +4,9 @@ import { useStore } from '@nanostores/react'
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
-import { $counter, $phase, $settings, updateCounter } from '@store/Pomodoro'
+import { loadActivePomodoro } from '@components/ui/molecules/Counter/functions'
+import { $counter, $phase, $settings, updateCounter, updatePhase } from '@store/Pomodoro'
+import type { PhaseType } from '@store/types'
 import {
   createActivePomodoro,
   endPauseTime,
@@ -13,12 +15,8 @@ import {
   startPauseTime,
   updateLastTick,
 } from '@utils/storage/pomodoro'
-dayjs.extend(duration)
 
-const DEFAULT_VALUES = {
-  COUNTER_START: 0,
-  COUNTING_INTERVAL: 1,
-} as const
+dayjs.extend(duration)
 
 export const calculateCounter = (prevCounter: number, countingInterval: number) => {
   return prevCounter + countingInterval
@@ -57,12 +55,17 @@ export default function useCounter() {
   }
 
   const handleReset = () => {
-    updateCounter({ counterValue: DEFAULT_VALUES.COUNTER_START, isPaused: true })
     createActivePomodoro()
+    loadActivePomodoro()
+  }
+
+  const handlePhase = (phase: PhaseType) => {
+    updatePhase(phase)
+    handleReset()
   }
 
   useEffect(() => {
-    updateCounter({ handlePause, handleReset })
+    updateCounter({ handlePause, handleReset, handlePhase })
   }, [])
 
   useEffect(() => {
@@ -90,10 +93,4 @@ export default function useCounter() {
 
     return () => clearInterval(timer)
   }, [isPaused, counterValue, phase])
-
-  useEffect(() => {
-    if (!hasStarted) return
-
-    // handleReset()
-  }, [phase])
 }

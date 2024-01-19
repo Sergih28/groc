@@ -21,4 +21,5 @@ export const DEFAULT_COUNTER_VALUES: CounterType = {
   isPaused: true,
   handlePause: () => {},
   handleReset: () => {},
+  handlePhase: () => {},
 }
