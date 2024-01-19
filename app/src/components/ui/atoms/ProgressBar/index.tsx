@@ -45,8 +45,8 @@ const ProgressBar = () => {
 
   let percentage
   const currentValue = counterValue
-  const baseValue = settings.isCountingUp ? 0 : settings[`${phase}Duration`]
-  const targetValue = settings.isCountingUp ? settings[`${phase}Duration`] : 0
+  const baseValue = 0
+  const targetValue = settings[`${phase}Duration`]
 
   try {
     percentage = calculatePercentage(currentValue, baseValue, targetValue)
