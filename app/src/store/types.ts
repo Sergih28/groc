@@ -7,6 +7,7 @@ export type CounterType = {
   counterValue: number
   handlePause: () => void
   handleReset: () => void
+  handlePhase: (phase: PhaseType) => void
   isPaused: boolean
   id: UUID | null
 }

@@ -55,6 +55,7 @@ export const loadActivePomodoro = () => {
   updateCounter({
     counterValue: elapsedTime,
     id: activePomodoro.id,
+    isPaused: true,
   })
 
   updatePhase(activePomodoro.phase)
