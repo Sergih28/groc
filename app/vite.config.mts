@@ -1,9 +1,10 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
+import path from 'path'
+
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
-import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,21 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './tests/setup.ts',
+    coverage: {
+      reportsDirectory: './tests/coverage',
+      exclude: [
+        '**/.*',
+        '*type*',
+        '**/tests/*',
+        '**/*.config.*',
+        '**/*.stories.*',
+        '**/*.types.ts*',
+        '**/store/*',
+      ],
+      reporter: ['text', 'json', 'html'],
+    },
+    // exclude: ['**/tests/e2e/**'],
+    include: ['**/tests/unit/**.test.**'],
   },
   resolve: {
     alias: {
