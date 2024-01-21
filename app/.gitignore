@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# docker related
+.pnpm-store
+
 # generated types
 .astro/
 
