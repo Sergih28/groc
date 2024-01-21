@@ -9,14 +9,16 @@ const meta: Meta<typeof Switch> = {
 export default meta
 type Story = StoryObj<typeof Switch>
 
-export const OnSwitch: Story = {
+// FIXME: type
+export const OnSwitch: Story | any = {
   args: {
     initialState: true,
     switchLabel: 'Toggle light/dark theme',
   },
 }
 
-export const OffSwitch: Story = {
+// FIXME: type
+export const OffSwitch: Story | any = {
   args: {
     initialState: false,
     switchLabel: 'Toggle light/dark theme',

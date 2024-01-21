@@ -28,7 +28,8 @@ export const getLangFromUrl = (url: URL) => {
 
 export const useTranslations = (lang: keyof typeof ui) => {
   return function t(key: keyof (typeof ui)[typeof fallbackLang]) {
-    return ui[lang][key] || ui[fallbackLang][key]
+    // FIXME: type
+    return (ui as any)[lang][key] || ui[fallbackLang][key]
   }
 }
 

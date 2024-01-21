@@ -8,13 +8,15 @@ const meta: Meta<typeof PlayPauseButton> = {
 
 type Story = StoryObj<typeof PlayPauseButton>
 
-export const PlayButton: Story = {
+// FIXME: type
+export const PlayButton: Story | any = {
   args: {
     initialState: true,
   },
 }
 
-export const PauseButton: Story = {
+// FIXME: type
+export const PauseButton: Story | any = {
   args: {
     initialState: false,
   },
