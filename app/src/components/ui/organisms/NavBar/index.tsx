@@ -12,7 +12,8 @@ const NavBar = () => {
       {NAVBAR_ELEMENTS.map(({ url, key, isEnabled }) => {
         const ListElement = () => (
           <li className={isEnabled ? STYLES.ENABLED_ELEMENT : STYLES.DISABLED_ELEMENT}>
-            {t(`nav.${key}`)}
+            {/* FIXME: type */}
+            {t(`nav.${key}` as any)}
           </li>
         )
 

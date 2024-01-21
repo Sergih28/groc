@@ -1,6 +1,6 @@
 import type { NavBarElement } from './types'
 
-export const NAVBAR_ELEMENTS: NavBarElement[] = [
+export const NAVBAR_ELEMENTS: readonly NavBarElement[] = [
   {
     key: 'home',
     url: '/',
