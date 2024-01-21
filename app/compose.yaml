@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  ui:
+    container_name: ui_astro
+    build: .
+    ports:
+      - 4321:4321
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+      NODE_ENV: development
+    entrypoint: ['pnpm', 'start', '--host']
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - type: bind
+        source: ./dist
+        target: /usr/src/app/dist
+
+  unit_tests:
+    container_name: unit_tests
+    build: .
+    environment:
+      NODE_ENV: development
+    entrypoint: ['pnpm', 'test:unit:watch']
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  styles:
+    build: .
+    container_name: styles_tailwind
+    environment:
+      NODE_ENV: development
+    entrypoint: ['pnpm', 'tailwind']
+    tty: true
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - type: bind
+        source: ./dist
+        target: /usr/src/app/dist
+
+  storybook:
+    build: .
+    container_name: storybook
+    environment:
+      NODE_ENV: development
+    ports:
+      - 6006:6006
+    entrypoint: ['pnpm', 'storybook']
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - type: bind
+        source: ./dist
+        target: /usr/src/app/dist
