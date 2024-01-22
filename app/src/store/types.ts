@@ -24,6 +24,7 @@ export type SettingsType = {
   backgroundColor: string
   fillColor: string
   showPercentage: boolean
+  mode: 'manual' | 'auto'
 }
 
 export type PomodoroStart = Pick<PomodoroType, 'id' | 'phase' | 'startTime'>
