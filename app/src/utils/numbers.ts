@@ -9,4 +9,9 @@ export const calculateSecondsFromMinutes = (minutes: number) => {
 
   return seconds
 }
-1
+
+export const calculateMinutesFromSeconds = (seconds: number) => {
+  const minutes = seconds / 60
+
+  return minutes
+}
