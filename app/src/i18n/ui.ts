@@ -14,7 +14,7 @@ export const languages = {
   jp: 'Japanese',
 }
 
-export const fallbackLang = 'es'
+export const fallbackLang = 'en'
 
 export const ui = {
   en,
