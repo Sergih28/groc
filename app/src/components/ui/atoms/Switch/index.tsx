@@ -2,9 +2,8 @@ import { useId } from 'react'
 
 import type { SwitchProps } from './types'
 
-const Switch = ({ isOn, handleChange, switchLabel }: SwitchProps) => {
+const Switch = ({ isOn, handleChange, switchLabel, inputName }: SwitchProps) => {
   const checkBoxId: string = useId()
-  const inputName: string = `switch-${checkBoxId}`
 
   return (
     <>
