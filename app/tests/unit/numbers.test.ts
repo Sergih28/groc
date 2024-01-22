@@ -1,4 +1,8 @@
-import { calculateSecondsFromMilliseconds, calculateSecondsFromMinutes } from '@utils/numbers'
+import {
+  calculateMinutesFromSeconds,
+  calculateSecondsFromMilliseconds,
+  calculateSecondsFromMinutes,
+} from '@utils/numbers'
 
 describe('calculateSecondsFromMilliseconds()', () => {
   test.each([
@@ -23,6 +27,20 @@ describe('calculateSecondsFromMinutes()', () => {
     [-234562, -14073720],
   ])('given  %d minutes returns %d seconds', (minutes, expected) => {
     const seconds = calculateSecondsFromMinutes(minutes)
+
+    expect(seconds).toBe(expected)
+  })
+})
+
+describe('calculateMinutesFromSeconds()', () => {
+  test.each([
+    [60, 1],
+    [120, 2],
+    [0, 0],
+    [-3600, -60],
+    [-14073720, -234562],
+  ])('given  %d minutes returns %d seconds', (minutes, expected) => {
+    const seconds = calculateMinutesFromSeconds(minutes)
 
     expect(seconds).toBe(expected)
   })
