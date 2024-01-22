@@ -6,8 +6,20 @@
 /
 ├── src/
 │   ├── components/
+│   │   └── ui/
+│   │       ├── atoms/
+│   │       ├── molecules/
+│   │       └── organisms/
 │   ├── layouts/
-│   └── pages/
+│   ├── data/
+│   ├── errors/
+│   ├── hooks/
+│   ├── i18n/
+│   ├── layouts/
+│   ├── pages/
+│   ├── store/
+│   ├── stories/
+│   └── styles/
 ```
 
 ## ⚙️ Initial Setup
@@ -32,7 +44,12 @@
 ## 🧞 Commands
 
 - `pnpm dev`: start tmuxinator project template.
-- `pnpm dev:all`: start the development server, including storybook (and tailwind).
+- `pnpm dev:astro`: start the development server.
+- `pnpm dev:all`: start the development server, including storybook and tailwind.
+- `pnpm prepare`: initialize husky.{}
+- `pnpm start`: start the development server.
+- `pnpm test:unit`: run unit tests once.
+- `pnpm test:unit:watch`: run unit tests in watch mode.
 - `pnpm test:e2e`: run playwright tests in headless and watch mode.
 - `pnpm test:e2e:ui`: run playwright tests in UI mode.
 - `pnpm lint`: run eslint on all project and test files.
