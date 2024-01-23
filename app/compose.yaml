@@ -1,6 +1,23 @@
 version: '3.8'
 
 services:
+  production:
+    container_name: production
+    build: .
+    tty: true
+    ports:
+      - 3000:3000
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+      NODE_ENV: development
+    entrypoint: ['node', '--watch', './dist/server/entry.mjs']
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - type: bind
+        source: ./dist
+        target: /usr/src/app/dist
+
   ui:
     container_name: ui_astro
     build: .
