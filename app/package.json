@@ -24,7 +24,8 @@
     "prettier:fix": "prettier --write src tests",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "tailwind": "pnpx tailwindcss -i ./src/styles/index.css -o ./dist/output.css --watch"
+    "tailwind": "pnpx tailwindcss -i ./src/styles/index.css -o ./dist/output.css --watch",
+    "watch": "watch 'kill -9 $(lsof -t -i:3000); pnpm run build && PORT=3000 node ./dist/server/entry.mjs' ./src"
   },
   "dependencies": {
     "@astrojs/check": "0.3.4",
