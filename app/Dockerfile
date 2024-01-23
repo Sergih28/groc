@@ -14,7 +14,12 @@ WORKDIR /usr/src/app
 RUN --mount=type=cache,target=/root/.npm \
     npm install -g pnpm@${PNPM_VERSION}
 
-COPY package.json .
+COPY . .
 
 RUN pnpm install
 RUN pnpm run build
+
+ENV HOST=0.0.0.0
+ENV PORT=3000
+EXPOSE 3000
+CMD echo 'asldfkj' && node ./dist/server/entry.mjs
