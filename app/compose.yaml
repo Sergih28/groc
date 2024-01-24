@@ -2,24 +2,21 @@ version: '3.8'
 
 services:
   production:
-    container_name: production
+    container_name: groc_ui_production
     build: .
-    tty: true
     ports:
-      - 3000:3000
+      - 80:80
     environment:
       CHOKIDAR_USEPOLLING: 'true'
-      NODE_ENV: development
-    entrypoint: ['node', '--watch', './dist/server/entry.mjs']
+      NODE_ENV: production
+    entrypoint: ['pnpm', 'build:start']
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-      - type: bind
-        source: ./dist
-        target: /usr/src/app/dist
+      - /usr/src/app/dist
 
   ui:
-    container_name: ui_astro
+    container_name: groc_ui_astro
     build: .
     ports:
       - 4321:4321
@@ -30,12 +27,9 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-      - type: bind
-        source: ./dist
-        target: /usr/src/app/dist
 
   unit_tests:
-    container_name: unit_tests
+    container_name: groc_unit_tests
     build: .
     environment:
       NODE_ENV: development
@@ -46,7 +40,7 @@ services:
 
   styles:
     build: .
-    container_name: styles_tailwind
+    container_name: groc_styles_tailwind
     environment:
       NODE_ENV: development
     entrypoint: ['pnpm', 'tailwind']
@@ -54,13 +48,10 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-      - type: bind
-        source: ./dist
-        target: /usr/src/app/dist
 
   storybook:
     build: .
-    container_name: storybook
+    container_name: groc_storybook
     environment:
       NODE_ENV: development
     ports:
@@ -69,6 +60,3 @@ services:
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
-      - type: bind
-        source: ./dist
-        target: /usr/src/app/dist
