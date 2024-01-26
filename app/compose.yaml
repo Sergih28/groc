@@ -1,72 +1,117 @@
 version: '3.8'
 
 services:
-  # production:
-  #   container_name: groc_ui_production
-  #   build: .
-  #   ports:
-  #     - 80:80
-  #   environment:
-  #     CHOKIDAR_USEPOLLING: 'true'
-  #     NODE_ENV: production
-  #   entrypoint: ['pnpm', 'build:start']
-  #   volumes:
-  #     - .:/usr/src/app
-  #     - /usr/src/app/node_modules
-  #     - /usr/src/app/dist
-
-  # ui:
-  #   container_name: groc_ui_astro
-  #   build: .
-  #   ports:
-  #     - 4321:4321
-  #   environment:
-  #     CHOKIDAR_USEPOLLING: 'true'
-  #     NODE_ENV: development
-  #   entrypoint: ['pnpm', 'start', '--host']
-  #   volumes:
-  #     - .:/usr/src/app
-  #     - /usr/src/app/node_modules
-
-  # unit_tests:
-  #   container_name: groc_unit_tests
-  #   build: .
-  #   environment:
-  #     NODE_ENV: development
-  #   entrypoint: ['pnpm', 'test:unit:watch']
-  #   volumes:
-  #     - .:/usr/src/app
-  #     - /usr/src/app/node_modules
-
-  # styles:
-  #   build: .
-  #   container_name: groc_styles_tailwind
-  #   environment:
-  #     NODE_ENV: development
-  #   entrypoint: ['pnpm', 'tailwind']
-  #   tty: true
-  #   volumes:
-  #     - .:/usr/src/app
-  #     - /usr/src/app/node_modules
-
-  # storybook:
-  #   build: .
-  #   container_name: groc_storybook
-  #   environment:
-  #     NODE_ENV: development
-  #   ports:
-  #     - 6006:6006
-  #   entrypoint: ['pnpm', 'storybook']
-  #   volumes:
-  #     - .:/usr/src/app
-  #     - /usr/src/app/node_modules
-
-  playwright:
+  prod:
+    container_name: groc-prod
     build: .
-    container_name: groc_playwright
+    user: root
+    ports:
+      - 80:80
     environment:
-      NODE_ENV: development
-    entrypoint: ['pnpm', 'test:e2e']
+      CHOKIDAR_USEPOLLING: 'true'
+      NODE_ENV: production
+    tty: true
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+      - /usr/src/app/dist
+    networks:
+      - groc_network
+
+  dev:
+    container_name: groc-dev
+    build: .
+    user: groc
+    ports:
+      - 4321:4321
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+      NODE_ENV: development
+    tty: true
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - groc_network
+
+  tests:
+    container_name: groc-tests
+    build: .
+    user: groc
+    environment:
+      NODE_ENV: development
+    tty: true
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - groc_network
+
+  styles:
+    container_name: groc-styles
+    build: .
+    user: root
+    environment:
+      NODE_ENV: development
+    tty: true
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - groc_network
+
+  storybook:
+    build: .
+    user: groc
+    container_name: groc-storybook
+    environment:
+      NODE_ENV: development
+    tty: true
+    ports:
+      - 6006:6006
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - groc_network
+
+  playwright:
+    user: root
+    tty: true
+    build: .
+    container_name: groc-playwright
+    ports:
+      - 9323:9323
+    environment:
+      NODE_ENV: development
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      groc_network:
+    image: mcr.microsoft.com/playwright:v1.40.0-jammy
+    depends_on:
+      - dev
+
+  playwright-ui:
+    build: .
+    tty: true
+    user: root
+    container_name: groc-playwright-ui
+    ports:
+      - 8080:8080
+    environment:
+      NODE_ENV: development
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    networks:
+      groc_network:
+    image: mcr.microsoft.com/playwright:v1.40.0-jammy
+    depends_on:
+      - dev
+
+networks:
+  groc_network:
+    name: groc_network
