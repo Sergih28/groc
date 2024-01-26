@@ -7,6 +7,9 @@ dist/
 # generated types
 .astro/
 
+# storybook
+.cache/
+
 # dependencies
 node_modules/
 
