@@ -37,7 +37,7 @@ services:
   tests:
     container_name: groc-tests
     build: .
-    user: groc
+    user: root
     environment:
       NODE_ENV: development
     tty: true
@@ -62,7 +62,7 @@ services:
 
   storybook:
     build: .
-    user: groc
+    user: root
     container_name: groc-storybook
     environment:
       NODE_ENV: development
