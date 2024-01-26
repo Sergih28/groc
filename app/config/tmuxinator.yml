@@ -3,12 +3,14 @@ root: .
 
 windows:
   - dev:
-      layout: even-horizontal
+      layout: 99a5,211x52,0,0{107x52,0,0[107x36,0,0,5,107x15,0,37,9],103x52,108,0[103x26,108,0,7,103x25,108,27,8]}
       panes:
         -
-        - pnpm run dev:all
+        - make styles
+        - make dev
+        - make storybook
   - tests:
       layout: even-horizontal
       panes:
-        - pnpm run test:unit
-        - pnpm run test:e2e
+        - make tests
+        - make playwright
