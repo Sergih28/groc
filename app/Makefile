@@ -96,8 +96,8 @@ playwright:
 	docker exec -it groc-playwright pnpm test:e2e
 	
 playwright-ui:
-	docker compose up -d playwright-ui
-	docker exec -it groc-playwright-ui pnpm test:e2e:ui
+	docker compose up -d playwright
+	docker exec -it groc-playwright pnpm test:e2e:ui
 
 .PHONY: logs-dev logs-prod logs-tests logs-styles logs-storybook logs-playwright logs-playwright-ui
 logs-dev:
@@ -117,6 +117,3 @@ logs-storybook:
 
 logs-playwright:
 	docker logs groc-playwright
-
-logs-playwright-ui:
-	docker logs groc-playwright-ui
