@@ -1,62 +1,72 @@
 version: '3.8'
 
 services:
-  production:
-    container_name: groc_ui_production
-    build: .
-    ports:
-      - 80:80
-    environment:
-      CHOKIDAR_USEPOLLING: 'true'
-      NODE_ENV: production
-    entrypoint: ['pnpm', 'build:start']
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-      - /usr/src/app/dist
+  # production:
+  #   container_name: groc_ui_production
+  #   build: .
+  #   ports:
+  #     - 80:80
+  #   environment:
+  #     CHOKIDAR_USEPOLLING: 'true'
+  #     NODE_ENV: production
+  #   entrypoint: ['pnpm', 'build:start']
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+  #     - /usr/src/app/dist
 
-  ui:
-    container_name: groc_ui_astro
-    build: .
-    ports:
-      - 4321:4321
-    environment:
-      CHOKIDAR_USEPOLLING: 'true'
-      NODE_ENV: development
-    entrypoint: ['pnpm', 'start', '--host']
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+  # ui:
+  #   container_name: groc_ui_astro
+  #   build: .
+  #   ports:
+  #     - 4321:4321
+  #   environment:
+  #     CHOKIDAR_USEPOLLING: 'true'
+  #     NODE_ENV: development
+  #   entrypoint: ['pnpm', 'start', '--host']
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
 
-  unit_tests:
-    container_name: groc_unit_tests
-    build: .
-    environment:
-      NODE_ENV: development
-    entrypoint: ['pnpm', 'test:unit:watch']
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+  # unit_tests:
+  #   container_name: groc_unit_tests
+  #   build: .
+  #   environment:
+  #     NODE_ENV: development
+  #   entrypoint: ['pnpm', 'test:unit:watch']
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
 
-  styles:
-    build: .
-    container_name: groc_styles_tailwind
-    environment:
-      NODE_ENV: development
-    entrypoint: ['pnpm', 'tailwind']
-    tty: true
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
+  # styles:
+  #   build: .
+  #   container_name: groc_styles_tailwind
+  #   environment:
+  #     NODE_ENV: development
+  #   entrypoint: ['pnpm', 'tailwind']
+  #   tty: true
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
 
-  storybook:
+  # storybook:
+  #   build: .
+  #   container_name: groc_storybook
+  #   environment:
+  #     NODE_ENV: development
+  #   ports:
+  #     - 6006:6006
+  #   entrypoint: ['pnpm', 'storybook']
+  #   volumes:
+  #     - .:/usr/src/app
+  #     - /usr/src/app/node_modules
+
+  playwright:
     build: .
-    container_name: groc_storybook
+    container_name: groc_playwright
     environment:
       NODE_ENV: development
-    ports:
-      - 6006:6006
-    entrypoint: ['pnpm', 'storybook']
+    entrypoint: ['pnpm', 'test:e2e']
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
