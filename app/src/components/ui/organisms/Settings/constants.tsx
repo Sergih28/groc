@@ -27,6 +27,10 @@ export const SETTINGS_OPTIONS: SETTINGS_OPTIONS_TYPE = {
     name: 'mode',
     description: t('settings.mode'),
   },
+  COUNTING_UP: {
+    name: 'countingUp',
+    description: 'Is counting up?',
+  },
   MANUAL: {
     name: MODE_OPTIONS.MANUAL,
     description: t('settings.manual'),

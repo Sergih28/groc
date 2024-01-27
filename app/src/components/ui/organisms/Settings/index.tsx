@@ -1,4 +1,9 @@
+import Button from '@atoms/Buttons/Button/index'
+import Switch from '@atoms/Switch'
 import { useFormik } from 'formik'
+
+import { $settings } from '@store/Pomodoro'
+import { useStore } from '@nanostores/react'
 
 import type { Values } from './types'
 
@@ -9,9 +14,9 @@ import {
   InputRadioMode,
 } from './components'
 import { DEFAULT_SETTINGS_VALUES, MODE_OPTIONS, SETTINGS_OPTIONS } from './constants'
-import Button from '@atoms/Buttons/Button/index'
 
 import { STYLES } from './styles'
+import { calculateMinutesFromSeconds } from '@utils/numbers'
 
 const validate = (values: Values) => {
   const errors: { [key: string]: string } = {}
@@ -38,16 +43,18 @@ const validate = (values: Values) => {
 }
 
 const Settings = () => {
+  const settings = useStore($settings)
+
   const formik = useFormik({
     initialValues: {
-      pomodoroDuration: DEFAULT_SETTINGS_VALUES.POMODORO_DURATION,
-      breakDuration: DEFAULT_SETTINGS_VALUES.BREAK_DURATION,
-      longBreakDuration: DEFAULT_SETTINGS_VALUES.LONG_BREAK_DURATION,
-      mode: MODE_OPTIONS.MANUAL,
+      pomodoroDuration: calculateMinutesFromSeconds(settings.pomodoroDuration),
+      breakDuration: calculateMinutesFromSeconds(settings.breakDuration),
+      longBreakDuration: calculateMinutesFromSeconds(settings.breakDuration),
+      mode: settings.mode,
     },
     validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2))
+      alert(JSON.stringify(values))
     },
   })
 
@@ -82,12 +89,21 @@ const Settings = () => {
           })}
         </div>
       </div>
+      <div>
+        <Switch
+          isOn={true}
+          switchLabel="Is couting up?"
+          inputName={SETTINGS_OPTIONS.COUNTING_UP.name}
+          handleChange={formik.handleChange}
+        />
+      </div>
       <Button type="button" styles="delete" handleClick={() => {}}>
         {SETTINGS_OPTIONS.DELETE.description}
       </Button>
       <Button type="submit" styles="submit" handleClick={() => {}}>
         {SETTINGS_OPTIONS.SUBMIT.description}
       </Button>
+      <div>{JSON.stringify(settings)}</div>
     </form>
   )
 }

@@ -1,0 +1,24 @@
+---
+import { languages } from '@i18n/ui'
+import { generateParamsLanguageList } from '@i18n/utils'
+import Footer from '@layouts/Footer.astro'
+import Layout from '@layouts/Layout.astro'
+import Main from '@layouts/Main.astro'
+import NavBar from '@layouts/NavBar.astro'
+import SettingsLayout from '@layouts/Settings.astro'
+import '@styles/index.css'
+
+export function getStaticPaths() {
+  return generateParamsLanguageList(languages)
+}
+
+const title = 'Groc | Settings'
+---
+
+<Layout title={title}>
+  <NavBar />
+  <Main>
+    <SettingsLayout />
+  </Main>
+  <Footer />
+</Layout>
