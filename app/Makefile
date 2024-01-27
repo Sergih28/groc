@@ -60,6 +60,10 @@ help:
 	@echo "|                        | This command executes End-to-End tests using  |"
 	@echo "|                        | the Playwright testing framework.             |"
 	@echo "+------------------------+-----------------------------------------------+"
+	@echo "| make playwright-report | Show tests reports on the browser.            |"
+	@echo "|                        | Open http://localhost:9323 too see            |"
+	@echo "|                        | the reports                                   |"
+	@echo "+------------------------+-----------------------------------------------+"
 	@echo "| make playwright-ui     | Run UI End-to-End tests with Playwright.      |"
 	@echo "|                        | Similar to 'make playwright', but focused on  |"
 	@echo "|                        | UI-specific End-to-End tests.                 |"
@@ -67,7 +71,7 @@ help:
 	@echo "| make logs-{container}  | View logs for the specified container.        |"
 	@echo "+------------------------+-----------------------------------------------+"
 
-.PHONY: prod dev-all dev tests styles storybook playwright playwright-ui
+.PHONY: prod dev-all dev tests styles storybook playwright playwright-report playwright-ui
 prod:
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start 
@@ -94,7 +98,16 @@ storybook:
 playwright:
 	docker compose up -d playwright 
 	docker exec -it groc-playwright pnpm test:e2e
-	
+
+playwright-report:
+	docker compose up -d playwright 
+	@echo ============================ IMPORTANT! =============================
+	@echo ===                                                               ===
+	@echo === Visit http://localhost:9323 (not 0.0.0.0) to see the reports! ===
+	@echo ===                                                               ===
+	@echo =====================================================================
+	docker exec -it groc-playwright pnpm test:e2e:report --host 0.0.0.0
+
 playwright-ui:
 	docker compose up -d playwright
 	docker exec -it groc-playwright pnpm test:e2e:ui

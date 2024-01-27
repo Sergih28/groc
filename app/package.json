@@ -11,6 +11,7 @@
     "test:e2e": "npx playwright test",
     "test:e2e:watch": "npx playwright-watch test",
     "test:e2e:ui": "npx playwright test --ui-host=0.0.0.0 --ui-port=8080",
+    "test:e2e:report": "playwright show-report",
     "start": "astro dev",
     "build": "astro check && astro build",
     "build:start": "pnpm build && PORT=80 node ./dist/server/entry.mjs",
