@@ -23,7 +23,7 @@ const Footer = () => {
           {t('footer.contributors')}
         </a>
       </p>
-      <p>
+      <div>
         {t('footer.release_license')}{' '}
         <a href={URLS.LICENSE} target="_blank">
           {t('footer.license')}
@@ -37,7 +37,7 @@ const Footer = () => {
             Github
           </a>
         </div>
-      </p>
+      </div>
     </footer>
   )
 }
