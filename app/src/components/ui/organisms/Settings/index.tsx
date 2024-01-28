@@ -71,9 +71,10 @@ const Settings = () => {
       <div>
         <span className="font-bold">{SETTINGS_OPTIONS.MODE.description}:</span>
         <div className={STYLES.RADIO_CONTAINER}>
-          {Object.values(MODE_OPTIONS).map((option) => {
+          {Object.values(MODE_OPTIONS).map((option, index) => {
             return (
               <InputRadioMode
+                key={index}
                 value={option}
                 checked={option === formik.values.mode}
                 handleChange={formik.handleChange}
