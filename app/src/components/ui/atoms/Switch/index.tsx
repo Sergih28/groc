@@ -12,7 +12,7 @@ const Switch = ({ isOn, handleChange, switchLabel }: SwitchProps) => {
         type="checkbox"
         name={inputName}
         id={checkBoxId}
-        checked={isOn}
+        defaultChecked={isOn}
         onChange={handleChange}
       />
       <label htmlFor={checkBoxId}>{switchLabel}</label>
