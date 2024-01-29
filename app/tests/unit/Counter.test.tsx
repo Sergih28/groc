@@ -4,7 +4,7 @@ import { resetGlobalState } from './helpers'
 import { calculateElapsedTime } from '@components/ui/molecules/Counter/functions'
 import useCounter from '@hooks/useCounter'
 import Counter from '@molecules/Counter'
-import { updateSettings } from '@store/Pomodoro'
+import { setSettingsValues } from '@store/Pomodoro'
 
 const CounterWrapper = () => {
   useCounter()
@@ -35,7 +35,7 @@ describe('Counter component test', () => {
     })
 
     test('given counter with seconds format, renders the time left in seconds format', () => {
-      updateSettings({ counterFormat: 'seconds' })
+      setSettingsValues({ counterFormat: 'seconds' })
       render(<CounterWrapper />)
 
       const counterContentElement = screen.getByText('1500')

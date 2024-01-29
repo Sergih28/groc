@@ -8,18 +8,24 @@ import { DEFAULT_COUNTER_VALUES, DEFAULT_SETTINGS_VALUES } from './constants'
 
 export const $counter = map<CounterType>(DEFAULT_COUNTER_VALUES)
 
-export const setCounterValue = (newCounterValue: number) => {
-  $counter.set({ ...$counter.get(), counterValue: newCounterValue })
-}
-
-export const updateCounter = (updatedCounter: Partial<CounterType>) => {
-  $counter.set({ ...$counter.get(), ...updatedCounter })
+export function setCounterValues(values: Partial<CounterType>): void {
+  for (const key in values) {
+    $counter.setKey(
+      key as keyof CounterType,
+      values[key as keyof CounterType] as CounterType[keyof CounterType],
+    )
+  }
 }
 
 export const $settings = map<SettingsType>(DEFAULT_SETTINGS_VALUES)
 
-export const updateSettings = (updatedSettings: Partial<SettingsType>) => {
-  $settings.set({ ...$settings.get(), ...updatedSettings })
+export const setSettingsValues = (values: Partial<SettingsType>) => {
+  for (const key in values) {
+    $settings.setKey(
+      key as keyof SettingsType,
+      values[key as keyof SettingsType] as SettingsType[keyof SettingsType],
+    )
+  }
 }
 export const $phase = atom<PhaseType>('pomodoro')
 
