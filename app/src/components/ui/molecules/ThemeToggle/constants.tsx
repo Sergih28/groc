@@ -3,7 +3,7 @@ export const THEMES = {
   light: false,
 } as const
 
-export const DEFAULT_THEME = THEMES.dark
+export const DEFAULT_THEME = THEMES.light
 
 export const THEMES_TEXT = {
   dark: 'dark',
