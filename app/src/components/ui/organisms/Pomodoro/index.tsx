@@ -21,7 +21,7 @@ const Pomodoro = () => {
   return (
     <>
       <ProgressBar />
-      <div className="mb-6 flex justify-center gap-2 align-middle">
+      <div className="sm:w-300px mb-6 flex justify-center gap-2 align-middle sm:mx-auto sm:flex-col lg:flex-row">
         <Button handleClick={() => handlePhase('pomodoro')} styles="options">
           Pomodoro
         </Button>
