@@ -20,7 +20,7 @@ const NavBar = () => {
         if (!isEnabled) return <ListElement key={key} />
 
         return (
-          <a key={key} href={url}>
+          <a key={key} href={`/${lang}${url}`}>
             <ListElement />
           </a>
         )
