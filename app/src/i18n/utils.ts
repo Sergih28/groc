@@ -1,4 +1,4 @@
-import { fallbackLang, languages, ui } from './ui'
+import { fallbackLang, languages, ui, type UIType } from './ui'
 
 export const getLangFromLocalStorage = () => {
   const lang = localStorage.getItem('lng')
@@ -28,8 +28,7 @@ export const getLangFromUrl = (url: URL) => {
 
 export const useTranslations = (lang: keyof typeof ui) => {
   return function t(key: keyof (typeof ui)[typeof fallbackLang]) {
-    // FIXME: type
-    return (ui as any)[lang][key] || ui[fallbackLang][key]
+    return (ui as UIType)[lang][key] || ui[fallbackLang][key]
   }
 }
 
