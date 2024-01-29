@@ -22,4 +22,8 @@ export const ui = {
   ko,
   ca,
   jp,
-} as const
+}
+
+export type UIType = typeof ui
+
+export type ValUIType = keyof typeof en

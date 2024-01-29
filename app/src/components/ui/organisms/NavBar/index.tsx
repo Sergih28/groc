@@ -1,5 +1,7 @@
-import { NAVBAR_ELEMENTS } from './constants'
+import { type ValUIType } from '@i18n/ui'
 import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
+
+import { NAVBAR_ELEMENTS } from './constants'
 
 import { STYLES } from './styles'
 
@@ -12,8 +14,7 @@ const NavBar = () => {
       {NAVBAR_ELEMENTS.map(({ url, key, isEnabled }) => {
         const ListElement = () => (
           <li className={isEnabled ? STYLES.ENABLED_ELEMENT : STYLES.DISABLED_ELEMENT}>
-            {/* FIXME: type */}
-            {t(`nav.${key}` as any)}
+            {t(`nav.${key}` as ValUIType)}
           </li>
         )
 
