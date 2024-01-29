@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react'
 
+import Switch from '@components/ui/atoms/Switch'
+
 import type { ThemeType } from './types'
 
 import { DEFAULT_THEME, THEME_TOGGLE_TEXT, THEMES_TEXT } from './constants'
-import { localStorageItems } from '@utils/storage/keys'
-import Switch from '@components/ui/atoms/Switch'
+import { getDarkMode } from './functions'
 
 const ThemeToggle = () => {
-  const darkModeValue = localStorage.getItem(localStorageItems.darkMode)
+  const darkModeValue = getDarkMode()
 
-  if (null == darkModeValue) return null
-
-  const [darkMode, setDarkMode] = useState<ThemeType>(JSON.parse(darkModeValue) ?? DEFAULT_THEME)
+  const [darkMode, setDarkMode] = useState<ThemeType>(darkModeValue) ?? DEFAULT_THEME
   const [hasMounted, setHasMounted] = useState(false)
 
   const toggleTheme = () => {
