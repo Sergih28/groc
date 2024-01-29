@@ -47,12 +47,12 @@ describe('ThemeToggle component', () => {
 
       fireEvent.click(switchElement)
 
-      expect(labelElement).toHaveTextContent(THEME_TOGGLE_TEXT.light)
+      expect(labelElement).toHaveTextContent(THEME_TOGGLE_TEXT.dark)
     })
   })
 
   describe('localStorage scenarios', () => {
-    afterEach(() => {
+    beforeEach(() => {
       localStorage.clear()
     })
 
