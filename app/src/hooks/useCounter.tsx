@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 
 import { loadActivePomodoro } from '@components/ui/molecules/Counter/functions'
-import { $counter, $phase, $settings, updateCounter, updatePhase } from '@store/Pomodoro'
+import { $counter, $phase, $settings, setCounterValues, updatePhase } from '@store/Pomodoro'
 import type { PhaseType } from '@store/types'
 import {
   createActivePomodoro,
@@ -46,7 +46,7 @@ export default function useCounter() {
       setActivePomodoroStartTime()
     }
 
-    updateCounter({ isPaused: !isPaused })
+    setCounterValues({ isPaused: !isPaused })
     if (!isPaused) {
       startPauseTime()
     } else {
@@ -65,7 +65,7 @@ export default function useCounter() {
   }
 
   useEffect(() => {
-    updateCounter({ handlePause, handleReset, handlePhase })
+    setCounterValues({ handlePause, handleReset, handlePhase })
   }, [])
 
   useEffect(() => {
@@ -85,11 +85,11 @@ export default function useCounter() {
 
       const newCounterValue = calculateCounter(counterValue, countingInterval)
 
-      updateCounter({ counterValue: newCounterValue })
+      setCounterValues({ counterValue: newCounterValue })
       updateLastTick()
     }, countingInterval * 1000)
 
-    updateCounter({ counterValue, counterContent, handlePause, handleReset })
+    setCounterValues({ counterValue, counterContent, handlePause, handleReset })
 
     return () => clearInterval(timer)
   }, [isPaused, counterValue, phase])
