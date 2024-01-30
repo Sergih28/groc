@@ -5,10 +5,11 @@ import { BUTTON_TEXT } from './constants'
 import PlayPauseButton from '@atoms/Buttons/PlayPause'
 import ResetButton from '@atoms/Buttons/Reset'
 import TEST_ID from '@data/testIds'
-import { $counter } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/Pomodoro'
 
 const Counter = () => {
-  const { counterContent, isPaused, handleReset, handlePause, counterValue } = useStore($counter)
+  const { counterContent, isPaused, counterValue } = useStore(pomodoroStore.state)
+  const { handlePause, handleReset } = pomodoroStore.actions
   const hasStarted = counterValue > 0
   const buttonText = !hasStarted
     ? BUTTON_TEXT.START

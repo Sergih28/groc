@@ -3,7 +3,7 @@ import { type UUID } from 'crypto'
 import type { PausedTimeRange, PomodoroType, SavedPomodoroType } from './types'
 
 import { localStorageItems } from './keys'
-import { $phase, $settings, handleNewId } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/Pomodoro'
 
 export const getPomodoros = (): SavedPomodoroType[] => {
   const localStorageValue = localStorage.getItem(localStorageItems.pastPomodoros)
@@ -60,14 +60,14 @@ export const updateLastTick = () => {
 }
 
 export const generatePomodoro = () => {
-  const ACTUAL_PHASE_DURATION = $settings.get()[`${$phase.get()}Duration`]
+  const ACTUAL_PHASE_DURATION = pomodoroStore.actions.getPhaseDuration('pomodoro')
 
   const newPomodoro: PomodoroType = {
     id: crypto.randomUUID(),
     startTime: null,
     endTime: null,
     pausedTimeRanges: [],
-    phase: $phase.get(),
+    phase: pomodoroStore.state.get().phase,
     expectedDuration: ACTUAL_PHASE_DURATION,
     lastTick: Date.now(),
   }
@@ -79,7 +79,7 @@ export const createActivePomodoro = () => {
   const newPomodoro = generatePomodoro()
 
   updateActivePomodoro(newPomodoro)
-  handleNewId(newPomodoro.id)
+  pomodoroStore.actions.handleNewId(newPomodoro.id)
 }
 
 export const deletePomodoro = (id: UUID) => {

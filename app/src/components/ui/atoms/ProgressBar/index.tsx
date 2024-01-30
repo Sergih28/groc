@@ -5,7 +5,8 @@ import type { ProgressBarContentProps, ProgressBarWrapperProps } from './types'
 import { calculatePercentage } from './functions'
 import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
 import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
-import { $counter, $phase, $settings } from '@store/Pomodoro'
+import { getPhaseDuration } from '@store/Pomodoro/actions'
+import { pomodoroStore } from '@store/Pomodoro/index'
 
 import { STYLES } from './styles'
 
@@ -39,14 +40,14 @@ const ProgressBarContent = ({
 }
 
 const ProgressBar = () => {
-  const { counterValue } = useStore($counter)
-  const settings = useStore($settings)
-  const phase = useStore($phase)
+  const { counterValue, showPercentage, fillColor, backgroundColor, phase } = useStore(
+    pomodoroStore.state,
+  )
 
   let percentage
   const currentValue = counterValue
   const baseValue = 0
-  const targetValue = settings[`${phase}Duration`]
+  const targetValue = getPhaseDuration(phase)
 
   try {
     percentage = calculatePercentage(currentValue, baseValue, targetValue)
@@ -59,12 +60,12 @@ const ProgressBar = () => {
   }
 
   return (
-    <ProgressBarWrapper percentage={percentage} backgroundColor={settings.backgroundColor}>
+    <ProgressBarWrapper percentage={percentage} backgroundColor={backgroundColor}>
       <ProgressBarContent
         percentage={percentage}
-        showPercentage={settings.showPercentage}
-        backgroundColor={settings.backgroundColor}
-        fillColor={settings.fillColor}
+        showPercentage={showPercentage}
+        backgroundColor={backgroundColor}
+        fillColor={fillColor}
       />
     </ProgressBarWrapper>
   )
