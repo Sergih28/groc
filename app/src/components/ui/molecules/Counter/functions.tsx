@@ -1,4 +1,4 @@
-import { setCounterValues, updatePhase } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/Pomodoro'
 import { calculateSecondsFromMilliseconds } from '@utils/numbers'
 import {
   checkLastTick,
@@ -47,16 +47,15 @@ export const loadActivePomodoro = () => {
   }
 
   checkLastTick(activePomodoro)
-
   const elapsedTime = calculateElapsedTime(
     activePomodoro.startTime,
     activePomodoro.pausedTimeRanges,
   )
-  setCounterValues({
+  pomodoroStore.actions.setPomodoroState({
     counterValue: elapsedTime,
     id: activePomodoro.id,
     isPaused: true,
   })
 
-  updatePhase(activePomodoro.phase)
+  pomodoroStore.actions.setPomodoroState({ counterValue: elapsedTime, phase: activePomodoro.phase })
 }

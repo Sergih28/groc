@@ -1,13 +1,11 @@
 import { useEffect } from 'react'
 
-import { useStore } from '@nanostores/react'
-
 import ProgressBar from '@atoms/ProgressBar'
 import Button from '@components/ui/atoms/Buttons/Button'
 import { loadActivePomodoro } from '@components/ui/molecules/Counter/functions'
 import useCounter from '@hooks/useCounter'
 import Counter from '@molecules/Counter'
-import { $counter } from '@store/Pomodoro'
+import { handlePhase } from '@store/Pomodoro/actions'
 
 const Pomodoro = () => {
   useCounter()
@@ -15,8 +13,6 @@ const Pomodoro = () => {
   useEffect(() => {
     loadActivePomodoro()
   }, [])
-
-  const { handlePhase } = useStore($counter)
 
   return (
     <>
