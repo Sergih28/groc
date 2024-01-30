@@ -1,20 +1,10 @@
 import type { UUID } from 'crypto'
 
-import type { PomodoroType } from '@utils/storage/types'
-
-export type CounterType = {
+export type StateType = {
+  id: UUID | null
   counterContent: string
   counterValue: number
-  handlePause: () => void
-  handleReset: () => void
-  handlePhase: (phase: PhaseType) => void
   isPaused: boolean
-  id: UUID | null
-}
-
-export type PhaseType = 'pomodoro' | 'break' | 'longBreak'
-
-export type SettingsType = {
   pomodoroDuration: number
   breakDuration: number
   longBreakDuration: number
@@ -24,6 +14,13 @@ export type SettingsType = {
   backgroundColor: string
   fillColor: string
   showPercentage: boolean
+  phase: PhaseType
 }
 
-export type PomodoroStart = Pick<PomodoroType, 'id' | 'phase' | 'startTime'>
+export type ActionType = {
+  handlePause: () => void
+  handleReset: () => void
+  handlePhase: (phase: PhaseType) => void
+}
+
+export type PhaseType = 'pomodoro' | 'break' | 'longBreak'

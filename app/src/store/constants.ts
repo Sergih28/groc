@@ -1,6 +1,10 @@
-import type { CounterType, SettingsType } from './types'
+import type { StateType } from './types'
 
-export const DEFAULT_SETTINGS_VALUES: SettingsType = {
+export const DEFAULT_STATE_VALUES: StateType = {
+  id: null,
+  counterContent: '25:00',
+  counterValue: 0,
+  isPaused: true,
   pomodoroDuration: 25 * 60,
   breakDuration: 5 * 60,
   longBreakDuration: 15 * 60,
@@ -10,16 +14,5 @@ export const DEFAULT_SETTINGS_VALUES: SettingsType = {
   backgroundColor: 'blue',
   fillColor: 'yellow',
   showPercentage: false,
-} as const
-
-export const DEFAULT_PHASE = 'pomodoro'
-
-export const DEFAULT_COUNTER_VALUES: CounterType = {
-  id: null,
-  counterContent: '',
-  counterValue: 0,
-  isPaused: true,
-  handlePause: () => {},
-  handleReset: () => {},
-  handlePhase: () => {},
+  phase: 'pomodoro',
 }
