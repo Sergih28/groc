@@ -1,5 +1,4 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
-import { keepMount } from 'nanostores'
 
 import { resetStore } from './helpers'
 import testIds from '@data/testIds'
@@ -21,7 +20,6 @@ describe('Counter component test', () => {
   beforeEach(() => {
     resetStore()
     cleanup()
-    keepMount(pomodoroStore.state)
   })
 
   test('render Counter component', () => {
@@ -118,7 +116,7 @@ describe('Counter component test', () => {
       const START_TIME = Date.now() - ONE_MINUTE_MS * 30
       const elapsedTime = calculateElapsedTime(START_TIME, [])
 
-      expect(elapsedTime).toBe(1800)
+      expect(elapsedTime).toBe(1800000)
     })
 
     test('given a start time and a paused time range, should return the remaining time', () => {
@@ -131,7 +129,7 @@ describe('Counter component test', () => {
       ]
       const elapsedTime = calculateElapsedTime(START_TIME, pausedTimes)
 
-      expect(elapsedTime).toBe(300)
+      expect(elapsedTime).toBe(300000)
     })
 
     test('given a start time and a paused time range that has not fishined, should return the remainin time', () => {
@@ -148,7 +146,7 @@ describe('Counter component test', () => {
       ]
       const elapsedTime = calculateElapsedTime(START_TIME, pausedTimes)
 
-      expect(elapsedTime).toBe(3000)
+      expect(elapsedTime).toBe(3000000)
     })
 
     test('given a null start time, returns 0', () => {

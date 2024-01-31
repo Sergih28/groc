@@ -32,6 +32,7 @@ const Counter = () => {
           <ResetButton resetPomodoro={handleReset} />
         </div>
       </ContentWrapper>
+      {JSON.stringify(pomodoroStore.state.get())}
     </>
   )
 }
