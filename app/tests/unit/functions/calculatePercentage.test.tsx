@@ -1,4 +1,4 @@
-import { calculatePercentage } from '@components/ui/atoms/ProgressBar/functions'
+import { calculatePercentage } from '@atoms/ProgressBar/functions'
 import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
 import { CurrentAboveTargetError } from '@errors/CurrentAboveTargetError'
 import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
