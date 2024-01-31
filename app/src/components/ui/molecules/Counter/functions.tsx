@@ -1,5 +1,4 @@
 import { pomodoroStore } from '@store/Pomodoro'
-import { calculateSecondsFromMilliseconds } from '@utils/numbers'
 import {
   checkLastTick,
   createActivePomodoro,
@@ -26,12 +25,8 @@ export const calculateElapsedTime = (
     })
   }
 
-  const currentTime = calculateSecondsFromMilliseconds(Date.now())
-  const elapsedTime = Math.round(
-    currentTime -
-      calculateSecondsFromMilliseconds(startTime) -
-      calculateSecondsFromMilliseconds(pausedTime),
-  )
+  const currentTime = Date.now()
+  const elapsedTime = currentTime - startTime - pausedTime
 
   return elapsedTime > 0 ? elapsedTime : 0
 }
