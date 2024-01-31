@@ -6,8 +6,8 @@ import { action } from 'nanostores'
 
 import $state from './state'
 import { loadActivePomodoro } from '@components/ui/molecules/Counter/functions'
-import { DEFAULT_STATE_VALUES } from '@store/constants'
 import type { PhaseType, StateType } from '@store/types'
+import { calculateSecondsFromMilliseconds } from '@utils/numbers'
 import {
   createActivePomodoro,
   endPauseTime,
@@ -28,25 +28,36 @@ export const setPomodoroState = action(
       )
     }
 
-    const keysToCheck = ['counterValue', 'phase', 'isPaused']
+    const keysToCheck = [
+      'counterValue',
+      'phase',
+      'pomodoroDuration',
+      'breakDuration',
+      'longBreakDuration',
+    ]
     const shouldUpdateCounterContent = keysToCheck.some((key) => Object.keys(values).includes(key))
 
     if (!shouldUpdateCounterContent) return
 
     const newCounterContent = generateCounterContent()
 
+    if (newCounterContent === $state.get().counterContent) return
     store.setKey('counterContent', newCounterContent)
   },
 )
 
 const generateCounterContent = () => {
   const state = $state.get()
-  const seconds = state[`${state.phase}Duration`]
-  const calculatedCounter = state.isCountingUp ? state.counterValue : seconds - state.counterValue
 
-  if (state.counterFormat === 'seconds') return calculatedCounter.toString()
+  const milliseconds = getPhaseDuration(state.phase)
+  const calculatedCounter = state.isCountingUp
+    ? state.counterValue
+    : milliseconds - state.counterValue
 
-  return dayjs.duration(calculatedCounter, 'seconds').format('mm:ss')
+  if (state.counterFormat === 'seconds')
+    return Math.round(calculateSecondsFromMilliseconds(calculatedCounter)).toString()
+
+  return dayjs.duration(calculatedCounter, 'milliseconds').format('mm:ss')
 }
 
 export const getPhaseDuration = (phase: PhaseType) => {
@@ -56,9 +67,9 @@ export const getPhaseDuration = (phase: PhaseType) => {
 export const handlePause = () => {
   const { isPaused, counterValue, phase } = $state.get()
 
-  const seconds = getPhaseDuration(phase)
+  const milliseconds = getPhaseDuration(phase)
 
-  const isFinished = counterValue >= seconds
+  const isFinished = counterValue >= milliseconds
   const hasStarted = counterValue > 0
 
   if (isFinished) return
@@ -88,8 +99,4 @@ export const handlePhase = (phase: PhaseType) => {
 
 export const handleNewId = (newId: UUID) => {
   $state.setKey('id', newId)
-}
-
-export const resetStore = () => {
-  setPomodoroState(DEFAULT_STATE_VALUES)
 }
