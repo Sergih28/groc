@@ -1,15 +1,15 @@
 import { cleanup, render, screen } from '@testing-library/react'
 
-import { colorToRgb, resetCounterState, resetSettingsState } from './helpers'
+import { colorToRgb } from './helpers'
 import ProgressBar from '@atoms/ProgressBar/'
-import { DEFAULT_SETTINGS_VALUES } from '@store/constants'
-import { $counter, $settings } from '@store/Pomodoro'
+import { DEFAULT_STATE_VALUES } from '@store/constants'
+import { pomodoroStore } from '@store/Pomodoro'
+
 
 describe('ProgressBar component test', () => {
   afterEach(() => {
     cleanup()
-    resetSettingsState()
-    resetCounterState()
+    pomodoroStore.actions.resetStore()
   })
 
   test('renders the ProgressBar component', () => {
@@ -26,9 +26,8 @@ describe('ProgressBar component test', () => {
     })
 
     test('given a progress bar with the counter value reaching half, should have a value of 50', () => {
-      $counter.set({
-        ...$counter.get(),
-        counterValue: DEFAULT_SETTINGS_VALUES.pomodoroDuration / 2,
+      pomodoroStore.actions.setPomodoroState({
+        counterValue: DEFAULT_STATE_VALUES.pomodoroDuration / 2,
       })
 
       render(<ProgressBar />)
@@ -41,8 +40,7 @@ describe('ProgressBar component test', () => {
 
   describe('ProgressBar component percentage rendering', () => {
     test('given a progres bar with percentage, should render the percentage', () => {
-      $settings.set({ ...$settings.get(), showPercentage: true })
-
+      pomodoroStore.actions.setPomodoroState({ showPercentage: true })
       render(<ProgressBar />)
 
       const percentageElement = screen.getByText('0%')
@@ -58,14 +56,13 @@ describe('ProgressBar component test', () => {
 
   describe('ProgressBar component color rendering', () => {
     test('given a progress bar with default values, should have the default background and fill color', () => {
-      $settings.set({ ...$settings.get(), showPercentage: true })
-      $counter.set({
-        ...$counter.get(),
-        counterValue: DEFAULT_SETTINGS_VALUES.pomodoroDuration / 2,
+      pomodoroStore.actions.setPomodoroState({
+        showPercentage: true,
+        counterValue: DEFAULT_STATE_VALUES.pomodoroDuration / 2,
       })
 
-      const backgroundColor = colorToRgb($settings.get().backgroundColor)
-      const fillColor = colorToRgb($settings.get().fillColor)
+      const backgroundColor = colorToRgb(DEFAULT_STATE_VALUES.backgroundColor)
+      const fillColor = colorToRgb(DEFAULT_STATE_VALUES.fillColor)
 
       render(<ProgressBar />)
 
@@ -80,19 +77,15 @@ describe('ProgressBar component test', () => {
     })
 
     test('given a progress bar with custom colors, should render those custom colors', () => {
-      $settings.set({
-        ...$settings.get(),
+      pomodoroStore.actions.setPomodoroState({
         showPercentage: true,
+        counterValue: DEFAULT_STATE_VALUES.pomodoroDuration / 2,
         fillColor: 'purple',
         backgroundColor: 'red',
       })
-      $counter.set({
-        ...$counter.get(),
-        counterValue: DEFAULT_SETTINGS_VALUES.pomodoroDuration / 2,
-      })
 
-      const backgroundColor = colorToRgb($settings.get().backgroundColor)
-      const fillColor = colorToRgb($settings.get().fillColor)
+      const backgroundColor = colorToRgb(pomodoroStore.state.get().backgroundColor)
+      const fillColor = colorToRgb(pomodoroStore.state.get().fillColor)
 
       render(<ProgressBar />)
 
