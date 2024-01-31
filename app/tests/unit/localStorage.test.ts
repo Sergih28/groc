@@ -1,4 +1,5 @@
-import { DEFAULT_PHASE, DEFAULT_SETTINGS_VALUES } from '@store/constants'
+import { DEFAULT_STATE_VALUES } from '@store/constants'
+import { pomodoroStore } from '@store/Pomodoro'
 import { localStorageItems } from '@utils/storage/keys'
 import {
   deletePomodoro,
@@ -135,8 +136,8 @@ describe('localStorage tests', () => {
         startTime: newPomodoro.startTime,
         endTime: null,
         pausedTimeRanges: [],
-        phase: DEFAULT_PHASE,
-        expectedDuration: DEFAULT_SETTINGS_VALUES[`${DEFAULT_PHASE}Duration`],
+        phase: DEFAULT_STATE_VALUES.phase,
+        expectedDuration: pomodoroStore.actions.getPhaseDuration(DEFAULT_STATE_VALUES.phase),
         lastTick: Date.now(),
       })
     })
