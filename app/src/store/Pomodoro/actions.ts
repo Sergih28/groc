@@ -1,5 +1,10 @@
 import type { UUID } from 'crypto'
 
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
+import { action } from 'nanostores'
+
+import $state from './state'
 import { loadActivePomodoro } from '@components/ui/molecules/Counter/functions'
 import { DEFAULT_STATE_VALUES } from '@store/constants'
 import type { PhaseType, StateType } from '@store/types'
@@ -9,11 +14,7 @@ import {
   setActivePomodoroStartTime,
   startPauseTime,
 } from '@utils/storage/pomodoro'
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
-import { action } from 'nanostores'
 
-import $state from './state'
 dayjs.extend(duration)
 
 export const setPomodoroState = action(
