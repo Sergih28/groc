@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 
-import Switch from '@components/ui/atoms/Switch'
-
 import type { ThemeType } from './types'
 
 import { DEFAULT_THEME, THEME_TOGGLE_TEXT, THEMES_TEXT } from './constants'
 import { getDarkMode } from './functions'
+import Switch from '@components/ui/atoms/Switch'
 
 const ThemeToggle = () => {
   const darkModeValue = getDarkMode()

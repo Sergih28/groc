@@ -1,7 +1,6 @@
+import { NAVBAR_ELEMENTS } from './constants'
 import { type ValUIType } from '@i18n/ui'
 import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
-
-import { NAVBAR_ELEMENTS } from './constants'
 
 import { STYLES } from './styles'
 
