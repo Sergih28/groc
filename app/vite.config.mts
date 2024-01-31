@@ -26,8 +26,8 @@ export default defineConfig({
       ],
       reporter: ['text', 'json', 'html'],
     },
-    // exclude: ['**/tests/e2e/**'],
-    include: ['**/tests/unit/**.test.**'],
+    include: ['**/tests/unit/**/**.test.**'],
+    exclude: ['**/*snapshot*/**'],
   },
   resolve: {
     alias: {
@@ -41,6 +41,7 @@ export default defineConfig({
       '@store': path.resolve(__dirname, './src/store/'),
       '@utils': path.resolve(__dirname, './src/utils'),
       '@data': path.resolve(__dirname, './src/data'),
+      '@tests': path.resolve(__dirname, './tests/'),
     },
   },
 })

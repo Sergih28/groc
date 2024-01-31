@@ -31,7 +31,8 @@
       "@i18n/*": ["i18n/*"],
       "@store/*": ["store/*"],
       "@utils/*": ["utils/*"],
-      "@data/*": ["data/*"]
+      "@data/*": ["data/*"],
+      "@tests/*": ["../tests/*"]
     }
   }
 }
