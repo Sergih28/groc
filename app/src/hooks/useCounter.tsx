@@ -4,13 +4,10 @@ import { useStore } from '@nanostores/react'
 
 import { pomodoroStore } from '@store/Pomodoro'
 import { createActivePomodoro, updateLastTick } from '@utils/storage/pomodoro'
-
-export const calculateCounter = (prevCounter: number, countingInterval: number) => {
-  return prevCounter + countingInterval
-}
+import { accurateTimer } from '@utils/time'
 
 export default function useCounter() {
-  const { id, counterValue, countingInterval, isPaused, phase } = useStore(pomodoroStore.state)
+  const { id, counterValue, isPaused, phase } = useStore(pomodoroStore.state)
   const hasStarted = counterValue > 0
   const isFinished = counterValue >= pomodoroStore.actions.getPhaseDuration(phase)
 
@@ -21,16 +18,15 @@ export default function useCounter() {
   }, [hasStarted])
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = accurateTimer(() => {
       if (isPaused || isFinished) return
       const counterValue = pomodoroStore.state.get().counterValue
-      const newCounterValue = calculateCounter(counterValue, countingInterval)
-
+      const newCounterValue = counterValue + 100
       pomodoroStore.actions.setPomodoroState({ counterValue: newCounterValue })
 
       updateLastTick()
-    }, countingInterval * 1000)
+    }, 100)
 
-    return () => clearInterval(timer)
+    return () => timer.cancel()
   }, [isPaused, counterValue, phase])
 }
