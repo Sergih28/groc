@@ -5,11 +5,12 @@ import { resetStore } from './helpers'
 import ProgressBar from '@atoms/ProgressBar/'
 import { DEFAULT_STATE_VALUES } from '@store/constants'
 import { pomodoroStore } from '@store/Pomodoro'
+import { resetStore } from './helpers'
 
 describe('ProgressBar component test', () => {
   afterEach(() => {
     cleanup()
-    pomodoroStore.actions.resetStore()
+    resetStore()
   })
 
   test('renders the ProgressBar component', () => {

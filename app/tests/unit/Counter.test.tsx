@@ -1,5 +1,7 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { keepMount } from 'nanostores'
 
+import { resetStore } from './helpers'
 import testIds from '@data/testIds'
 import useCounter from '@hooks/useCounter'
 import Counter from '@molecules/Counter'
@@ -17,8 +19,9 @@ const CounterWrapper = () => {
 
 describe('Counter component test', () => {
   beforeEach(() => {
-    pomodoroStore.actions.resetStore()
+    resetStore()
     cleanup()
+    keepMount(pomodoroStore.state)
   })
 
   test('render Counter component', () => {
@@ -84,8 +87,8 @@ describe('Counter component test', () => {
 
       expect(counterContent).toHaveTextContent('25:00')
 
-      const buttonContinue = screen.getByRole('button', { name: 'Start' })
-      fireEvent.click(buttonContinue)
+      const startButton = screen.getByTestId(testIds.pomodoro.startButton)
+      fireEvent.click(startButton)
 
       act(() => {
         vi.advanceTimersByTime(25 * 60 * 1000)
