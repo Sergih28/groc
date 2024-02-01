@@ -1,10 +1,5 @@
 import { pomodoroStore } from '@store/Pomodoro'
-import {
-  checkLastTick,
-  createActivePomodoro,
-  getActivePomodoro,
-  isPomodoroFinished,
-} from '@utils/storage/pomodoro'
+import { checkLastTick, createActivePomodoro, getActivePomodoro } from '@utils/storage/pomodoro'
 import type { PausedTimeRange } from '@utils/storage/types'
 
 export const calculateElapsedTime = (
@@ -32,8 +27,6 @@ export const calculateElapsedTime = (
 }
 
 export const loadActivePomodoro = () => {
-  if (isPomodoroFinished()) return
-
   const activePomodoro = getActivePomodoro()
 
   if (null == activePomodoro) {
@@ -46,6 +39,7 @@ export const loadActivePomodoro = () => {
     activePomodoro.startTime,
     activePomodoro.pausedTimeRanges,
   )
+
   pomodoroStore.actions.setPomodoroState({
     counterValue: elapsedTime,
     id: activePomodoro.id,
