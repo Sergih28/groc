@@ -10,6 +10,8 @@ export default function useCounter() {
   const { counterValue, isPaused, phase } = useStore(pomodoroStore.state)
   const isFinished = counterValue >= pomodoroStore.actions.getPhaseDuration()
 
+  const REFRESH = 100
+
   useEffect(function load() {
     loadActivePomodoro()
   }, [])
@@ -19,11 +21,11 @@ export default function useCounter() {
       const timer = accurateTimer(() => {
         if (isPaused || isFinished) return
         const counterValue = pomodoroStore.state.get().counterValue
-        const newCounterValue = counterValue + 100
+        const newCounterValue = counterValue + REFRESH
         pomodoroStore.actions.setPomodoroState({ counterValue: newCounterValue })
 
         updateLastTick()
-      }, 100)
+      }, REFRESH)
 
       return () => timer.cancel()
     },
