@@ -1,11 +1,11 @@
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 
-import { resetStore } from '@tests/unit/helpers'
 import testIds from '@data/testIds'
 import useCounter from '@hooks/useCounter'
 import Counter from '@molecules/Counter'
 import { calculateElapsedTime } from '@molecules/Counter/functions'
 import { pomodoroStore } from '@store/Pomodoro'
+import { resetStore } from '@tests/unit/helpers'
 
 const CounterWrapper = () => {
   useCounter()

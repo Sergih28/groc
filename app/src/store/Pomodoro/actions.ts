@@ -1,11 +1,11 @@
 import type { UUID } from 'crypto'
 
-import { loadActivePomodoro } from '@molecules/Counter/functions'
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import { action } from 'nanostores'
 
 import $state from './state'
+import { loadActivePomodoro } from '@molecules/Counter/functions'
 import type { PhaseType, StateType } from '@store/types'
 import { calculateSecondsFromMilliseconds } from '@utils/numbers'
 import {
