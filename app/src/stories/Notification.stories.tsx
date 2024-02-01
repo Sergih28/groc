@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import Notification from '../components/Notification/index'
+import Notification from '../components/ui/molecules/Notification/index'
 
 const meta: Meta<typeof Notification> = {
   component: Notification,
