@@ -1,7 +1,3 @@
-import { useEffect } from 'react'
-
-import { loadActivePomodoro } from '@utils/storage/pomodoro'
-
 import Button from '@atoms/Buttons/Button'
 import ProgressBar from '@atoms/ProgressBar'
 import useCounter from '@hooks/useCounter'
@@ -10,10 +6,6 @@ import { handlePhase } from '@store/Pomodoro/actions'
 
 const Pomodoro = () => {
   useCounter()
-
-  useEffect(() => {
-    loadActivePomodoro()
-  }, [])
 
   return (
     <>
