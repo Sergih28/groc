@@ -59,6 +59,7 @@ export const loadActivePomodoro = () => {
   }
 
   checkLastTick(activePomodoro)
+
   const elapsedTime = calculateElapsedTime(
     activePomodoro.startTime,
     activePomodoro.pausedTimeRanges,
@@ -84,7 +85,7 @@ export const updateLastTick = () => {
 }
 
 export const generatePomodoro = () => {
-  const ACTUAL_PHASE_DURATION = pomodoroStore.actions.getPhaseDuration('pomodoro')
+  const ACTUAL_PHASE_DURATION = pomodoroStore.actions.getPhaseDuration()
 
   const newPomodoro: PomodoroType = {
     id: crypto.randomUUID(),
