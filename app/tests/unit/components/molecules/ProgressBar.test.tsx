@@ -1,10 +1,10 @@
 import { cleanup, render, screen } from '@testing-library/react'
 
-import { colorToRgb } from '@tests/unit/helpers'
-import { resetStore } from '@tests/unit/helpers'
 import ProgressBar from '@atoms/ProgressBar/'
 import { DEFAULT_STATE_VALUES } from '@store/constants'
 import { pomodoroStore } from '@store/Pomodoro'
+import { resetStore } from '@tests/unit/helpers'
+import { colorToRgb } from '@tests/unit/helpers'
 
 describe('ProgressBar component test', () => {
   afterEach(() => {
