@@ -137,7 +137,7 @@ describe('localStorage tests', () => {
         endTime: null,
         pausedTimeRanges: [],
         phase: DEFAULT_STATE_VALUES.phase,
-        expectedDuration: pomodoroStore.actions.getPhaseDuration(DEFAULT_STATE_VALUES.phase),
+        expectedDuration: pomodoroStore.actions.getPhaseDuration(),
         lastTick: Date.now(),
       })
     })

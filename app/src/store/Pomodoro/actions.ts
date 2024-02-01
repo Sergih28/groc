@@ -49,7 +49,7 @@ export const setPomodoroState = action(
 const generateCounterContent = () => {
   const state = $state.get()
 
-  const milliseconds = getPhaseDuration(state.phase)
+  const milliseconds = getPhaseDuration()
   const calculatedCounter = state.isCountingUp
     ? state.counterValue
     : milliseconds - state.counterValue
@@ -60,14 +60,16 @@ const generateCounterContent = () => {
   return dayjs.duration(calculatedCounter, 'milliseconds').format('mm:ss')
 }
 
-export const getPhaseDuration = (phase: PhaseType) => {
+export const getPhaseDuration = () => {
+  const phase = $state.get().phase
+
   return $state.get()[`${phase}Duration`]
 }
 
 export const handlePause = () => {
-  const { isPaused, counterValue, phase } = $state.get()
+  const { isPaused, counterValue } = $state.get()
 
-  const milliseconds = getPhaseDuration(phase)
+  const milliseconds = getPhaseDuration()
 
   const isFinished = counterValue >= milliseconds
   const hasStarted = counterValue > 0

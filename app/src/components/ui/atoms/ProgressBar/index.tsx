@@ -40,14 +40,12 @@ const ProgressBarContent = ({
 }
 
 const ProgressBar = () => {
-  const { counterValue, showPercentage, fillColor, backgroundColor, phase } = useStore(
-    pomodoroStore.state,
-  )
+  const { counterValue, showPercentage, fillColor, backgroundColor } = useStore(pomodoroStore.state)
 
   let percentage
   const currentValue = counterValue
   const baseValue = 0
-  const targetValue = getPhaseDuration(phase)
+  const targetValue = getPhaseDuration()
 
   try {
     percentage = calculatePercentage(currentValue, baseValue, targetValue)
