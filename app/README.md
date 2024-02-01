@@ -46,7 +46,7 @@
 - `pnpm dev`: start tmuxinator project template.
 - `pnpm dev:astro`: start the development server.
 - `pnpm dev:all`: start the development server, including storybook and tailwind.
-- `pnpm prepare`: initialize husky.{}
+- `pnpm prepare`: initialize husky.
 - `pnpm start`: start the development server.
 - `pnpm test:unit`: run unit tests once.
 - `pnpm test:unit:watch`: run unit tests in watch mode.
