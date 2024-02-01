@@ -12,10 +12,10 @@ describe('PlayPauseButton component test', () => {
     render(<PlayPauseButton />)
   })
 
-  test('given no props, should render "Play" text', () => {
+  test('given no props, should render "Start" text', () => {
     render(<PlayPauseButton />)
 
-    const buttonElement = screen.getByText(/play/i)
+    const buttonElement = screen.getByText(/start/i)
 
     expect(buttonElement).toBeInTheDocument()
   })

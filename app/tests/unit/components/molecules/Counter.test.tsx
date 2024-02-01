@@ -20,6 +20,7 @@ describe('Counter component test', () => {
   beforeEach(() => {
     resetStore()
     cleanup()
+    localStorage.clear()
   })
 
   test('render Counter component', () => {
