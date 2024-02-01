@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { toast } from 'sonner'
 
 import Button from '@atoms/Buttons/Button'
-import Notification from '@components/Notification/'
+import Notification from '@molecules/Notification'
 
 const NotificationWrapper = ({ message = 'Notification message' }: { message?: string }) => {
   return (
