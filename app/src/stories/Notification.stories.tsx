@@ -4,6 +4,7 @@ import Notification from '../components/ui/molecules/Notification/index'
 
 const meta: Meta<typeof Notification> = {
   component: Notification,
+  title: 'Notification',
 }
 
 export default meta

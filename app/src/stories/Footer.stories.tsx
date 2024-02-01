@@ -4,6 +4,7 @@ import Footer from '../components/ui/organisms/Footer/'
 
 const meta: Meta<typeof Footer> = {
   component: Footer,
+  title: 'Footer',
 }
 
 type Story = StoryObj<typeof Footer>

@@ -5,6 +5,7 @@ import '../styles/index.css'
 
 const meta: Meta<typeof ProgressBar> = {
   component: ProgressBar,
+  title: 'ProgresBar',
 }
 
 type Story = StoryObj<typeof ProgressBar>

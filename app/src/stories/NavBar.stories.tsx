@@ -4,6 +4,7 @@ import NavBar from '../components/ui/organisms/NavBar/'
 
 const meta: Meta<typeof NavBar> = {
   component: NavBar,
+  title: 'NavBar',
 }
 
 type Story = StoryObj<typeof NavBar>

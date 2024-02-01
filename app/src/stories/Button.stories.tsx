@@ -4,6 +4,7 @@ import Button from '../components/ui/atoms/Buttons/Button'
 
 const meta: Meta<typeof Button> = {
   component: Button,
+  title: 'Button',
 }
 
 type Story = StoryObj<typeof Button>

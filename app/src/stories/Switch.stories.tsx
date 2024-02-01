@@ -4,6 +4,7 @@ import Switch from '../components/ui/atoms/Switch/'
 
 const meta: Meta<typeof Switch> = {
   component: Switch,
+  title: 'Switch',
 }
 
 export default meta
