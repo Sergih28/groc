@@ -4,7 +4,7 @@ import type { PausedTimeRange, PomodoroType, SavedPomodoroType } from './types'
 
 import { localStorageItems } from './keys'
 import { pomodoroStore } from '@store/Pomodoro'
-import { loadActivePomodoro } from '@molecules/Counter/functions'
+import { calculateElapsedTime } from '@utils/time'
 
 export const getPomodoros = (): SavedPomodoroType[] => {
   const localStorageValue = localStorage.getItem(localStorageItems.pastPomodoros)
@@ -48,6 +48,29 @@ export const addSavedPomodoro = (pomodoro: SavedPomodoroType) => {
 
 export const updateActivePomodoro = (pomodoro: PomodoroType) => {
   localStorage.setItem(localStorageItems.activePomodoro, JSON.stringify(pomodoro))
+}
+
+export const loadActivePomodoro = () => {
+  const activePomodoro = getActivePomodoro()
+
+  if (null == activePomodoro) {
+    createActivePomodoro()
+    return
+  }
+
+  checkLastTick(activePomodoro)
+  const elapsedTime = calculateElapsedTime(
+    activePomodoro.startTime,
+    activePomodoro.pausedTimeRanges,
+  )
+
+  pomodoroStore.actions.setPomodoroState({
+    counterValue: elapsedTime,
+    id: activePomodoro.id,
+    isPaused: true,
+  })
+
+  pomodoroStore.actions.setPomodoroState({ counterValue: elapsedTime, phase: activePomodoro.phase })
 }
 
 export const updateLastTick = () => {
