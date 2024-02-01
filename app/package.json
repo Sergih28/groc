@@ -15,8 +15,6 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "build:start": "pnpm build && PORT=80 node ./dist/server/entry.mjs",
-    "preview": "astro preview",
-    "astro": "astro",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests",
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx,.astro src tests --fix",
     "lint:commit": "commitlint --edit \"$1\" --verbose",
@@ -26,7 +24,7 @@
     "lint:md:fix": "eslint --ext .md ./ --ignore-pattern='node_modules' --fix",
     "prettier:fix": "prettier --write src tests",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybookd:build": "storybook build",
     "tailwind": "pnpx tailwindcss -i ./src/styles/index.css -o ./dist/output.css --watch"
   },
   "dependencies": {
