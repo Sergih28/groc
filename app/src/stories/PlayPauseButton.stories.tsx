@@ -4,18 +4,17 @@ import PlayPauseButton from '../components/ui/atoms/Buttons/PlayPause/index'
 
 const meta: Meta<typeof PlayPauseButton> = {
   component: PlayPauseButton,
+  title: 'Button',
 }
 
 type Story = StoryObj<typeof PlayPauseButton>
 
-// FIXME: type
 export const PlayButton: Story = {
   args: {
     text: 'Play',
   },
 }
 
-// FIXME: type
 export const PauseButton: Story = {
   args: {
     text: 'Pause',

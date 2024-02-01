@@ -4,6 +4,7 @@ import Settings from '../components/ui/organisms/Settings/'
 
 const meta: Meta<typeof Settings> = {
   component: Settings,
+  title: 'Settings',
 }
 
 type Story = StoryObj<typeof Settings>
