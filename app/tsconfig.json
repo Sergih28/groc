@@ -18,7 +18,6 @@
     "jsxImportSource": "react",
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"],
       "@atoms/*": ["components/ui/atoms/*"],
       "@organisms/*": ["components/ui/organisms/*"],
       "@molecules/*": ["components/ui/molecules/*"],
