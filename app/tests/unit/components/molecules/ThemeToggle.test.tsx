@@ -1,11 +1,7 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 
-import ThemeToggle from '@components/ui/molecules/ThemeToggle'
-import {
-  DEFAULT_THEME,
-  THEME_TOGGLE_TEXT,
-  THEMES_TEXT,
-} from '@components/ui/molecules/ThemeToggle/constants'
+import ThemeToggle from '@molecules/ThemeToggle'
+import { DEFAULT_THEME, THEME_TOGGLE_TEXT, THEMES_TEXT } from '@molecules/ThemeToggle/constants'
 
 describe('ThemeToggle component', () => {
   const DEFAULT_THEME_TEXT = DEFAULT_THEME ? 'dark' : 'light'

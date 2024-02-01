@@ -4,7 +4,7 @@ import type { ThemeType } from './types'
 
 import { DEFAULT_THEME, THEME_TOGGLE_TEXT, THEMES_TEXT } from './constants'
 import { getDarkMode } from './functions'
-import Switch from '@components/ui/atoms/Switch'
+import Switch from '@atoms/Switch'
 
 const ThemeToggle = () => {
   const darkModeValue = getDarkMode()
