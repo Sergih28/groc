@@ -1,1 +1,9 @@
-{}
+{
+  "button.start": "Start",
+  "button.continue": "Continue",
+  "button.pause": "Pause",
+  "button.pomodoro": "Pomodoro",
+  "button.break": "Break",
+  "button.long-break": "Long Break",
+  "button.reset": "Reset"
+}

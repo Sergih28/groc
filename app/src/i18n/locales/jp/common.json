@@ -1,1 +1,9 @@
-{}
+{
+  "button.start": "시작",
+  "button.continue": "계속",
+  "button.pause": "일시 정지",
+  "button.pomodoro": "포모도로",
+  "button.break": "휴식",
+  "button.long-break": "긴 휴식",
+  "button.reset": "리셋"
+}
