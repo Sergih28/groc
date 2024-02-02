@@ -41,6 +41,12 @@ dependencies:
   astro:
     specifier: 4.2.3
     version: 4.2.3(@types/node@20.9.2)(typescript@5.2.2)
+  class-variance-authority:
+    specifier: 0.7.0
+    version: 0.7.0
+  clsx:
+    specifier: 2.1.0
+    version: 2.1.0
   dayjs:
     specifier: 1.11.10
     version: 1.11.10
@@ -50,6 +56,9 @@ dependencies:
   jsdom:
     specifier: 23.0.1
     version: 23.0.1
+  lucide-react:
+    specifier: 0.321.0
+    version: 0.321.0(react@18.0.0)
   nanostores:
     specifier: 0.9.5
     version: 0.9.5
@@ -65,9 +74,15 @@ dependencies:
   sonner:
     specifier: 1.2.3
     version: 1.2.3(react-dom@18.0.0)(react@18.0.0)
+  tailwind-merge:
+    specifier: 2.2.1
+    version: 2.2.1
   tailwindcss:
     specifier: 3.0.24
     version: 3.0.24(postcss@8.4.32)
+  tailwindcss-animate:
+    specifier: 1.0.7
+    version: 1.0.7(tailwindcss@3.0.24)
   ts-pattern:
     specifier: 5.0.6
     version: 5.0.6
@@ -1641,6 +1656,12 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.0
 
+  /@babel/runtime@7.23.9:
+    resolution: {integrity: sha512-0CX6F+BI2s9dkUqr08KFrAIZgNFj75rdBU/DjCyYLIaV/quFjkk6T+EJ2LkZHyZTbEV4L5p97mNkUsHl2wLFAw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.14.0
+
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
     engines: {node: '>=6.9.0'}
@@ -2589,13 +2610,13 @@ packages:
   /@radix-ui/number@1.0.1:
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
     dev: true
 
   /@radix-ui/primitive@1.0.1:
     resolution: {integrity: sha512-yQ8oGX2GVsEYMWGxcovu1uGWPCxV5BFfeeYxqPmuAzUyLT9qmaMXSAhXpb0WrspIeqYzdJpkh2vHModJPgRIaw==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
     dev: true
 
   /@radix-ui/react-arrow@1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0):
@@ -2611,7 +2632,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -2632,7 +2653,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@radix-ui/react-context': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
@@ -2652,7 +2673,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@types/react': 18.0.21
       react: 18.0.0
     dev: true
@@ -2666,7 +2687,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@types/react': 18.0.21
       react: 18.0.0
     dev: true
@@ -2680,7 +2701,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@types/react': 18.0.21
       react: 18.0.0
     dev: true
@@ -2698,7 +2719,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
@@ -2719,7 +2740,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@types/react': 18.0.21
       react: 18.0.0
     dev: true
@@ -2737,7 +2758,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.0.21)(react@18.0.0)
@@ -2756,7 +2777,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@types/react': 18.0.21
       react: 18.0.0
@@ -2775,7 +2796,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@floating-ui/react-dom': 2.0.4(react-dom@18.0.0)(react@18.0.0)
       '@radix-ui/react-arrow': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.0.21)(react@18.0.0)
@@ -2805,7 +2826,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -2826,7 +2847,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-slot': 1.0.2(@types/react@18.0.21)(react@18.0.0)
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -2847,7 +2868,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.0.21)(react@18.0.0)
@@ -2876,7 +2897,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
@@ -2917,7 +2938,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -2934,7 +2955,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@types/react': 18.0.21
       react: 18.0.0
@@ -2953,7 +2974,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@radix-ui/react-direction': 1.0.1(@types/react@18.0.21)(react@18.0.0)
@@ -2980,7 +3001,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@radix-ui/react-use-controllable-state': 1.0.1(@types/react@18.0.21)(react@18.0.0)
@@ -3003,7 +3024,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@radix-ui/react-direction': 1.0.1(@types/react@18.0.21)(react@18.0.0)
@@ -3026,7 +3047,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@types/react': 18.0.21
       react: 18.0.0
     dev: true
@@ -3040,7 +3061,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@types/react': 18.0.21
       react: 18.0.0
@@ -3055,7 +3076,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@types/react': 18.0.21
       react: 18.0.0
@@ -3070,7 +3091,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@types/react': 18.0.21
       react: 18.0.0
     dev: true
@@ -3084,7 +3105,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@types/react': 18.0.21
       react: 18.0.0
     dev: true
@@ -3098,7 +3119,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/rect': 1.0.1
       '@types/react': 18.0.21
       react: 18.0.0
@@ -3113,7 +3134,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.0.21)(react@18.0.0)
       '@types/react': 18.0.21
       react: 18.0.0
@@ -3132,7 +3153,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.0.6)(@types/react@18.0.21)(react-dom@18.0.0)(react@18.0.0)
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -3143,7 +3164,7 @@ packages:
   /@radix-ui/rect@1.0.1:
     resolution: {integrity: sha512-fyrgCaedtvMg9NK3en0pnOYJdtfwxUcNolezkNPUsoX57X8oQk+NkqcvzHXD2uKNij6GXmWU9NDru2IWjrO4BQ==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
     dev: true
 
   /@rollup/pluginutils@5.1.0:
@@ -5569,7 +5590,7 @@ packages:
       boxen: 7.1.1
       chokidar: 3.5.3
       ci-info: 4.0.0
-      clsx: 2.0.0
+      clsx: 2.1.0
       common-ancestor-path: 1.0.1
       cookie: 0.6.0
       debug: 4.3.4
@@ -6076,6 +6097,12 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
+  /class-variance-authority@0.7.0:
+    resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
+    dependencies:
+      clsx: 2.0.0
+    dev: false
+
   /clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
     engines: {node: '>=6'}
@@ -6137,6 +6164,11 @@ packages:
 
   /clsx@2.0.0:
     resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
+    engines: {node: '>=6'}
+    dev: false
+
+  /clsx@2.1.0:
+    resolution: {integrity: sha512-m3iNNWpd9rl3jvvcBnu70ylMdrXt8Vlq4HYadnU5fwcOtvkSQWPmj7amUcDT2qYI7risszBjI5AUIUox9D16pg==}
     engines: {node: '>=6'}
     dev: false
 
@@ -9355,6 +9387,14 @@ packages:
     dependencies:
       yallist: 4.0.0
 
+  /lucide-react@0.321.0(react@18.0.0):
+    resolution: {integrity: sha512-Fi9VahIna6642U+2nAGSjnXwUBV3WyfFFPQq4yi3w30jtqxDLfSyiYCtCYCYQZ2KWNZc1MDI+rcsa0t+ChdYpw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.0.0
+    dev: false
+
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
     hasBin: true
@@ -11438,7 +11478,7 @@ packages:
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
     dev: true
 
   /regexp.prototype.flags@1.5.1:
@@ -11742,7 +11782,7 @@ packages:
   /rtl-css-js@1.16.1:
     resolution: {integrity: sha512-lRQgou1mu19e+Ya0LsTvKrVJ5TYUbqCVPAiImX3UfLTenarvPUl1QFdvu5Z3PYmHT9RCcwIfbjRQBntExyj3Zg==}
     dependencies:
-      '@babel/runtime': 7.23.6
+      '@babel/runtime': 7.23.9
     dev: true
 
   /run-applescript@5.0.0:
@@ -12492,6 +12532,20 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
     dev: true
+
+  /tailwind-merge@2.2.1:
+    resolution: {integrity: sha512-o+2GTLkthfa5YUt4JxPfzMIpQzZ3adD1vLVkvKE1Twl9UAhGsEbIZhHHZVRttyW177S8PDJI3bTQNaebyofK3Q==}
+    dependencies:
+      '@babel/runtime': 7.23.9
+    dev: false
+
+  /tailwindcss-animate@1.0.7(tailwindcss@3.0.24):
+    resolution: {integrity: sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      tailwindcss: 3.0.24(postcss@8.4.32)
+    dev: false
 
   /tailwindcss@3.0.24(postcss@8.4.32):
     resolution: {integrity: sha512-H3uMmZNWzG6aqmg9q07ZIRNIawoiEcNFKDfL+YzOPuPsXuDXxJxB9icqzLgdzKNwjG3SAro2h9SYav8ewXNgig==}
