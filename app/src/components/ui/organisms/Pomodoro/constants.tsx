@@ -4,7 +4,7 @@ const language = getLangFromWindowUrl()
 const t = useTranslations(language)
 
 export const BUTTON_TEXT = {
-  START: t('button.start'),
-  PAUSE: t('button.pause'),
-  CONTINUE: t('button.continue'),
+  POMODORO: t('button.pomodoro'),
+  BREAK: t('button.break'),
+  LONG_BREAK: t('button.long-break'),
 }
