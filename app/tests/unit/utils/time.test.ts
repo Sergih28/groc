@@ -1,6 +1,7 @@
 import { calculateElapsedTime } from '@utils/time'
 
 describe('calculatElapsedTime()', () => {
+  //Fri Jul 21 2023 12:15:45 GMT+0000
   const unixTime = 1689941745
 
   beforeAll(() => {

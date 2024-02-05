@@ -14,10 +14,10 @@ const InputRadio = ({
   const labelId = useId()
 
   return (
-    <label htmlFor={labelId} className="input-radio__label">
+    <label htmlFor={labelId} className="input__radio--label">
       {description}
       <input
-        className="input-radio__button"
+        className="input__radio--button"
         type="radio"
         name={inputName}
         id={labelId}

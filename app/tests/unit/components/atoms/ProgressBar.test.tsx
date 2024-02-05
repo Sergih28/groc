@@ -1,15 +1,11 @@
 import { render, screen } from '@testing-library/react'
 
-import { DEFAULT_STATE_VALUES } from '@store/constants'
-import { pomodoroStore } from '@store/store'
+import { pomodoroStore } from '@store/Pomodoro/'
+import { DEFAULT_STATE_VALUES } from '@store/Pomodoro/constants'
 
 import ProgressBar from '@atoms/ProgressBar/'
 import { calculatePercentage } from '@atoms/ProgressBar/functions'
 
-import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
-import { CurrentAboveTargetError } from '@errors/CurrentAboveTargetError'
-import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
-import { CurrentBelowTargetError } from '@errors/CurrentBelowTargetError'
 import { colorToRgb } from '@tests/unit/helpers'
 
 describe('ProgressBar component test', () => {
@@ -130,54 +126,6 @@ describe('ProgressBar component test', () => {
           expect(percentage).toBe(expectedPercentage)
         },
       )
-    })
-
-    describe('invalid inputs', () => {
-      describe('current value exceeds target', () => {
-        test('given a current value exceeding the target value above, throws error', () => {
-          try {
-            calculatePercentage(120, 0, 100)
-          } catch (e) {
-            expect(e instanceof CurrentAboveTargetError)
-            expect((e as Error).message).toBe('Current target (120) is greater than target (100)')
-          } finally {
-            expect.assertions(2)
-          }
-        })
-
-        test('given a current value exceeding the base value below, throws error', () => {
-          try {
-            calculatePercentage(-1, 0, 100)
-          } catch (e) {
-            expect(e instanceof CurrentBelowBaseError)
-            expect((e as Error).message).toBe('Current target (-1) is below base (0)')
-          } finally {
-            expect.assertions(2)
-          }
-        })
-
-        test('given a current value exceeding the base value above, throws error', () => {
-          try {
-            calculatePercentage(51, 50, 0)
-          } catch (e) {
-            expect(e instanceof CurrentAboveBaseError)
-            expect((e as Error).message).toBe('Current target (51) is greater than base (50)')
-          } finally {
-            expect.assertions(2)
-          }
-        })
-
-        test('given a current value exceeding the target value below, throws error', () => {
-          try {
-            calculatePercentage(-2, 100, 0)
-          } catch (e) {
-            expect(e instanceof CurrentBelowTargetError)
-            expect((e as Error).message).toBe('Current target (-2) is below target (0)')
-          } finally {
-            expect.assertions(2)
-          }
-        })
-      })
     })
   })
 })

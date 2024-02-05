@@ -11,7 +11,7 @@ const PlayPauseButton = ({
 }: PlayPauseButtonProps) => {
   return (
     <>
-      <Button handleClick={handleClick} styles="button button__counter" testId={testId}>
+      <Button handleClick={handleClick} styles="button__counter" testId={testId}>
         {text}
       </Button>
     </>

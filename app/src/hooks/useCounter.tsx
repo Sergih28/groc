@@ -5,7 +5,7 @@ import { useStore } from '@nanostores/react'
 import { loadActivePomodoro, updateLastTick } from '@utils/storage/pomodoro'
 import { accurateTimer } from '@utils/time'
 
-import { pomodoroStore } from '@store/store'
+import { pomodoroStore } from '@store/Pomodoro/'
 
 const REFRESH = 100
 

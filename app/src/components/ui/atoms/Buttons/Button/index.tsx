@@ -12,7 +12,7 @@ const Button = ({
   testId = '',
 }: ButtonProps) => {
   return (
-    <button onClick={handleClick} className={styles} type={type} data-testid={testId}>
+    <button onClick={handleClick} className={`button ${styles}`} type={type} data-testid={testId}>
       {children}
     </button>
   )

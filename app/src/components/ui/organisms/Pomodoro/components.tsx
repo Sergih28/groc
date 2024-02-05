@@ -1,8 +1,8 @@
 import { useStore } from '@nanostores/react'
 
+import { pomodoroStore } from '@store/Pomodoro/'
 import { handlePhase } from '@store/Pomodoro/actions'
-import { pomodoroStore } from '@store/store'
-import type { PhaseType } from '@store/types'
+import type { PhaseType } from '@store/Pomodoro/types'
 
 import Button from '@atoms/Buttons/Button'
 
