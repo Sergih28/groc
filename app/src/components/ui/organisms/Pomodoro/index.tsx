@@ -1,27 +1,25 @@
-import Button from '@atoms/Buttons/Button'
-import ProgressBar from '@atoms/ProgressBar'
+import { useStore } from '@nanostores/react'
+
 import useCounter from '@hooks/useCounter'
+
+import { pomodoroStore } from '@store/store'
+
+import ProgressBar from '@atoms/ProgressBar'
+
 import Counter from '@molecules/Counter'
-import { handlePhase } from '@store/Pomodoro/actions'
-import { BUTTON_TEXT } from './constants'
+
+import { PhaseButtons } from './components'
 
 const Pomodoro = () => {
   useCounter()
 
+  const { counterValue } = useStore(pomodoroStore.state)
+  const hasStarted = counterValue > 0
+
   return (
     <>
-      <ProgressBar />
-      <div className="sm:w-300px mb-6 flex justify-center gap-2 align-middle sm:mx-auto sm:flex-col lg:flex-row">
-        <Button handleClick={() => handlePhase('pomodoro')} styles="options">
-          {BUTTON_TEXT.POMODORO}
-        </Button>
-        <Button handleClick={() => handlePhase('break')} styles="options">
-          {BUTTON_TEXT.BREAK}
-        </Button>
-        <Button handleClick={() => handlePhase('longBreak')} styles="options">
-          {BUTTON_TEXT.LONG_BREAK}
-        </Button>
-      </div>
+      {hasStarted && <ProgressBar />}
+      <PhaseButtons />
       <Counter />
     </>
   )

@@ -1,6 +1,7 @@
 import type { NextButtonProps } from './types'
 
 import Button from '@atoms/Buttons/Button/'
+
 import TEST_IDS from '@data/testIds'
 
 const NextButton = ({ nextPomodoro }: NextButtonProps) => {

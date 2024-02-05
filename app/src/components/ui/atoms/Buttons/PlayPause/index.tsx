@@ -1,7 +1,8 @@
 import type { PlayPauseButtonProps } from './types'
 
-import DEFAULT_VALUES from './constants'
 import Button from '@atoms/Buttons/Button/'
+
+import DEFAULT_VALUES from './constants'
 
 const PlayPauseButton = ({
   text = DEFAULT_VALUES.text,
@@ -10,7 +11,7 @@ const PlayPauseButton = ({
 }: PlayPauseButtonProps) => {
   return (
     <>
-      <Button handleClick={handleClick} styles="counter" testId={testId}>
+      <Button handleClick={handleClick} styles="button button__counter" testId={testId}>
         {text}
       </Button>
     </>

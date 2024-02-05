@@ -1,5 +1,5 @@
 /// <reference lib="dom" />
-import { cleanup, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import Footer from '@organisms/Footer'
 
@@ -9,7 +9,6 @@ describe('Footer component test', () => {
   })
 
   afterEach(() => {
-    cleanup()
     vi.useRealTimers()
   })
 

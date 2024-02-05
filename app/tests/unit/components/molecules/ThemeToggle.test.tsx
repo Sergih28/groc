@@ -1,14 +1,10 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import ThemeToggle from '@molecules/ThemeToggle'
 import { DEFAULT_THEME, THEME_TOGGLE_TEXT, THEMES_TEXT } from '@molecules/ThemeToggle/constants'
 
 describe('ThemeToggle component', () => {
   const DEFAULT_THEME_TEXT = DEFAULT_THEME ? 'dark' : 'light'
-
-  afterEach(() => {
-    cleanup()
-  })
 
   test('renders the ThemeToggle component', () => {
     render(<ThemeToggle />)
@@ -24,6 +20,7 @@ describe('ThemeToggle component', () => {
 
   test('the switch should render the default theme text', () => {
     render(<ThemeToggle />)
+
     const switchElement = screen.getByRole('checkbox', {
       name: THEME_TOGGLE_TEXT[DEFAULT_THEME_TEXT],
     })

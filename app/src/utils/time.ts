@@ -26,6 +26,7 @@ export const calculateElapsedTime = (
   pausedTimeRanges: PausedTimeRange[],
 ): number => {
   let pausedTime = 0
+  const now = Date.now()
 
   if (null === startTime) return 0
 
@@ -34,7 +35,7 @@ export const calculateElapsedTime = (
       if (null != range.end) {
         pausedTime += range.end - range.start
       } else {
-        pausedTime += Date.now() - range.start
+        pausedTime += now - range.start
       }
     })
   }

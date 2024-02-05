@@ -1,13 +1,9 @@
 /// <reference lib="dom" />
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import Button from '@atoms/Buttons/Button/'
 
 describe('Button component test', () => {
-  afterEach(() => {
-    cleanup()
-  })
-
   test('renders the Button component', () => {
     render(<Button handleClick={() => {}}></Button>)
   })
@@ -19,7 +15,7 @@ describe('Button component test', () => {
     expect(buttonElement).toBeInTheDocument()
   })
 
-  test('render the main button with onClick function', () => {
+  test('render the main button with a callable function', () => {
     const mockFuntion = vi.fn()
 
     render(<Button handleClick={mockFuntion}>Main button text with onClick</Button>)

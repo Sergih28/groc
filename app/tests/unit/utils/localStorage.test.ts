@@ -1,5 +1,3 @@
-import { DEFAULT_STATE_VALUES } from '@store/constants'
-import { pomodoroStore } from '@store/Pomodoro'
 import { localStorageItems } from '@utils/storage/keys'
 import {
   deletePomodoro,
@@ -10,6 +8,9 @@ import {
   updatePomodoros,
 } from '@utils/storage/pomodoro'
 import type { PomodoroType } from '@utils/storage/types'
+
+import { DEFAULT_STATE_VALUES } from '@store/constants'
+import { pomodoroStore } from '@store/store'
 
 const POMODORO_LIST: PomodoroType[] = [
   {
@@ -89,10 +90,6 @@ describe('localStorage tests', () => {
     vi.resetAllMocks()
   })
 
-  afterEach(() => {
-    localStorage.clear()
-  })
-
   test('localStorage keys snapshot', () => {
     expect(localStorageItems).toMatchSnapshot()
     expect(crypto.randomUUID()).toBe(mockedRandomUUID)
@@ -109,12 +106,12 @@ describe('localStorage tests', () => {
       const pomodoro: PomodoroType[] = [
         {
           id: crypto.randomUUID(),
-          startTime: Date.now(),
+          startTime: unixTime,
           endTime: null,
           pausedTimeRanges: [],
           expectedDuration: 25,
           phase: 'pomodoro',
-          lastTick: Date.now(),
+          lastTick: unixTime,
         },
       ]
 
@@ -138,7 +135,7 @@ describe('localStorage tests', () => {
         pausedTimeRanges: [],
         phase: DEFAULT_STATE_VALUES.phase,
         expectedDuration: pomodoroStore.actions.getPhaseDuration(),
-        lastTick: Date.now(),
+        lastTick: unixTime,
       })
     })
   })

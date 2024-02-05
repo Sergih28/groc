@@ -4,8 +4,6 @@ import es from './locales/es/_export'
 import jp from './locales/jp/_export'
 import ko from './locales/ko/_export'
 
-/* Changing the languages here will automatically update astro config */
-
 export const languages = {
   en: 'English',
   es: 'Spanish',

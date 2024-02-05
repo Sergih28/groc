@@ -9,7 +9,7 @@
       }
     ],
     "sort-imports": [
-      "warn",
+      "error",
       {
         "ignoreCase": true,
         "ignoreDeclarationSort": true,
@@ -27,7 +27,14 @@
           "order": "asc",
           "caseInsensitive": true
         },
-        "groups": ["builtin", "external", ["sibling", "parent", "internal", "index"], "object"],
+        "groups": [
+          "builtin",
+          "external",
+          "type",
+          "internal",
+          "object",
+          ["parent", "sibling", "index"]
+        ],
         "pathGroups": [
           {
             "pattern": "react",
@@ -35,62 +42,47 @@
             "position": "before"
           },
           {
-            "pattern": "hooks/**",
+            "pattern": "@hooks/**",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "./utils",
+            "pattern": "@utils/**",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "./assets",
+            "pattern": "@pages/**",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "./types",
+            "pattern": "@store/**",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "./styles",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "assets/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "pages/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "components/**",
+            "pattern": "@atoms/**",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "styles/**",
+            "pattern": "@molecules/**",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "*.scss",
+            "pattern": "@organisms/**",
             "group": "internal",
             "position": "before"
           },
           {
-            "pattern": "*.css",
+            "pattern": "@data/**",
             "group": "internal",
             "position": "before"
           }
         ],
-        "warnOnUnassignedImports": true
+        "warnOnUnassignedImports": false
       }
     ]
   },

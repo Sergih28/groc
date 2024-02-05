@@ -1,5 +1,5 @@
 import { DEFAULT_STATE_VALUES } from '@store/constants'
-import { pomodoroStore } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/store'
 
 export const colorToRgb = (color: string) => {
   const tempElem = document.createElement('div')

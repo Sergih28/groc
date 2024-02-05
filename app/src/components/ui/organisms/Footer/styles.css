@@ -1,0 +1,7 @@
+.footer {
+  @apply col-span-4 col-start-2 row-start-5 flex flex-col items-center justify-center border-y-2 border-slate-200 text-center align-middle text-xl leading-10;
+}
+
+.footer__github {
+  @apply flex flex-row items-center justify-center gap-2;
+}

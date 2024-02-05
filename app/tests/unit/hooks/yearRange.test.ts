@@ -1,5 +1,6 @@
-import { calculateYearRange } from '@hooks/useYearRange'
 import useYearRange from '@hooks/useYearRange'
+
+import { calculateYearRange } from '@utils/date'
 
 describe('calculateYearRange()', () => {
   describe('calculates the year range when the current year is after than the initial year', () => {

@@ -12,7 +12,6 @@ type Story = StoryObj<typeof Button>
 export const MainButton: Story = {
   args: {
     children: 'Main button text',
-    // eslint-disable-next-line no-console
     handleClick: () => console.log('click main button'),
   },
 }

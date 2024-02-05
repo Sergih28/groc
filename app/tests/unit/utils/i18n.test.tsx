@@ -9,19 +9,6 @@ import {
 
 describe('i18n function tests', () => {
   describe('getFromLangLocaStorage()', () => {
-    let localStorageMock: Record<string, string> = {}
-
-    beforeAll(() => {
-      localStorage.setItem = vi.fn((key: string, value: string) => {
-        localStorageMock[key] = value
-      })
-      localStorage.getItem = vi.fn((key) => localStorageMock[key])
-    })
-
-    beforeEach(() => {
-      localStorageMock = {}
-    })
-
     test('given no language in local storage, should return the fallback language', () => {
       const language = getLangFromLocalStorage()
       expect(language).toBe(fallbackLang)
@@ -36,14 +23,12 @@ describe('i18n function tests', () => {
   })
 
   describe('getLangFromWindowUrl()', () => {
-    beforeAll(() => {
-      window = Object.create(window)
+    window = Object.create(window)
 
-      Object.defineProperty(window, 'location', {
-        value: {
-          pathname: 'localhost/jp',
-        },
-      })
+    Object.defineProperty(window, 'location', {
+      value: {
+        pathname: 'localhost/jp',
+      },
     })
 
     test('given a pathname with a language, should get the lang from the url', () => {

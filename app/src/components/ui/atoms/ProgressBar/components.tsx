@@ -1,25 +1,20 @@
-import type { ProgressBarContentProps, ProgressBarWrapperProps } from './types'
+import type { ProgressBarContentProps, ProgressBarWrapperType } from './types'
+import './styles.css'
 
-import { STYLES } from './styles'
-
-export const ProgressBarWrapper = ({
-  children,
-  percentage,
-  backgroundColor,
-}: ProgressBarWrapperProps) => {
+export const ProgressBar = ({ children, percentage, backgroundColor }: ProgressBarWrapperType) => {
   return (
     <div
-      className={STYLES.PROGRESSBAR}
+      className="progressbar"
       role="progressbar"
       aria-valuenow={percentage}
-      style={{ backgroundColor: backgroundColor }}
+      style={{ backgroundColor }}
     >
       {children}
     </div>
   )
 }
 
-export const ProgressBarContent = ({
+ProgressBar.Content = ({
   percentage,
   showPercentage,
   fillColor,
@@ -27,8 +22,8 @@ export const ProgressBarContent = ({
 }: ProgressBarContentProps) => {
   return (
     <div
-      className={STYLES.FILLBAR}
-      style={{ width: `${percentage}%`, backgroundColor: `${fillColor}`, color: backgroundColor }}
+      className="progressbar__fill"
+      style={{ width: `${percentage}%`, backgroundColor, color: fillColor }}
     >
       {showPercentage && <>{percentage}%</>}
     </div>

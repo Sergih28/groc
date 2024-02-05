@@ -1,6 +1,7 @@
-import { MODE_OPTIONS } from './constants'
 import type { InputNumberProps } from '@atoms/InputNumber/types'
 import type { InputRadioProps } from '@atoms/InputRadio/types'
+
+import { MODE_OPTIONS } from './constants'
 
 type SETTING_TYPE = {
   name: string

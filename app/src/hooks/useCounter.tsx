@@ -2,17 +2,18 @@ import { useEffect } from 'react'
 
 import { useStore } from '@nanostores/react'
 
-import { pomodoroStore } from '@store/Pomodoro'
 import { loadActivePomodoro, updateLastTick } from '@utils/storage/pomodoro'
 import { accurateTimer } from '@utils/time'
 
-export default function useCounter() {
+import { pomodoroStore } from '@store/store'
+
+const REFRESH = 100
+
+const useCounter = () => {
   const { counterValue, isPaused, phase } = useStore(pomodoroStore.state)
   const isFinished = counterValue >= pomodoroStore.actions.getPhaseDuration()
 
-  const REFRESH = 100
-
-  useEffect(function load() {
+  useEffect(function onLoad() {
     loadActivePomodoro()
   }, [])
 
@@ -32,3 +33,5 @@ export default function useCounter() {
     [isPaused, counterValue, phase],
   )
 }
+
+export default useCounter
