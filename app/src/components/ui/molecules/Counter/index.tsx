@@ -1,40 +1,21 @@
 import { useStore } from '@nanostores/react'
 
-import { ContentWrapper } from './components'
-import { BUTTON_TEXT } from './constants'
-import PlayPauseButton from '@atoms/Buttons/PlayPause'
-import ResetButton from '@atoms/Buttons/Reset'
-import TEST_ID from '@data/testIds'
-import { pomodoroStore } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/store'
 
-const Counter = () => {
+import { Counter } from './components'
+
+const CounterComponent = () => {
   const { counterContent, isPaused, counterValue } = useStore(pomodoroStore.state)
-  const { handlePause, handleReset } = pomodoroStore.actions
-  const hasStarted = counterValue > 0
-  const buttonText = !hasStarted
-    ? BUTTON_TEXT.START
-    : isPaused
-      ? BUTTON_TEXT.CONTINUE
-      : BUTTON_TEXT.PAUSE
-  const buttonTestId = !hasStarted
-    ? TEST_ID.pomodoro.startButton
-    : isPaused
-      ? TEST_ID.pomodoro.continueButton
-      : TEST_ID.pomodoro.pauseButton
+
+  const contentProps = { counterContent }
+  const buttonsProps = { isPaused, counterValue }
+
   return (
-    <>
-      <ContentWrapper>
-        <span data-testid="counter-content" className="text-5xl font-semibold text-white">
-          {counterContent}
-        </span>
-        <div className="flex gap-4">
-          <PlayPauseButton text={buttonText} handleClick={handlePause} testId={buttonTestId} />
-          <ResetButton resetPomodoro={handleReset} />
-        </div>
-      </ContentWrapper>
-      {JSON.stringify(pomodoroStore.state.get())}
-    </>
+    <Counter>
+      <Counter.Content {...contentProps} />
+      <Counter.Buttons {...buttonsProps} />
+    </Counter>
   )
 }
 
-export default Counter
+export default CounterComponent

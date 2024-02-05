@@ -1,18 +1,18 @@
 import type { ButtonProps } from './types'
 
-import { BUTTON_STYLES, BUTTON_TYPES } from './constants'
+import { BUTTON_TYPES } from './constants'
 
-import { STYLES } from './styles'
+import './styles.css'
 
 const Button = ({
   children,
   handleClick,
   type = BUTTON_TYPES.button,
-  styles = BUTTON_STYLES.general,
+  styles = '',
   testId = '',
 }: ButtonProps) => {
   return (
-    <button onClick={handleClick} className={STYLES[styles]} type={type} data-testid={testId}>
+    <button onClick={handleClick} className={styles} type={type} data-testid={testId}>
       {children}
     </button>
   )

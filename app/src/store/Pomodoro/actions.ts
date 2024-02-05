@@ -1,19 +1,21 @@
-import type { UUID } from 'crypto'
-
-import { loadActivePomodoro } from '@utils/storage/pomodoro'
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import { action } from 'nanostores'
 
-import $state from './state'
-import type { PhaseType, StateType } from '@store/types'
+import type { UUID } from 'crypto'
+
 import { calculateSecondsFromMilliseconds } from '@utils/numbers'
+import { loadActivePomodoro } from '@utils/storage/pomodoro'
 import {
   createActivePomodoro,
   endPauseTime,
   setActivePomodoroStartTime,
   startPauseTime,
 } from '@utils/storage/pomodoro'
+
+import type { PhaseType, StateType } from '@store/types'
+
+import $state from './state'
 
 dayjs.extend(duration)
 

@@ -1,23 +1,18 @@
-import { cleanup, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+
+import { DEFAULT_STATE_VALUES } from '@store/constants'
+import { pomodoroStore } from '@store/store'
 
 import ProgressBar from '@atoms/ProgressBar/'
-import { DEFAULT_STATE_VALUES } from '@store/constants'
-import { pomodoroStore } from '@store/Pomodoro'
-import { resetStore } from '@tests/unit/helpers'
-import { colorToRgb } from '@tests/unit/helpers'
-
 import { calculatePercentage } from '@atoms/ProgressBar/functions'
+
 import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
 import { CurrentAboveTargetError } from '@errors/CurrentAboveTargetError'
 import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
 import { CurrentBelowTargetError } from '@errors/CurrentBelowTargetError'
+import { colorToRgb } from '@tests/unit/helpers'
 
 describe('ProgressBar component test', () => {
-  afterEach(() => {
-    cleanup()
-    resetStore()
-  })
-
   test('renders the ProgressBar component', () => {
     render(<ProgressBar />)
   })

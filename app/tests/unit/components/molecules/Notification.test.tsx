@@ -1,7 +1,8 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { toast } from 'sonner'
 
 import Button from '@atoms/Buttons/Button'
+
 import Notification from '@molecules/Notification'
 
 const NotificationWrapper = ({ message = 'Notification message' }: { message?: string }) => {
@@ -14,10 +15,6 @@ const NotificationWrapper = ({ message = 'Notification message' }: { message?: s
 }
 
 describe('Notification component test', () => {
-  afterEach(() => {
-    cleanup()
-  })
-
   test('render the Notification component', () => {
     render(<NotificationWrapper />)
   })

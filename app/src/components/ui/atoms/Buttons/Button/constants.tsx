@@ -10,4 +10,5 @@ export const BUTTON_STYLES = {
   submit: 'submit',
   counter: 'counter',
   options: 'options',
+  chosenOption: 'chosenOption',
 } as const

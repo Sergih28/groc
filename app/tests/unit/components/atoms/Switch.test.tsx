@@ -1,13 +1,9 @@
 /// <reference lib="dom" />
-import { cleanup, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import Switch from '@atoms/Switch/'
 
 describe('Switch compontent test', () => {
-  afterEach(() => {
-    cleanup()
-  })
-
   test('renders the Switch component', () => {
     render(<Switch isOn={true} switchLabel="Rendering the switch component for testing" />)
   })

@@ -1,8 +1,6 @@
-const INITIAL_YEAR = 2023
+import { calculateYearRange } from '@utils/date'
 
-export const calculateYearRange = (initialYear: number, currentYear: number) => {
-  return initialYear >= currentYear ? initialYear.toString() : `${initialYear} - ${currentYear}`
-}
+const INITIAL_YEAR = 2023
 
 const useYearRange = (initialCurrentYear?: number) => {
   const currentYear = null == initialCurrentYear ? new Date().getFullYear() : initialCurrentYear

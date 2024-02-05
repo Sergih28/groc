@@ -2,9 +2,11 @@ import { type UUID } from 'crypto'
 
 import type { PausedTimeRange, PomodoroType, SavedPomodoroType } from './types'
 
-import { localStorageItems } from './keys'
-import { pomodoroStore } from '@store/Pomodoro'
 import { calculateElapsedTime } from '@utils/time'
+
+import { pomodoroStore } from '@store/store'
+
+import { localStorageItems } from './keys'
 
 export const getPomodoros = (): SavedPomodoroType[] => {
   const localStorageValue = localStorage.getItem(localStorageItems.pastPomodoros)
@@ -192,4 +194,12 @@ export const saveFinishedPomodoro = () => {
 
 export const nextPomodoro = () => {
   saveFinishedPomodoro()
+}
+
+export const getDarkMode = (): boolean => {
+  const darkModeValue = localStorage.getItem(localStorageItems.darkMode)
+
+  if (null == darkModeValue) return false
+
+  return JSON.parse(darkModeValue)
 }

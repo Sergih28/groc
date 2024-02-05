@@ -1,8 +1,10 @@
 import { useId } from 'react'
 
-import { type InputNumberProps } from './types'
+import type { InputNumberProps } from './types'
 
-import { STYLES } from './styles'
+import './styles.css'
+
+const MIN = 1
 
 const InputNumber = ({
   name,
@@ -14,12 +16,12 @@ const InputNumber = ({
   const labelId = useId()
 
   return (
-    <label htmlFor={labelId} className={STYLES.LABEL}>
+    <label htmlFor={labelId} className="input-number__label">
       {description}
       <input
-        className={STYLES.INPUT}
+        className="input-number"
         type="number"
-        min={1}
+        min={MIN}
         name={name}
         value={value}
         onChange={handleChange}
@@ -27,7 +29,7 @@ const InputNumber = ({
         required
         data-testid={name}
       />
-      {error && <span className={STYLES.ERROR_MESSAGE}>{error}</span>}
+      {error && <span className="input-number__error-message">{error}</span>}
     </label>
   )
 }

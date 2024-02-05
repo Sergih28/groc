@@ -1,0 +1,7 @@
+.input-radio__button {
+  @apply ml-2 cursor-pointer;
+}
+
+.input-radio__label {
+  @apply mb-2 block font-semibold capitalize;
+}

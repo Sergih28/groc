@@ -51,3 +51,13 @@ export const DEFAULT_SETTINGS_VALUES = {
   LONG_BREAK_DURATION: 15,
   MODE: MODE_OPTIONS.MANUAL,
 } as const
+
+export const INPUT_NUMBERS = [
+  SETTINGS_OPTIONS.POMODORO_DURATION.name,
+  SETTINGS_OPTIONS.BREAK_DURATION.name,
+  SETTINGS_OPTIONS.LONG_BREAK_DURATION.name,
+] as const
+export const ERRORS_MESSAGES = {
+  BELOW_ZERO: 'Must be greater than 0',
+  NOT_NUMBER: 'Must be a number',
+}

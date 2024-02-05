@@ -2,28 +2,26 @@ import { useFormik } from 'formik'
 
 import type { Values } from './types'
 
+import Button from '@atoms/Buttons/Button/index'
+
 import {
   InputBreakDuration,
   InputLongBreakDuration,
   InputPomodoroDuration,
   InputRadioMode,
 } from './components'
-import { DEFAULT_SETTINGS_VALUES, MODE_OPTIONS, SETTINGS_OPTIONS } from './constants'
-import Button from '@atoms/Buttons/Button/index'
+import {
+  DEFAULT_SETTINGS_VALUES,
+  ERRORS_MESSAGES,
+  INPUT_NUMBERS,
+  MODE_OPTIONS,
+  SETTINGS_OPTIONS,
+} from './constants'
 
-import { STYLES } from './styles'
+import './styles.css'
 
 const validate = (values: Values) => {
   const errors: { [key: string]: string } = {}
-  const INPUT_NUMBERS = [
-    SETTINGS_OPTIONS.POMODORO_DURATION.name,
-    SETTINGS_OPTIONS.BREAK_DURATION.name,
-    SETTINGS_OPTIONS.LONG_BREAK_DURATION.name,
-  ] as const
-  const ERRORS_MESSAGES = {
-    BELOW_ZERO: 'Must be greater than 0',
-    NOT_NUMBER: 'Must be a number',
-  }
 
   for (const input of INPUT_NUMBERS) {
     const value = values[input]
@@ -52,7 +50,7 @@ const Settings = () => {
   })
 
   return (
-    <form data-testid={'settings-form'} onSubmit={formik.handleSubmit} className={STYLES.FORM}>
+    <form data-testid={'settings-form'} onSubmit={formik.handleSubmit} className="settings__form">
       <InputPomodoroDuration
         value={formik.values.pomodoroDuration}
         handleChange={formik.handleChange}
@@ -70,7 +68,7 @@ const Settings = () => {
       />
       <div>
         <span className="font-bold">{SETTINGS_OPTIONS.MODE.description}:</span>
-        <div className={STYLES.RADIO_CONTAINER}>
+        <div className=".setting__form-mode">
           {Object.values(MODE_OPTIONS).map((option, index) => {
             return (
               <InputRadioMode

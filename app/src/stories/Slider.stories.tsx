@@ -4,7 +4,7 @@ import Slider from '../components/ui/atoms/Slider/'
 
 const meta: Meta<typeof Slider> = {
   component: Slider,
-  title: 'Slider Stories',
+  title: 'Slider',
 }
 type Story = StoryObj<typeof Slider>
 

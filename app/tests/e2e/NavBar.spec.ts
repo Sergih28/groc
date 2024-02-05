@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-test('has title', async ({ page }) => {
+test('the page has Groc title', async ({ page }) => {
   await page.goto('/')
 
   await expect(page).toHaveTitle(/Groc/)

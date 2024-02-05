@@ -1,9 +1,11 @@
 import type { InputNumberSettingsProps, InputRadioModeProps } from './types'
 
-import { SETTINGS_OPTIONS } from './constants'
 import InputNumber from '@atoms/InputNumber/index'
 import InputRadio from '@atoms/InputRadio/index'
+
 import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
+
+import { SETTINGS_OPTIONS } from './constants'
 
 const language = getLangFromWindowUrl()
 const t = useTranslations(language)

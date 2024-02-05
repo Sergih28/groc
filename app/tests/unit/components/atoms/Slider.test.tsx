@@ -1,13 +1,9 @@
 /// <reference lib="dom" />
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import Slider from '@atoms/Slider/'
 
 describe('Slider component test', () => {
-  afterEach(() => {
-    cleanup()
-  })
-
   test('renders the Slider component', () => {
     render(<Slider initialValue={0} maxValue={90} minValue={0} />)
   })

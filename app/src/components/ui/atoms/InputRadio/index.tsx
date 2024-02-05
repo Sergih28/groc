@@ -1,8 +1,7 @@
 import { useId } from 'react'
 
 import { type InputRadioProps } from './types'
-
-import { STYLES } from './styles'
+import './styles.css'
 
 const InputRadio = ({
   value,
@@ -15,10 +14,10 @@ const InputRadio = ({
   const labelId = useId()
 
   return (
-    <label htmlFor={labelId} className={STYLES.LABEL}>
+    <label htmlFor={labelId} className="input-radio__label">
       {description}
       <input
-        className={STYLES.RADIO_BUTTON}
+        className="input-radio__button"
         type="radio"
         name={inputName}
         id={labelId}

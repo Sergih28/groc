@@ -1,13 +1,9 @@
 /// <reference lib="dom" />
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import ResetButton from '@atoms/Buttons/Reset/'
 
 describe('ResetButton component test', () => {
-  afterEach(() => {
-    cleanup()
-  })
-
   test('renders the reset button', () => {
     render(<ResetButton resetPomodoro={() => {}} />)
   })

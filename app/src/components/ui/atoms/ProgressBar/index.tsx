@@ -1,40 +1,40 @@
 import { useStore } from '@nanostores/react'
 
-import { ProgressBarContent, ProgressBarWrapper } from './components'
+import { pomodoroStore } from '@store/store'
+
+import { ProgressBar } from './components'
 import { calculatePercentage } from './functions'
-import { CurrentAboveBaseError } from '@errors/CurrentAboveBaseError'
-import { CurrentBelowBaseError } from '@errors/CurrentBelowBaseError'
-import { getPhaseDuration } from '@store/Pomodoro/actions'
-import { pomodoroStore } from '@store/Pomodoro/index'
 
-const ProgressBar = () => {
-  const { counterValue, showPercentage, fillColor, backgroundColor } = useStore(pomodoroStore.state)
+const MAX_PERCENTAGE = 100
+const MIN_PERCENTAGE = 0
 
-  let percentage
-  const currentValue = counterValue
-  const baseValue = 0
-  const targetValue = getPhaseDuration()
+const ProgressBarComponent = () => {
+  const {
+    counterValue: currentValue,
+    showPercentage,
+    fillColor,
+    backgroundColor,
+  } = useStore(pomodoroStore.state)
 
-  try {
-    percentage = calculatePercentage(currentValue, baseValue, targetValue)
-  } catch (e) {
-    if (e instanceof CurrentAboveBaseError || e instanceof CurrentBelowBaseError) {
-      percentage = 0
-    } else {
-      percentage = 100
-    }
+  const targetValue = pomodoroStore.actions.getPhaseDuration()
+  const percentage =
+    targetValue !== MIN_PERCENTAGE
+      ? calculatePercentage(currentValue, MIN_PERCENTAGE, targetValue)
+      : MAX_PERCENTAGE
+
+  const wrapperProps = { percentage, backgroundColor }
+  const contentProps = {
+    percentage,
+    showPercentage,
+    fillColor: backgroundColor,
+    backgroundColor: fillColor,
   }
 
   return (
-    <ProgressBarWrapper percentage={percentage} backgroundColor={backgroundColor}>
-      <ProgressBarContent
-        percentage={percentage}
-        showPercentage={showPercentage}
-        backgroundColor={backgroundColor}
-        fillColor={fillColor}
-      />
-    </ProgressBarWrapper>
+    <ProgressBar {...wrapperProps}>
+      <ProgressBar.Content {...contentProps} />
+    </ProgressBar>
   )
 }
 
-export default ProgressBar
+export default ProgressBarComponent

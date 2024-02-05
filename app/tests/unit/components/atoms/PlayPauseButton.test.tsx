@@ -1,13 +1,9 @@
 /// <reference lib="dom" />
-import { cleanup, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import PlayPauseButton from '@atoms/Buttons/PlayPause/'
 
 describe('PlayPauseButton component test', () => {
-  afterEach(() => {
-    cleanup()
-  })
-
   test('render PlayPauseButton component', () => {
     render(<PlayPauseButton />)
   })
@@ -20,7 +16,7 @@ describe('PlayPauseButton component test', () => {
     expect(buttonElement).toBeInTheDocument()
   })
 
-  test('given a text prop, should render a PlayPauseButton with that text', () => {
+  test('given a text prop, should render a the component with that text', () => {
     render(<PlayPauseButton text="Pause" />)
 
     const buttonElement = screen.getByText(/Pause/i)

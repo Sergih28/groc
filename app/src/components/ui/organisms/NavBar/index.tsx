@@ -1,18 +1,18 @@
-import { NAVBAR_ELEMENTS } from './constants'
 import { type ValUIType } from '@i18n/ui'
 import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
 
-import { STYLES } from './styles'
+import { NAVBAR_ELEMENTS } from './constants'
+import './styles.css'
 
 const NavBar = () => {
   const lang = getLangFromWindowUrl()
   const t = useTranslations(lang)
 
   return (
-    <ul className={STYLES.LIST}>
+    <ul className="navbar__list">
       {NAVBAR_ELEMENTS.map(({ url, key, isEnabled }) => {
         const ListElement = () => (
-          <li className={isEnabled ? STYLES.ENABLED_ELEMENT : STYLES.DISABLED_ELEMENT}>
+          <li className={isEnabled ? 'navbar__enabled-element' : 'navbar__disabled-element'}>
             {t(`nav.${key}` as ValUIType)}
           </li>
         )
