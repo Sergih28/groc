@@ -4,7 +4,7 @@ import type { PausedTimeRange, PomodoroType, SavedPomodoroType } from './types'
 
 import { calculateElapsedTime } from '@utils/time'
 
-import { pomodoroStore } from '@store/store'
+import { pomodoroStore } from '@store/Pomodoro/'
 
 import { localStorageItems } from './keys'
 

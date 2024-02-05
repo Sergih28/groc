@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import { action } from 'nanostores'
 
+import type { PhaseType, StateType } from './types'
 import type { UUID } from 'crypto'
 
 import { calculateSecondsFromMilliseconds } from '@utils/numbers'
@@ -12,8 +13,6 @@ import {
   setActivePomodoroStartTime,
   startPauseTime,
 } from '@utils/storage/pomodoro'
-
-import type { PhaseType, StateType } from '@store/types'
 
 import $state from './state'
 

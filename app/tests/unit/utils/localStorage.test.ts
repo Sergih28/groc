@@ -9,8 +9,8 @@ import {
 } from '@utils/storage/pomodoro'
 import type { PomodoroType } from '@utils/storage/types'
 
-import { DEFAULT_STATE_VALUES } from '@store/constants'
-import { pomodoroStore } from '@store/store'
+import { pomodoroStore } from '@store/Pomodoro/'
+import { DEFAULT_STATE_VALUES } from '@store/Pomodoro/constants'
 
 const POMODORO_LIST: PomodoroType[] = [
   {
@@ -78,6 +78,7 @@ const POMODORO_LIST: PomodoroType[] = [
 ]
 
 describe('localStorage tests', () => {
+  //Fri Jul 21 2023 12:15:45 GMT+0000
   const unixTime = 1689941745
   const mockedRandomUUID = '1838f290-5dfc-478b-b21c-6d867ff1223a'
 

@@ -1,6 +1,6 @@
 import type { UUID } from 'crypto'
 
-import type { PhaseType } from '@store/types'
+import type { PhaseType } from '@store/Pomodoro/types'
 
 export type PomodoroType = {
   id: UUID

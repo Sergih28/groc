@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react'
 
 import type { CounterButtonsType, CounterContentType } from './types'
 
-import { pomodoroStore } from '@store/store'
+import { pomodoroStore } from '@store/Pomodoro/'
 
 import PlayPauseButton from '@atoms/Buttons/PlayPause'
 import ResetButton from '@atoms/Buttons/Reset'

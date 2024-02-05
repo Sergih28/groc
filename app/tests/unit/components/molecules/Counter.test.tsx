@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react'
 
 import useCounter from '@hooks/useCounter'
 
-import { pomodoroStore } from '@store/store'
+import { pomodoroStore } from '@store/Pomodoro/'
 
 import Counter from '@molecules/Counter'
 

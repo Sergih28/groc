@@ -1,4 +1,4 @@
-# Decision: Transition from Github Pagese to Vercel
+# Decision: Transition from Github Pages to Vercel
 
 ## Context and Problem Statement
 
