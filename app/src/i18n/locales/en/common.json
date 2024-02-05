@@ -5,5 +5,8 @@
   "button.pomodoro": "Pomodoro",
   "button.break": "Break",
   "button.long-break": "Long Break",
-  "button.reset": "Reset"
+  "button.reset": "Reset",
+  "theme.light": "Light",
+  "theme.dark": "Dark",
+  "theme.system": "System"
 }

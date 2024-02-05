@@ -5,5 +5,8 @@
   "button.pomodoro": "Pomodoro",
   "button.break": "Descanso",
   "button.long-break": "Descanso largo",
-  "button.reset": "Reiniciar"
+  "button.reset": "Reiniciar",
+  "theme.light": "Claro",
+  "theme.dark": "Oscuro",
+  "theme.system": "Sistema"
 }
