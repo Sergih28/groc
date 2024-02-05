@@ -32,20 +32,20 @@ import '@organisms/Footer/styles.css'
 
 <script is:inline>
   const theme = (() => {
-    if (undefined != typeof localStorage && localStorage.getItem('darkMode')) {
-      return JSON.parse(localStorage.getItem('darkMode'))
+    if (undefined != typeof localStorage && localStorage.getItem('theme')) {
+      return JSON.parse(localStorage.getItem('theme'))
     }
     if (matchMedia('(prefers-color-scheme: dark)').matches) {
-      return true
+      return 'dark'
     }
-    return false
+    return 'light'
   })()
 
-  if (true === theme) {
+  if ('dark' === theme) {
     document.documentElement.classList.add('dark')
   } else {
     document.documentElement.classList.remove('dark')
   }
 
-  localStorage.setItem('darkMode', JSON.stringify(theme))
+  localStorage.setItem('theme', theme)
 </script>

@@ -1,6 +1,9 @@
+import { Moon, Sun } from 'lucide-react'
+
 export const THEMES = {
-  dark: true,
-  light: false,
+  light: 'light',
+  dark: 'dark',
+  system: 'system',
 } as const
 
 export const DEFAULT_THEME = THEMES.light
@@ -10,7 +13,7 @@ export const THEMES_TEXT = {
   light: 'light',
 } as const
 
-export const THEME_TOGGLE_TEXT = {
-  dark: '🌞',
-  light: '🌙',
+export const THEME_TOGGLE_ICON = {
+  dark: <Moon />,
+  light: <Sun />,
 }
