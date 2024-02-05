@@ -6,6 +6,8 @@ import { calculateElapsedTime } from '@utils/time'
 
 import { pomodoroStore } from '@store/Pomodoro/'
 
+import { DEFAULT_THEME } from '@molecules/ThemeToggle/constants'
+
 import { localStorageItems } from './keys'
 
 export const getPomodoros = (): SavedPomodoroType[] => {
@@ -196,10 +198,10 @@ export const nextPomodoro = () => {
   saveFinishedPomodoro()
 }
 
-export const getDarkMode = (): boolean => {
-  const darkModeValue = localStorage.getItem(localStorageItems.darkMode)
+export const getTheme = (): string => {
+  const themeValue = localStorage.getItem(localStorageItems.theme)
 
-  if (null == darkModeValue) return false
+  if (null == themeValue) return DEFAULT_THEME
 
-  return JSON.parse(darkModeValue)
+  return themeValue
 }

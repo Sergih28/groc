@@ -1,41 +1,54 @@
 import { useEffect, useState } from 'react'
 
-import { getDarkMode } from '@utils/storage/pomodoro'
+import { getTheme } from '@utils/storage/pomodoro'
 
-import { DEFAULT_THEME, THEME_TOGGLE_TEXT, THEMES_TEXT } from '@molecules/ThemeToggle/constants'
+import { DEFAULT_THEME, THEME_TOGGLE_ICON, THEMES } from '@molecules/ThemeToggle/constants'
 import type { ThemeType } from '@molecules/ThemeToggle/types'
 
-const useTheme = () => {
-  const darkModeValue = getDarkMode()
+const getSystemTheme = (): ThemeType => {
+  if (matchMedia('(prefers-color-scheme: dark)').matches) {
+    return THEMES.dark
+  }
 
-  const [darkMode, setDarkMode] = useState<ThemeType>(darkModeValue) ?? DEFAULT_THEME
+  return THEMES.light
+}
+
+const useTheme = () => {
+  const themeValue = getTheme() as ThemeType
+
+  const [theme, setTheme] = useState<ThemeType>(themeValue) ?? DEFAULT_THEME
   const [hasMounted, setHasMounted] = useState(false)
 
-  const toggleTheme = () => {
-    setDarkMode((prevTheme) => !prevTheme)
+  const themeIcon = theme === THEMES.light ? THEME_TOGGLE_ICON.light : THEME_TOGGLE_ICON.dark
+
+  const updateTheme = (themeToUpdate: ThemeType) => {
+    const newTheme = themeToUpdate === THEMES.system ? getSystemTheme() : themeToUpdate
+
+    if (themeToUpdate === theme) return
+
+    setTheme(newTheme)
   }
-  const switchLabel = !darkMode ? THEME_TOGGLE_TEXT.light : THEME_TOGGLE_TEXT.dark
 
   useEffect(function checkMount() {
     setHasMounted(true)
   }, [])
 
   useEffect(
-    function toggleDarkMode() {
+    function changeTheme() {
       if (!hasMounted) return
 
-      if (darkMode) {
-        document.documentElement.classList.add(THEMES_TEXT.dark)
+      if (theme === 'dark') {
+        document.documentElement.classList.add(THEMES.dark)
       } else {
-        document.documentElement.classList.remove(THEMES_TEXT.dark)
+        document.documentElement.classList.remove(THEMES.dark)
       }
 
-      localStorage.setItem('darkMode', JSON.stringify(darkMode))
+      localStorage.setItem('theme', JSON.stringify(theme))
     },
-    [darkMode, hasMounted],
+    [theme, hasMounted],
   )
 
-  return { darkMode, hasMounted, toggleTheme, switchLabel }
+  return { theme, hasMounted, updateTheme, themeIcon }
 }
 
 export default useTheme
