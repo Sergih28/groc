@@ -1,4 +1,4 @@
-import type { PausedTimeRange } from './storage/types'
+import type { PausedTimeRange } from '../features/pomodoro/services/local-storage/types'
 
 export const accurateTimer = (fn: () => void, time = 100) => {
   let nextAt: number

@@ -1,11 +1,13 @@
 ---
-import { languages } from '@i18n/ui'
-import { generateParamsLanguageList } from '@i18n/utils'
-import Footer from '@layouts/Footer.astro'
-import Layout from '@layouts/Layout.astro'
-import Main from '@layouts/Main.astro'
-import NavBar from '@layouts/NavBar.astro'
-import Pomodoro from '@layouts/Pomodoro.astro'
+import Footer from '@components/layouts/footer/index.astro'
+import Layout from '@components/layouts/layout/index.astro'
+import Main from '@components/layouts/main/index.astro'
+import NavBar from '@components/layouts/navbar/index.astro'
+import Pomodoro from '@components/layouts/pomodoro/index.astro'
+
+import { languages } from '@services/i18n/ui'
+import { generateParamsLanguageList } from '@services/i18n/utils'
+
 import '@styles/index.css'
 import '@styles/globals.css'
 

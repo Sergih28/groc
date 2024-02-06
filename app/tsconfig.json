@@ -18,20 +18,19 @@
     "jsxImportSource": "react",
     "baseUrl": "./src",
     "paths": {
-      "@atoms/*": ["components/ui/atoms/*"],
-      "@organisms/*": ["components/ui/organisms/*"],
-      "@molecules/*": ["components/ui/molecules/*"],
-      "@layouts/*": ["layouts/*"],
-      "@pages/*": ["pages/*"],
-      "@stories/*": ["stories/*"],
-      "@styles/*": ["styles/*"],
-      "@hooks/*": ["hooks/*"],
-      "@errors/*": ["errors/*"],
-      "@i18n/*": ["i18n/*"],
-      "@store/*": ["store/*"],
-      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
+      "@config/*": ["config/*"],
       "@data/*": ["data/*"],
-      "@tests/*": ["../tests/*"]
+      "@errors/*": ["errors/*"],
+      "@features/*": ["features/*"],
+      "@hooks/*": ["hooks/*"],
+      "@lib/*": ["lib/*"],
+      "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
+      "@store/*": ["stores/*"],
+      "@styles/*": ["styles/*"],
+      "@test/*": ["test/*"],
+      "@utils/*": ["utils/*"]
     }
   }
 }
