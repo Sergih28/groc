@@ -1,0 +1,4 @@
+{
+  "errors.below-zero": "Debe ser mayor que 0",
+  "errors.not-number": "Debe ser un número"
+}

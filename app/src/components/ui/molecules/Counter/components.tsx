@@ -7,10 +7,6 @@ import { pomodoroStore } from '@store/Pomodoro/'
 import PlayPauseButton from '@atoms/Buttons/PlayPause'
 import ResetButton from '@atoms/Buttons/Reset'
 
-import TEST_ID from '@data/testIds'
-
-import { BUTTON_TEXT } from './constants'
-
 import './styles.css'
 
 const { handlePause, handleReset } = pomodoroStore.actions
@@ -28,21 +24,13 @@ Counter.Content = ({ counterContent }: CounterContentType) => {
 }
 
 Counter.Buttons = ({ isPaused, counterValue }: CounterButtonsType) => {
-  const hasStarted = counterValue > 0
-  const buttonText = !hasStarted
-    ? BUTTON_TEXT.START
-    : isPaused
-      ? BUTTON_TEXT.CONTINUE
-      : BUTTON_TEXT.PAUSE
-  const buttonTestId = !hasStarted
-    ? TEST_ID.pomodoro.startButton
-    : isPaused
-      ? TEST_ID.pomodoro.continueButton
-      : TEST_ID.pomodoro.pauseButton
-
   return (
     <div className="counter__buttons">
-      <PlayPauseButton text={buttonText} handleClick={handlePause} testId={buttonTestId} />
+      <PlayPauseButton
+        hasStarted={counterValue > 0}
+        handleClick={handlePause}
+        isPaused={isPaused}
+      />
       <ResetButton resetPomodoro={handleReset} />
     </div>
   )

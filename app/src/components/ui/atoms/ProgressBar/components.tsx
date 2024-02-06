@@ -22,7 +22,7 @@ ProgressBar.Content = ({
 }: ProgressBarContentProps) => {
   return (
     <div
-      className="progressbar__fill"
+      className="progressbar--fill"
       style={{ width: `${percentage}%`, backgroundColor, color: fillColor }}
     >
       {showPercentage && <>{percentage}%</>}

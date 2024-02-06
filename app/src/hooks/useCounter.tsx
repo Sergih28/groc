@@ -7,7 +7,7 @@ import { accurateTimer } from '@utils/time'
 
 import { pomodoroStore } from '@store/Pomodoro/'
 
-const REFRESH = 100
+const REFRESH_INTERVAL_MS = 100
 
 const useCounter = () => {
   const { counterValue, isPaused, phase } = useStore(pomodoroStore.state)
@@ -22,11 +22,11 @@ const useCounter = () => {
       const timer = accurateTimer(() => {
         if (isPaused || isFinished) return
         const counterValue = pomodoroStore.state.get().counterValue
-        const newCounterValue = counterValue + REFRESH
+        const newCounterValue = counterValue + REFRESH_INTERVAL_MS
         pomodoroStore.actions.setPomodoroState({ counterValue: newCounterValue })
 
         updateLastTick()
-      }, REFRESH)
+      }, REFRESH_INTERVAL_MS)
 
       return () => timer.cancel()
     },
