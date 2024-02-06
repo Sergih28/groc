@@ -77,6 +77,11 @@
             "position": "before"
           },
           {
+            "pattern": "@i18n/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
             "pattern": "@data/**",
             "group": "internal",
             "position": "before"
