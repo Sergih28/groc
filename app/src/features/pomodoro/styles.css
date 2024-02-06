@@ -1,0 +1,31 @@
+.counter {
+  @apply flex h-72 w-[600px] flex-col items-center justify-center gap-6 self-center;
+}
+
+.counter__content {
+  @apply text-6xl font-semibold;
+}
+
+.counter__buttons {
+  @apply flex gap-4;
+}
+
+.pomodoro__buttons {
+  @apply mb-6 flex justify-center gap-2 align-middle sm:mx-auto sm:w-[300px] sm:flex-col lg:flex-row;
+}
+
+.pomodoro__button {
+  @apply py-6 px-12 font-semibold text-white transition ease-in-out hover:scale-110;
+}
+
+.pomodoro__button--selected {
+  @apply border-4 border-solid border-yellow-300 py-6 px-12 font-semibold text-white shadow-[4px_3px_15px_2px_#faf089] transition ease-in-out;
+}
+
+.progressbar {
+  @apply absolute top-0 flex h-2 w-full overflow-hidden;
+}
+
+.progressbar--fill {
+  @apply flex flex-col justify-center overflow-hidden whitespace-nowrap text-center text-xs font-semibold transition duration-500;
+}

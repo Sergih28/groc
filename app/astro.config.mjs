@@ -3,7 +3,7 @@ import react from '@astrojs/react'
 import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
 
-import { fallbackLang, languages } from './src/i18n/ui'
+import { fallbackLang, languages } from '@services/i18n/ui'
 
 // https://astro.build/config
 export default defineConfig({
