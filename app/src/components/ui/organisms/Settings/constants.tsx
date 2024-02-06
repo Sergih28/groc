@@ -58,6 +58,6 @@ export const INPUT_NUMBERS = [
   SETTINGS_OPTIONS.LONG_BREAK_DURATION.name,
 ] as const
 export const ERRORS_MESSAGES = {
-  BELOW_ZERO: 'Must be greater than 0',
-  NOT_NUMBER: 'Must be a number',
+  BELOW_ZERO: t('errors.below-zero'),
+  NOT_NUMBER: t('errors.not-number'),
 }

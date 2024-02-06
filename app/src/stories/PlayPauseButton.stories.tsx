@@ -11,13 +11,21 @@ type Story = StoryObj<typeof PlayPauseButton>
 
 export const PlayButton: Story = {
   args: {
-    text: 'Play',
+    isPaused: false,
+    hasStarted: true,
   },
 }
 
 export const PauseButton: Story = {
   args: {
-    text: 'Pause',
+    isPaused: true,
+  },
+}
+
+export const StartButton: Story = {
+  args: {
+    isPaused: true,
+    hasStarted: false,
   },
 }
 

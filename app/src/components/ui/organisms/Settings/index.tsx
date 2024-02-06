@@ -2,7 +2,7 @@ import { useFormik } from 'formik'
 
 import type { Values } from './types'
 
-import Button from '@atoms/Buttons/Button/index'
+import Button from '@atoms/Buttons/Button/'
 
 import {
   InputBreakDuration,
@@ -50,7 +50,7 @@ const Settings = () => {
   })
 
   return (
-    <form data-testid={'settings-form'} onSubmit={formik.handleSubmit} className="settings__form">
+    <form data-testid={'settings-form'} onSubmit={formik.handleSubmit} className="settings-form">
       <InputPomodoroDuration
         value={formik.values.pomodoroDuration}
         handleChange={formik.handleChange}
@@ -68,7 +68,7 @@ const Settings = () => {
       />
       <div>
         <span className="font-bold">{SETTINGS_OPTIONS.MODE.description}:</span>
-        <div className=".setting__form-mode">
+        <div className=".setting-form__mode">
           {Object.values(MODE_OPTIONS).map((option, index) => {
             return (
               <InputRadioMode

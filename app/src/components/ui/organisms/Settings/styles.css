@@ -1,7 +1,7 @@
-.settings__form {
+.settings-form {
   @apply mx-auto mt-8 max-w-xl rounded-lg bg-gray-100 p-6 shadow-md;
 }
 
-.settings__form-mode {
+.settings-form__mode {
   @apply mb-4 flex items-center justify-center gap-6;
 }

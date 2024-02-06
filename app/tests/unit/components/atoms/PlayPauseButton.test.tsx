@@ -8,7 +8,7 @@ describe('PlayPauseButton component test', () => {
     render(<PlayPauseButton />)
   })
 
-  test('given no props, should render "Start" text', () => {
+  test('given no props, should render a button with "Start" text', () => {
     render(<PlayPauseButton />)
 
     const buttonElement = screen.getByText(/start/i)
@@ -16,10 +16,18 @@ describe('PlayPauseButton component test', () => {
     expect(buttonElement).toBeInTheDocument()
   })
 
-  test('given a text prop, should render a the component with that text', () => {
-    render(<PlayPauseButton text="Pause" />)
+  test('given a started and paused button, should render the button with "Continue" text', () => {
+    render(<PlayPauseButton hasStarted={true} isPaused={true} />)
 
-    const buttonElement = screen.getByText(/Pause/i)
+    const buttonElement = screen.getByText(/continue/i)
+
+    expect(buttonElement).toBeInTheDocument()
+  })
+
+  test('given a started and not paused button, should render the button with "Pause" text', () => {
+    render(<PlayPauseButton hasStarted={true} isPaused={false} />)
+
+    const buttonElement = screen.getByText(/pause/i)
 
     expect(buttonElement).toBeInTheDocument()
   })

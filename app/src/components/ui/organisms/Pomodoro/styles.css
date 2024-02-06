@@ -1,3 +1,11 @@
 .pomodoro__buttons {
   @apply mb-6 flex justify-center gap-2 align-middle sm:mx-auto sm:w-[300px] sm:flex-col lg:flex-row;
 }
+
+.pomodoro__button {
+  @apply bg-blue-500 py-6 px-12 font-semibold text-white transition ease-in-out hover:scale-110 hover:bg-blue-700;
+}
+
+.pomodoro__button--selected {
+  @apply border-4 border-solid border-yellow-300 bg-blue-700 py-6 px-12 font-semibold text-white shadow-[4px_3px_15px_2px_#faf089] transition ease-in-out hover:bg-blue-700;
+}

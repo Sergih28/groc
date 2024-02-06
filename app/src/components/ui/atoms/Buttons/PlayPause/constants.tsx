@@ -1,8 +1,10 @@
-import TEST_ID from '@data/testIds'
+import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
 
-const DEFAULT_VALUES = {
-  text: 'Start',
-  testId: TEST_ID.pomodoro.startButton,
-}
+const language = getLangFromWindowUrl()
+const t = useTranslations(language)
 
-export default DEFAULT_VALUES
+export const BUTTON_TEXT = {
+  START: t('button.start'),
+  PAUSE: t('button.pause'),
+  CONTINUE: t('button.continue'),
+} as const

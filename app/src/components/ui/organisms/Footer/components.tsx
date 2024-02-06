@@ -4,6 +4,8 @@ import { FaGithub } from 'react-icons/fa'
 
 import useYearRange from '@hooks/useYearRange'
 
+import Link from '@atoms/Link'
+
 import { getLangFromWindowUrl, useTranslations } from '@i18n/utils'
 
 import { URLS } from './constants'
@@ -21,39 +23,28 @@ Footer.Year = () => {
 
   return (
     <p>
-      Copyright © <span>{yearRange}</span>,{' '}
-      <a href={URLS.OWNER} target="_blank">
-        Sergi Heras
-      </a>
+      Copyright © <span>{yearRange}</span>, <Link href={URLS.OWNER}>Sergi Heras</Link>
       <span> & </span>
-      <a href={URLS.CONTRIBUTORS} target="_blank">
-        {t('footer.contributors')}
-      </a>
+      <Link href={URLS.CONTRIBUTORS}>{t('footer.contributors')}</Link>
     </p>
   )
 }
 
-Footer.License = ({ children }: PropsWithChildren) => {
+Footer.License = () => {
   return (
     <div>
-      {t('footer.release_license')}{' '}
-      <a href={URLS.LICENSE} target="_blank">
-        {t('footer.license')}
-      </a>
-      {children}
+      {t('footer.release_license')} <Link href={URLS.LICENSE}>{t('footer.license')}</Link>
     </div>
   )
 }
 
 Footer.Github = () => {
   return (
-    <div className="footer__github">
-      <a href={URLS.REPO} target="_blank">
+    <div>
+      <Link href={URLS.REPO} className="footer__github">
         Github
-      </a>
-      <a href={URLS.REPO} target="_blank">
         <FaGithub />
-      </a>
+      </Link>
     </div>
   )
 }

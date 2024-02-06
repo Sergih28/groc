@@ -4,9 +4,8 @@ const FooterComponent = () => {
   return (
     <Footer>
       <Footer.Year />
-      <Footer.License>
-        <Footer.Github />
-      </Footer.License>
+      <Footer.License />
+      <Footer.Github />
     </Footer>
   )
 }

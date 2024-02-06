@@ -1,5 +1,5 @@
 export interface PlayPauseButtonProps {
-  text?: string
+  hasStarted?: boolean
+  isPaused?: boolean
   handleClick?: () => void
-  testId?: string
 }

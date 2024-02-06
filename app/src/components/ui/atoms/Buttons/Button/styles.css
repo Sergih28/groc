@@ -13,11 +13,3 @@
 .button__counter {
   @apply bg-yellow-300 text-white hover:bg-yellow-500;
 }
-
-.button__options {
-  @apply bg-blue-500 py-6 px-12 font-semibold text-white transition ease-in-out hover:scale-110 hover:bg-blue-700;
-}
-
-.button__chosenOption {
-  @apply border-4 border-solid border-yellow-300 bg-blue-700 py-6 px-12 font-semibold text-white shadow-[4px_3px_15px_2px_#faf089] transition ease-in-out hover:bg-blue-700;
-}

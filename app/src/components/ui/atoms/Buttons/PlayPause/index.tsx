@@ -1,20 +1,25 @@
+import { match } from 'ts-pattern'
+
 import type { PlayPauseButtonProps } from './types'
 
 import Button from '@atoms/Buttons/Button/'
 
-import DEFAULT_VALUES from './constants'
+import { BUTTON_TEXT } from './constants'
 
 const PlayPauseButton = ({
-  text = DEFAULT_VALUES.text,
-  testId = DEFAULT_VALUES.testId,
+  hasStarted = false,
+  isPaused = true,
   handleClick = () => {},
 }: PlayPauseButtonProps) => {
+  const buttonText = match({ hasStarted, isPaused })
+    .with({ hasStarted: false, isPaused: true }, () => BUTTON_TEXT.START)
+    .with({ hasStarted: true, isPaused: false }, () => BUTTON_TEXT.PAUSE)
+    .otherwise(() => BUTTON_TEXT.CONTINUE)
+
   return (
-    <>
-      <Button handleClick={handleClick} styles="button__counter" testId={testId}>
-        {text}
-      </Button>
-    </>
+    <Button handleClick={handleClick} styles="button__counter">
+      {buttonText}
+    </Button>
   )
 }
 
