@@ -6,7 +6,7 @@ import { localStorageItems } from '@services/local-storage/keys'
 
 import { calculateElapsedTime } from '@utils/time'
 
-import { pomodoroStore } from '@store/Pomodoro/'
+import { pomodoroStore } from '@store/pomodoro'
 
 export const getPomodoros = (): SavedPomodoroType[] => {
   const localStorageValue = localStorage.getItem(localStorageItems.pastPomodoros)

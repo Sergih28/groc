@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react'
 
-import { pomodoroStore } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/pomodoro'
 
 import { Counter } from './components'
 

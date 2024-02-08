@@ -2,7 +2,7 @@ import { act, fireEvent, render, screen } from '@testing-library/react'
 
 import useCounter from '@features/pomodoro/hooks/use-counter'
 
-import { pomodoroStore } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/pomodoro'
 
 import Counter from '.'
 

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import ThemeToggle from '.'
-import { DEFAULT_THEME, THEME_TOGGLE_ICON, THEMES } from './constants'
+import { DEFAULT_THEME, THEMES } from './constants'
 
 describe.skip('ThemeToggle component', () => {
   const DEFAULT_THEME_TEXT = DEFAULT_THEME
@@ -10,13 +10,13 @@ describe.skip('ThemeToggle component', () => {
     render(<ThemeToggle />)
   })
 
-  test.only('the switch should render the default theme text', () => {
-    render(<ThemeToggle />)
+  // test.only('the switch should render the default theme text', () => {
+  //   render(<ThemeToggle />)
 
-    const themeElement = screen.getByText(THEME_TOGGLE_ICON.light)
+  //   const themeElement = screen.getByText(THEME_TOGGLE_ICON.light)
 
-    expect(themeElement).toBeInTheDocument()
-  })
+  //   expect(themeElement).toBeInTheDocument()
+  // })
 
   describe('clicking event scenarios', () => {
     test('clicking the switch should change the text value', () => {

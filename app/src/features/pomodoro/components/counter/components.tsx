@@ -4,7 +4,7 @@ import type { CounterButtonsType, CounterContentType } from './types'
 
 import { Card, CardContent } from '@components/elements/card'
 
-import { pomodoroStore } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/pomodoro'
 
 import PlayPauseButton from '../buttons/play-pause-button'
 import ResetButton from '../buttons/reset-button'

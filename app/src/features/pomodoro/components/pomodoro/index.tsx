@@ -1,8 +1,8 @@
 import { useStore } from '@nanostores/react'
 
-import useCounter from '@features/pomodoro/hooks/useCounter'
+import useCounter from '@features/pomodoro/hooks/use-counter'
 
-import { pomodoroStore } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/pomodoro'
 
 import Counter from '../counter'
 import PhaseSelector from '../phase-selector'

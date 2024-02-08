@@ -2,8 +2,8 @@ import { useStore } from '@nanostores/react'
 
 import { Button } from '@components/elements/button'
 
-import { pomodoroStore } from '@store/Pomodoro'
-import { handlePhase } from '@store/Pomodoro/actions'
+import { pomodoroStore } from '@store/pomodoro'
+import { handlePhase } from '@store/pomodoro/actions'
 
 import { BUTTON_TEXT } from './constants'
 
