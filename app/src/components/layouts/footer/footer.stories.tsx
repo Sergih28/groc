@@ -9,16 +9,8 @@ const meta: Meta<typeof Footer> = {
 
 type Story = StoryObj<typeof Footer>
 
-export const NoRangeYearFooter: Story = {
-  args: {
-    currentYear: 2023,
-  },
-}
+export const NoRangeYearFooter: Story = {}
 
-export const RangeYearFooter: Story = {
-  args: {
-    currentYear: 2026,
-  },
-}
+export const RangeYearFooter: Story = {}
 
 export default meta

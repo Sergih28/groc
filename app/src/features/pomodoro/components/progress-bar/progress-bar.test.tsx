@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 
 import { calculatePercentage } from '@features/pomodoro/utils/progress-bar'
 
-import { pomodoroStore } from '@store/Pomodoro'
-import { DEFAULT_STATE_VALUES } from '@store/Pomodoro/constants'
+import { pomodoroStore } from '@store/pomodoro'
+import { DEFAULT_STATE_VALUES } from '@store/pomodoro/constants'
 
 import { colorToRgb } from '@test/helpers'
 

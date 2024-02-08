@@ -9,8 +9,8 @@ import {
 
 import { accurateTimer } from '@utils/time'
 
-import { pomodoroStore } from '@store/Pomodoro'
-import { isPomodoroFinished } from '@store/Pomodoro/utils'
+import { pomodoroStore } from '@store/pomodoro'
+import { isPomodoroFinished } from '@store/pomodoro/utils'
 
 const REFRESH_INTERVAL_MS = 100
 

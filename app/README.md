@@ -2,24 +2,33 @@
 
 ## 🚀 Project Structure
 
+Inspired by ["bulletproof-react"](https://github.com/alan2207/bulletproof-react)
+
 ```text
 /
-├── src/
-│   ├── components/
-│   │   └── ui/
-│   │       ├── atoms/
-│   │       ├── molecules/
-│   │       └── organisms/
-│   ├── layouts/
-│   ├── data/
-│   ├── errors/
-│   ├── hooks/
-│   ├── i18n/
-│   ├── layouts/
-│   ├── pages/
-│   ├── store/
-│   ├── stories/
-│   └── styles/
+├── .storybook/
+├── config/
+├── public/
+└── src/
+    ├── assets/
+    ├── components/
+    │   ├── elements/
+    │   ├── layouts/
+    ├── config/
+    ├── features/
+    ├── hooks/
+    ├── lib/
+    ├── pages/
+    ├── providers/
+    ├── services/
+    │   ├── api/
+    │   ├── local-storage/
+    │   └── i18n/
+    ├── stores/
+    ├── styles/
+    ├── test/
+    ├── types/
+    └── utils/
 ```
 
 ## ⚙️ Initial Setup

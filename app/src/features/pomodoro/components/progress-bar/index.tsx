@@ -2,7 +2,7 @@ import { useStore } from '@nanostores/react'
 
 import { calculatePercentage } from '@features/pomodoro/utils/progress-bar'
 
-import { pomodoroStore } from '@store/Pomodoro'
+import { pomodoroStore } from '@store/pomodoro'
 
 import { ProgressBar } from './components'
 
