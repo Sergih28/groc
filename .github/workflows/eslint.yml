@@ -1,0 +1,30 @@
+name: eslint
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Install pnpm dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm build
+      - name: Run Markdown lint
+        run: pnpm lint:md
+      - name: Run eslint
+        run: pnpm lint:docs && pnpm lint
