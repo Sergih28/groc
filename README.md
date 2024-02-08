@@ -22,9 +22,15 @@ We believe in fostering a welcoming and inclusive community. Please review our
 [Code of Conduct](./CODE_OF_CONDUCT.md) to understand the standards of behavior
 for everyone involved.
 
+## 🙏 Special thanks
+
+Thanks to ![Enrique Hidalgo][7] for his work on the project during his
+internship
+
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644
 [2]: https://img.shields.io/github/languages/code-size/sergih28/groc?style=for-the-badge&logo=visualstudiocode&label=Code&labelColor=0078d7&color=gray
 [3]: translations/readme/README.es.md
 [4]: translations/readme/README.cat.md
 [5]: translations/readme/README.jp.md
 [6]: translations/readme/README.kr.md
+[7]: https://github.com/ehdlg

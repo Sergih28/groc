@@ -20,9 +20,14 @@
 우리는 환영하고 포용적인 커뮤니티를 육성합니다. 모든 참여자들을 위한 행동 강령은
 [행동 강령](../../CODE_OF_CONDUCT.md)을 확인해주세요.
 
+## 🙏 특별한 감사
+
+인턴십 기간 동안 프로젝트에 참여해준 ![Enrique Hidalgo][7]에게 감사드립니다.
+
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644
 [2]: https://img.shields.io/github/languages/code-size/sergih28/groc?style=for-the-badge&logo=visualstudiocode&label=Code&labelColor=0078d7&color=gray
 [3]: ./README.cat.md
 [4]: ../../README.md
 [5]: ./README.jp.md
 [6]: ./README.es.md
+[7]: https://github.com/ehdlg
