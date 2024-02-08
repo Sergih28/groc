@@ -45,6 +45,8 @@ help:
 	@echo "|                        | This command sets up a development server     |"
 	@echo "|                        | with hot-reloading for faster development.    |"
 	@echo "+------------------------+-----------------------------------------------+"
+	@echo "| make bash              | Enter dev container shell.                     |"
+	@echo "+------------------------+-----------------------------------------------+"
 	@echo "| make tests             | Run unit tests.                               |"
 	@echo "|                        | This command executes the unit test suite.    |"
 	@echo "+------------------------+-----------------------------------------------+"
@@ -71,7 +73,7 @@ help:
 	@echo "| make logs-{container}  | View logs for the specified container.        |"
 	@echo "+------------------------+-----------------------------------------------+"
 
-.PHONY: prod dev-all dev tests styles storybook playwright playwright-report playwright-ui
+.PHONY: prod dev-all dev bash tests styles storybook playwright playwright-report playwright-ui
 prod:
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start 
@@ -82,6 +84,10 @@ dev-all:
 dev:
 	docker compose up -d dev
 	docker exec -it groc-dev pnpm start --host
+
+bash:
+	docker compose up -d dev
+	docker exec -it groc-dev bash
 
 tests:
 	docker compose up -d tests
