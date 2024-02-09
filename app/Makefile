@@ -50,6 +50,8 @@ help:
 	@echo "| make tests             | Run unit tests.                               |"
 	@echo "|                        | This command executes the unit test suite.    |"
 	@echo "+------------------------+-----------------------------------------------+"
+	@echo "| make tests-coverage    | Run unit tests coverage.                      |"
+	@echo "+------------------------+-----------------------------------------------+"
 	@echo "| make styles            | Process Tailwind CSS.                         |"
 	@echo "|                        | This command compiles and processes           |"
 	@echo "|                        | Tailwind CSS for styling.                     |"
@@ -73,7 +75,7 @@ help:
 	@echo "| make logs-{container}  | View logs for the specified container.        |"
 	@echo "+------------------------+-----------------------------------------------+"
 
-.PHONY: prod dev-all dev bash tests styles storybook playwright playwright-report playwright-ui
+.PHONY: prod dev-all dev bash tests tests-coverage styles storybook playwright playwright-report playwright-ui
 prod:
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start 
@@ -92,6 +94,10 @@ bash:
 tests:
 	docker compose up -d tests
 	docker exec -it groc-tests pnpm test:unit:watch
+
+tests-coverage:
+	docker compose up -d tests
+	docker exec -it groc-tests pnpm test:unit:coverage
 
 styles:
 	docker compose up -d styles
