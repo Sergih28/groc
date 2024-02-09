@@ -1,0 +1,9 @@
+---
+import {  fallbackLang , ui } from '@services/i18n/ui'
+
+const preferedLanguage = Astro.preferredLocale
+
+if(null != preferedLanguage && preferedLanguage in ui) return Astro.redirect(preferedLanguage)
+
+return Astro.redirect(fallbackLang)
+---
