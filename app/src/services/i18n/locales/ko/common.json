@@ -5,5 +5,8 @@
   "button.pomodoro": "포모도로",
   "button.break": "휴식",
   "button.long-break": "긴 휴식",
-  "button.reset": "리셋"
+  "button.reset": "리셋",
+  "theme.light": "밝은",
+  "theme.dark": "어두운",
+  "theme.system": "시스템"
 }

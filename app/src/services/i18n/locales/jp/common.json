@@ -1,12 +1,12 @@
 {
-  "button.start": "시작",
-  "button.continue": "계속",
-  "button.pause": "일시 정지",
-  "button.pomodoro": "포모도로",
-  "button.break": "휴식",
-  "button.long-break": "긴 휴식",
-  "button.reset": "리셋",
-  "theme.light": "밝은",
-  "theme.dark": "어두운",
-  "theme.system": "시스템"
+  "button.start": "開始する",
+  "button.continue": "続行する",
+  "button.pause": "一時停止する",
+  "button.pomodoro": "ポモドーロ",
+  "button.break": "休憩する",
+  "button.long-break": "長い休憩",
+  "button.reset": "リセットする",
+  "theme.light": "明るい",
+  "theme.dark": "暗い",
+  "theme.system": "システム"
 }
