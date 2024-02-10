@@ -78,9 +78,9 @@ help:
 .PHONY: prod dev-all dev bash tests tests-coverage styles storybook playwright playwright-report playwright-ui
 prod:
 	docker compose up -d prod
-	docker exec -it groc-prod pnpm build:start 
+	docker exec -it groc-prod pnpm build:start
 
-dev-all: 
+dev-all:
 	tmuxinator start --project-config=./config/tmuxinator.yml
 
 dev:
@@ -108,11 +108,11 @@ storybook:
 	docker exec -it groc-storybook pnpm storybook
 
 playwright:
-	docker compose up -d playwright 
+	docker compose up -d playwright
 	docker exec -it groc-playwright pnpm test:e2e
 
 playwright-report:
-	docker compose up -d playwright 
+	docker compose up -d playwright
 	@echo ============================ IMPORTANT! =============================
 	@echo ===                                                               ===
 	@echo === Visit http://localhost:9323 (not 0.0.0.0) to see the reports! ===

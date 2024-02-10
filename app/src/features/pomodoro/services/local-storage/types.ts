@@ -1,4 +1,5 @@
 import type { UUID } from 'crypto'
+
 import type { PhaseType } from '@store/pomodoro/types'
 
 export type PomodoroType = {
