@@ -36,6 +36,7 @@ export const setPomodoroState = action(
       'pomodoroDuration',
       'breakDuration',
       'longBreakDuration',
+      'counterFormat',
     ]
     const shouldUpdateCounterContent = keysToCheck.some((key) => Object.keys(values).includes(key))
 
