@@ -1,6 +1,8 @@
-import type { PropsWithChildren } from 'react'
+import { type PropsWithChildren } from 'react'
 
 import type { CounterButtonsType, CounterContentType } from './types'
+
+import useGetAnimatedCounterContent from '@features/pomodoro/hooks/use-get-animated-counter-content'
 
 import { Card, CardContent } from '@components/elements/card'
 
@@ -16,9 +18,10 @@ export const Counter = ({ children }: PropsWithChildren) => {
 }
 
 Counter.Content = ({ counterContent }: CounterContentType) => {
+  const { animatedCounter } = useGetAnimatedCounterContent(counterContent)
   return (
-    <CardContent data-testid="counter-content" className="counter__content ">
-      {counterContent}
+    <CardContent data-testid="counter-content" className="counter__content">
+      {animatedCounter()}
     </CardContent>
   )
 }
