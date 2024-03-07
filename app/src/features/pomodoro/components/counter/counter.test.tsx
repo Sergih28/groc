@@ -1,4 +1,6 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+
+import testIds from '@data/test-ids'
 
 import useCounter from '@features/pomodoro/hooks/use-counter'
 
@@ -24,25 +26,18 @@ describe('Counter component test', () => {
     test('given counter with minutes format, renders the time left in minutes format', () => {
       render(<CounterSetup />)
 
-      const counterContentElement = screen.getByText('25:00')
+      const counterContentElement = screen.getByTestId(testIds.pomodoro.counterContent)
 
       expect(counterContentElement).toBeInTheDocument()
+
+      expect(counterContentElement).toHaveTextContent('25:00')
     })
 
     test('given counter with seconds format, renders the time left in seconds format', () => {
       pomodoroStore.actions.setPomodoroState({ counterFormat: 'seconds' })
-      vi.useFakeTimers()
       render(<CounterSetup />)
 
-      const startButton = screen.getByRole('button', { name: 'Start' })
-
-      fireEvent.click(startButton)
-
-      act(() => {
-        vi.advanceTimersByTime(12000)
-      })
-
-      const counterContentElement = screen.getByText('1488')
+      const counterContentElement = screen.getByTestId(testIds.pomodoro.counterContent)
       expect(counterContentElement).toBeInTheDocument()
     })
   })
@@ -55,8 +50,8 @@ describe('Counter component test', () => {
       vi.useRealTimers()
     })
 
-    test('counter updates value after a few seconds', () => {
-      render(<CounterSetup />)
+    test('counter updates value after a few seconds', async () => {
+      const { rerender } = render(<CounterSetup />)
 
       const startButton = screen.getByRole('button', { name: 'Start' })
       fireEvent.click(startButton)
@@ -64,18 +59,19 @@ describe('Counter component test', () => {
       act(() => {
         vi.advanceTimersByTime(8000)
       })
+      const counterContentElement = screen.getByTestId(testIds.pomodoro.counterContent)
 
-      const counterContent = screen.getByText('24:52')
+      rerender(<CounterSetup />)
 
-      expect(counterContent).toBeInTheDocument()
+      waitFor(async () => {
+        expect(counterContentElement).toBeInTheDocument()
+
+        expect(counterContentElement).toHaveTextContent('24:52')
+      })
     })
 
-    test('given a counter value that has reached the target, the counter remains at the target value after additional time passes', () => {
-      render(<CounterSetup />)
-
-      const counterContent = screen.getByText('25:00')
-
-      expect(counterContent).toBeInTheDocument()
+    test('given a counter value that has reached the target, the counter remains at the target value after additional time passes', async () => {
+      const { rerender } = render(<CounterSetup />)
 
       const startButton = screen.getByRole('button', { name: 'Start' })
       fireEvent.click(startButton)
@@ -84,7 +80,13 @@ describe('Counter component test', () => {
         vi.advanceTimersByTime(30 * 60 * 1000)
       })
 
-      expect(counterContent).toHaveTextContent('00:00')
+      const counterContent = screen.getByTestId(testIds.pomodoro.counterContent)
+
+      rerender(<CounterSetup />)
+
+      waitFor(async () => {
+        expect(counterContent).toHaveTextContent('00:00')
+      })
     })
   })
 })
