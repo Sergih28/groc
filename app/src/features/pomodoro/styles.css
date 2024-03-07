@@ -3,7 +3,7 @@
 }
 
 .counter__content {
-  @apply text-6xl font-semibold;
+  @apply flex text-6xl font-semibold;
 }
 
 .counter__buttons {
