@@ -2,7 +2,7 @@ import type { StateType } from './types'
 
 export const DEFAULT_STATE_VALUES: StateType = {
   id: null,
-  counterContent: '25:00',
+  counterContent: '',
   counterValue: 0,
   isPaused: true,
   pomodoroDuration: 25 * 60 * 1000,
