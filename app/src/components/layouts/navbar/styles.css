@@ -1,5 +1,5 @@
 #navbar {
-  @apply row-span-5 bg-slate-900;
+  @apply row-span-5  border-r-2  border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-900;
 }
 
 #logo {
@@ -11,7 +11,7 @@
 }
 
 .navbar__list--disabled {
-  @apply cursor-not-allowed text-gray-400;
+  @apply cursor-not-allowed text-slate-800 dark:text-gray-400;
 }
 
 .navbar__list--enabled {
