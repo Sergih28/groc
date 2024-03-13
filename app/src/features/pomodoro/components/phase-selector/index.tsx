@@ -15,7 +15,8 @@ const PhaseSelector = () => {
   return (
     <div className="pomodoro__buttons">
       {buttonPhases.map((buttonPhase) => {
-        const styles = buttonPhase === phase ? 'pomodoro__button--selected' : 'pomodoro__button'
+        const styles =
+          buttonPhase === phase ? 'pomodoro__button pomodoro__button--selected' : 'pomodoro__button'
 
         return (
           <Button key={buttonPhase} onClick={() => handlePhase(buttonPhase)} className={styles}>

@@ -1,5 +1,5 @@
 .footer {
-  @apply col-span-4 col-start-2 row-start-5 flex flex-col items-center justify-center border-y-2 border-slate-200 text-center align-middle text-xl leading-10;
+  @apply col-span-4 col-start-2 row-start-5 flex flex-col items-center justify-center border-y-2 border-slate-200 text-center align-middle text-xl leading-10 dark:border-slate-700;
 }
 
 .footer__github {
