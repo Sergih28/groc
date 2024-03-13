@@ -98,6 +98,9 @@ dependencies:
   typescript:
     specifier: 5.2.2
     version: 5.2.2
+  use-sound:
+    specifier: ^4.0.1
+    version: 4.0.1(react@18.0.0)
   vitest:
     specifier: 1.0.4
     version: 1.0.4(@types/node@20.9.2)(jsdom@23.0.1)
@@ -8553,6 +8556,10 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
+  /howler@2.2.4:
+    resolution: {integrity: sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==}
+    dev: false
+
   /html-encoding-sniffer@4.0.0:
     resolution: {integrity: sha512-Y22oTqIU4uuPgEemfz7NDJz6OeKf12Lsu+QC+s3BVpda64lTiMYCyGwg5ki4vFxkMwQdeZDl2adZoqUgdFuTgQ==}
     engines: {node: '>=18'}
@@ -13489,6 +13496,15 @@ packages:
       detect-node-es: 1.1.0
       react: 18.0.0
       tslib: 2.6.2
+
+  /use-sound@4.0.1(react@18.0.0):
+    resolution: {integrity: sha512-hykJ86kNcu6y/FzlSHcQxhjSGMslZx2WlfLpZNoPbvueakv4OF3xPxEtGV2YmculrIaH0tPp9LtG4jgy17xMWg==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      howler: 2.2.4
+      react: 18.0.0
+    dev: false
 
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
