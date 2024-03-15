@@ -1,8 +1,14 @@
 import { match } from 'ts-pattern'
+import useSound from 'use-sound'
 
 import type { PlayPauseButtonProps } from '../types'
 
 import { Button } from '@components/elements/button'
+
+/*Sounds effects sourced from: https://pixabay.com/sound-effects/interface-124464/ 
+and https://pixabay.com/sound-effects/button-124476/ respectively**/
+import pauseSound from '@assets/pause-sound.mp3'
+import playSound from '@assets/play-sound.mp3'
 
 import { BUTTON_TEXT } from './constants'
 
@@ -11,16 +17,28 @@ const PlayPauseButton = ({
   isPaused = true,
   handleClick = () => {},
 }: PlayPauseButtonProps) => {
-  const buttonText = match({ hasStarted, isPaused })
-    .with({ hasStarted: false, isPaused: true }, () => BUTTON_TEXT.START)
-    .with({ hasStarted: true, isPaused: true }, () => BUTTON_TEXT.CONTINUE)
-    .otherwise(() => BUTTON_TEXT.PAUSE)
+  const { buttonText, audioFile } = match({ hasStarted, isPaused })
+    .with({ hasStarted: false, isPaused: true }, () => {
+      return { buttonText: BUTTON_TEXT.START, audioFile: playSound }
+    })
+    .with({ hasStarted: true, isPaused: true }, () => {
+      return { buttonText: BUTTON_TEXT.CONTINUE, audioFile: playSound }
+    })
+    .otherwise(() => {
+      return {
+        buttonText: BUTTON_TEXT.PAUSE,
+        audioFile: pauseSound,
+      }
+    })
 
-  return (
-    <Button onClick={handleClick} className="">
-      {buttonText}
-    </Button>
-  )
+  const [play] = useSound(audioFile, { volume: 0.33 })
+
+  const onClick = () => {
+    handleClick()
+    play()
+  }
+
+  return <Button {...{ onClick }}>{buttonText}</Button>
 }
 
 export default PlayPauseButton
