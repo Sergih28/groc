@@ -7,6 +7,7 @@ const useGetAnimatedCounterContent = (counterContent: string) => {
     exitBeforeEnter: true,
     leave: { opacity: 0, transform: 'translate3d(0, 50%, 0)' },
     initial: { opacity: 1, transform: 'translate3d(0, 0%, 0)' },
+    config: { duration: 250 },
   }
 
   const renderAnimatedElement = (
