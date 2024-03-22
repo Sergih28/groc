@@ -13,7 +13,11 @@ const useGetAnimatedCounterContent = (counterContent: string) => {
     style: { opacity: SpringValue<number>; transform: SpringValue<string> },
     digit: string,
   ) => {
-    return <animated.span style={style}>{digit}</animated.span>
+    return (
+      <animated.span className="tabular-nums" style={style}>
+        {digit}
+      </animated.span>
+    )
   }
 
   const counterDigits = counterContent.split('')
