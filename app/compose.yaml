@@ -97,6 +97,39 @@ services:
     depends_on:
       - dev
 
+  postgresql:
+    container_name: groc-db
+    environment:
+      DATABASE_HOST: 127.0.0.1
+      POSTGRES_PASSWORD: groc
+      POSTGRES_USER: groc
+      POSTGRES_DB: groc
+    ports:
+      - 5432:5432
+    networks:
+      - groc_network
+    restart: always
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -d groc -U groc']
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    image: postgres:16.2-bookworm
+
+  pgadmin:
+    container_name: groc-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: groc@groc.com
+      PGADMIN_DEFAULT_PASSWORD: groc
+      PGADMIN_LISTEN_PORT: 6543
+    ports:
+      - 6543:6543
+    networks:
+      - groc_network
+    image: dpage/pgadmin4:8.4
+    depends_on:
+      - postgresql
+
 networks:
   groc_network:
     name: groc_network

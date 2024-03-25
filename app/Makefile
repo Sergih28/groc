@@ -74,10 +74,17 @@ help:
 	@echo "|                        | Similar to 'make playwright', but focused on  |"
 	@echo "|                        | UI-specific End-to-End tests.                 |"
 	@echo "+------------------------+-----------------------------------------------+"
+	@echo "| make postgresql        | Run PostgreSQL.                               |"
+	@echo "|                        | This command runs the PostgreSQL database     |"
+	@echo "+------------------------+-----------------------------------------------+"
+	@echo "| make pgadmin           | Run pgAdmin                                   |"
+	@echo "|                        | This command runs the administrator and       |"
+	@echo "|                        | development platfrom for PostgreSQL, pgAdmin  |"
+	@echo "+------------------------+-----------------------------------------------+"
 	@echo "| make logs-{container}  | View logs for the specified container.        |"
 	@echo "+------------------------+-----------------------------------------------+"
 
-.PHONY: prod dev-all dev bash install tests tests-coverage styles storybook playwright playwright-report playwright-ui
+.PHONY: prod dev-all dev bash install tests tests-coverage styles storybook playwright playwright-report playwright-ui postgresql pgadmin
 prod:
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start
@@ -117,6 +124,7 @@ playwright:
 	docker compose up -d playwright
 	docker exec -it groc-playwright pnpm test:e2e
 
+
 playwright-report:
 	docker compose up -d playwright
 	@echo ============================ IMPORTANT! =============================
@@ -129,6 +137,12 @@ playwright-report:
 playwright-ui:
 	docker compose up -d playwright
 	docker exec -it groc-playwright pnpm test:e2e:ui
+
+postgresql: 
+	docker compose up -d postgresql
+
+pgadmin: 
+	docker compose up -d pgadmin
 
 .PHONY: logs-dev logs-prod logs-tests logs-styles logs-storybook logs-playwright logs-playwright-ui
 logs-dev:
