@@ -45,7 +45,9 @@ help:
 	@echo "|                        | This command sets up a development server     |"
 	@echo "|                        | with hot-reloading for faster development.    |"
 	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make bash              | Enter dev container shell.                     |"
+	@echo "| make bash              | Enter dev container shell.                    |"
+	@echo "+------------------------+-----------------------------------------------+"
+	@echo "| make install           | Install dependencies in dev container         |"
 	@echo "+------------------------+-----------------------------------------------+"
 	@echo "| make tests             | Run unit tests.                               |"
 	@echo "|                        | This command executes the unit test suite.    |"
@@ -75,7 +77,7 @@ help:
 	@echo "| make logs-{container}  | View logs for the specified container.        |"
 	@echo "+------------------------+-----------------------------------------------+"
 
-.PHONY: prod dev-all dev bash tests tests-coverage styles storybook playwright playwright-report playwright-ui
+.PHONY: prod dev-all dev bash install tests tests-coverage styles storybook playwright playwright-report playwright-ui
 prod:
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start
@@ -90,6 +92,10 @@ dev:
 bash:
 	docker compose up -d dev
 	docker exec -it groc-dev bash
+
+install: 
+	docker compose up -d dev
+	docker exec -it groc-dev pnpm install --frozen-lockfile
 
 tests:
 	docker compose up -d tests
