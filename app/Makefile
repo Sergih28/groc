@@ -45,9 +45,12 @@ help:
 	@echo "|                        | This command sets up a development server     |"
 	@echo "|                        | with hot-reloading for faster development.    |"
 	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make bash              | Enter dev container shell.                     |"
+	@echo "| make bash              | Enter dev container shell.                    |"
 	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make tests             | Run unit tests.                               |"
+	@echo "| make tests             | Run unit tests in watch mode.                 |"
+	@echo "|                        | This command executes the unit test suite.    |"
+	@echo "+------------------------+-----------------------------------------------+"
+	@echo "| make tests-nowatch     | Run unit tests once.                          |"
 	@echo "|                        | This command executes the unit test suite.    |"
 	@echo "+------------------------+-----------------------------------------------+"
 	@echo "| make tests-coverage    | Run unit tests coverage.                      |"
@@ -75,7 +78,7 @@ help:
 	@echo "| make logs-{container}  | View logs for the specified container.        |"
 	@echo "+------------------------+-----------------------------------------------+"
 
-.PHONY: prod dev-all dev bash tests tests-coverage styles storybook playwright playwright-report playwright-ui
+.PHONY: prod dev-all dev bash tests tests-nowatch tests-coverage styles storybook playwright playwright-report playwright-ui
 prod:
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start
@@ -94,6 +97,10 @@ bash:
 tests:
 	docker compose up -d tests
 	docker exec -it groc-tests pnpm test:unit:watch
+
+tests-nowatch: 
+	docker compose up -d tests
+	docker exec groc-tests pnpm test:unit
 
 tests-coverage:
 	docker compose up -d tests
