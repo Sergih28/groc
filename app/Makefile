@@ -28,7 +28,7 @@ list: ## List available Makefile commands
 	@echo "| groc-playwright-ui     | Playwright - E2E browser testing results   |"
 	@echo "+------------------------+--------------------------------------------+"
 
-.PHONY: prod dev-all dev bash install tests tests-coverage styles storybook playwright playwright-report playwright-ui postgresql pgadmin
+.PHONY: prod dev-all dev bash install tests tests-nowatch tests-coverage styles storybook playwright playwright-report playwright-ui postgresql pgadmin
 prod: ## Build the web application for production.  
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start
@@ -51,6 +51,10 @@ install: ## Install dependencies in dev container
 tests: ## Run unit tests
 	docker compose up -d tests
 	docker exec -it groc-tests pnpm test:unit:watch
+
+tests-nowatch: ## Run unit tests in no watch mode
+	docker compose up -d tests
+	docker exec groc-tests pnpm test:unit
 
 tests-coverage: ## Run unit tests coverage 
 	docker compose up -d tests
