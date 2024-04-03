@@ -4,6 +4,7 @@ import useCounter from '@features/pomodoro/hooks/use-counter'
 
 import { pomodoroStore } from '@store/pomodoro'
 
+import MuteButton from '../buttons/mute-button'
 import Counter from '../counter'
 import PhaseSelector from '../phase-selector'
 import ProgressBar from '../progress-bar'
@@ -19,6 +20,7 @@ const Pomodoro = () => {
   return (
     <div id="pomodoro">
       {hasStarted && <ProgressBar />}
+      <MuteButton />
       <PhaseSelector />
       <Counter />
     </div>
