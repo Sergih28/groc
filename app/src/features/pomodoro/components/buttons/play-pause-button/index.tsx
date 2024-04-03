@@ -1,5 +1,6 @@
 import { useStore } from '@nanostores/react'
 import { match } from 'ts-pattern'
+// @ts-expect-error There are no types for this dependency
 import useSound from 'use-sound'
 
 import type { PlayPauseButtonProps } from '../types'
