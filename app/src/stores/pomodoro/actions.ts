@@ -111,3 +111,7 @@ export const handleMute = () => {
 
   setPomodoroState({ sound: !sound })
 }
+
+export const handleFinish = () => {
+  setPomodoroState({ isPaused: true })
+}
