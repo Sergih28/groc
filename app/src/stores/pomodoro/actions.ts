@@ -105,3 +105,9 @@ export const handlePhase = (phase: PhaseType) => {
 export const handleNewId = (newId: UUID) => {
   $state.setKey('id', newId)
 }
+
+export const handleMute = () => {
+  const { sound } = $state.get()
+
+  setPomodoroState({ sound: !sound })
+}
