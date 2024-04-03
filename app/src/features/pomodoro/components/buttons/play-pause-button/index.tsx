@@ -14,7 +14,7 @@ and https://pixabay.com/sound-effects/button-124476/ respectively**/
 import pauseSound from '@assets/pause-sound.mp3'
 import playSound from '@assets/play-sound.mp3'
 
-import { BUTTON_TEXT } from './constants'
+import { AUDIO_VOLUME, BUTTON_TEXT } from './constants'
 
 const PlayPauseButton = ({
   hasStarted = false,
@@ -36,7 +36,7 @@ const PlayPauseButton = ({
       }
     })
 
-  const [play] = useSound(audioFile, { volume: sound ? 0.5 : 0 })
+  const [play] = useSound(audioFile, { volume: sound ? AUDIO_VOLUME : 0 })
 
   const onClick = () => {
     handleClick()
