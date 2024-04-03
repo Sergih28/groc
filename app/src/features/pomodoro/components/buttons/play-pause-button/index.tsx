@@ -1,9 +1,12 @@
+import { useStore } from '@nanostores/react'
 import { match } from 'ts-pattern'
 import useSound from 'use-sound'
 
 import type { PlayPauseButtonProps } from '../types'
 
 import { Button } from '@components/elements/button'
+
+import { pomodoroStore } from '@store/pomodoro'
 
 /*Sounds effects sourced from: https://pixabay.com/sound-effects/interface-124464/ 
 and https://pixabay.com/sound-effects/button-124476/ respectively**/
@@ -17,6 +20,7 @@ const PlayPauseButton = ({
   isPaused = true,
   handleClick = () => {},
 }: PlayPauseButtonProps) => {
+  const { sound } = useStore(pomodoroStore.state)
   const { buttonText, audioFile } = match({ hasStarted, isPaused })
     .with({ hasStarted: false, isPaused: true }, () => {
       return { buttonText: BUTTON_TEXT.START, audioFile: playSound }
@@ -31,7 +35,7 @@ const PlayPauseButton = ({
       }
     })
 
-  const [play] = useSound(audioFile, { volume: 0.33 })
+  const [play] = useSound(audioFile, { volume: sound ? 0.5 : 0 })
 
   const onClick = () => {
     handleClick()
