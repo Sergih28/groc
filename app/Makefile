@@ -1,21 +1,21 @@
-.PHONY: init
-init:
+.PHONY: init 
+init: ## Build Docker image without using the cache 
 	docker compose build --no-cache
 
 .PHONY: up
-up:
+up: ## Start Docker containers
 	docker compose up -d
 
 .PHONY: stop
-stop:
+stop: ## Stop Docker containers
 	docker compose stop
 
 .PHONY: ps
-ps:
+ps: ## Show running Docker containers
 	docker ps
 
 .PHONY: list
-list:
+list: ## List available Makefile commands
 	@echo "+------------------------+--------------------------------------------+"
 	@echo "| Container Name         | Description                                |"
 	@echo "+------------------------+--------------------------------------------+"
@@ -28,104 +28,48 @@ list:
 	@echo "| groc-playwright-ui     | Playwright - E2E browser testing results   |"
 	@echo "+------------------------+--------------------------------------------+"
 
-.PHONY: help
-help:
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| Command                | Description                                   |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make dev-all           | Start all the necessary containers for        |"
-	@echo "|                        | developing                                    |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make prod              | Build the web application for production.     |"
-	@echo "|                        | This command compiles and optimizes the code  |"
-	@echo "|                        | for production deployment.                    |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make dev               | Start the web application in development mode.|"
-	@echo "|                        | This command sets up a development server     |"
-	@echo "|                        | with hot-reloading for faster development.    |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make bash              | Enter dev container shell.                    |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make install           | Install dependencies in dev container         |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make tests             | Run unit tests.                               |"
-	@echo "|                        | This command executes the unit test suite.    |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make tests-coverage    | Run unit tests coverage.                      |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make styles            | Process Tailwind CSS.                         |"
-	@echo "|                        | This command compiles and processes           |"
-	@echo "|                        | Tailwind CSS for styling.                     |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make storybook         | Start Storybook for UI components.            |"
-	@echo "|                        | This command launches Storybook for viewing   |"
-	@echo "|                        | and testing UI components.                    |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make playwright        | Run End-to-End tests with Playwright.         |"
-	@echo "|                        | This command executes End-to-End tests using  |"
-	@echo "|                        | the Playwright testing framework.             |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make playwright-report | Show tests reports on the browser.            |"
-	@echo "|                        | Open http://localhost:9323 too see            |"
-	@echo "|                        | the reports                                   |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make playwright-ui     | Run UI End-to-End tests with Playwright.      |"
-	@echo "|                        | Similar to 'make playwright', but focused on  |"
-	@echo "|                        | UI-specific End-to-End tests.                 |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make postgresql        | Run PostgreSQL.                               |"
-	@echo "|                        | This command runs the PostgreSQL database     |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make pgadmin           | Run pgAdmin                                   |"
-	@echo "|                        | This command runs the administrator and       |"
-	@echo "|                        | development platfrom for PostgreSQL, pgAdmin  |"
-	@echo "+------------------------+-----------------------------------------------+"
-	@echo "| make logs-{container}  | View logs for the specified container.        |"
-	@echo "+------------------------+-----------------------------------------------+"
-
 .PHONY: prod dev-all dev bash install tests tests-coverage styles storybook playwright playwright-report playwright-ui postgresql pgadmin
-prod:
+prod: ## Build the web application for production.  
 	docker compose up -d prod
 	docker exec -it groc-prod pnpm build:start
 
-dev-all:
+dev-all: ## Start all the necessary containers for developing
 	tmuxinator start --project-config=./config/tmuxinator.yml
 
-dev:
+dev: ## Start the web application in development mode
 	docker compose up -d dev
 	docker exec -it groc-dev pnpm start --host
 
-bash:
+bash: ## Enter dev container shell
 	docker compose up -d dev
 	docker exec -it groc-dev bash
 
-install: 
+install: ## Install dependencies in dev container
 	docker compose up -d dev
 	docker exec -it groc-dev pnpm install --frozen-lockfile
 
-tests:
+tests: ## Run unit tests
 	docker compose up -d tests
 	docker exec -it groc-tests pnpm test:unit:watch
 
-tests-coverage:
+tests-coverage: ## Run unit tests coverage 
 	docker compose up -d tests
 	docker exec -it groc-tests pnpm test:unit:coverage
 
-styles:
+styles: ## Process Tailwind CSS
 	docker compose up -d styles
 	docker exec -it groc-styles pnpm tailwind
 
-storybook:
+storybook: ## Start Storybook for UI components
 	docker compose up -d storybook
 	docker exec -it groc-storybook pnpm storybook
 
-playwright:
+playwright: ## Run End-to-End tests with Playwright
 	docker compose up -d playwright
 	docker exec -it groc-playwright pnpm test:e2e
 
 
-playwright-report:
+playwright-report: ## Show tests reports on the browser
 	docker compose up -d playwright
 	@echo ============================ IMPORTANT! =============================
 	@echo ===                                                               ===
@@ -134,31 +78,37 @@ playwright-report:
 	@echo =====================================================================
 	docker exec -it groc-playwright pnpm test:e2e:report --host 0.0.0.0
 
-playwright-ui:
+playwright-ui: ## Run UI End-to-End tests with Playwright
 	docker compose up -d playwright
 	docker exec -it groc-playwright pnpm test:e2e:ui
 
-postgresql: 
+postgresql: ## Run PostgreSQL
 	docker compose up -d postgresql
 
-pgadmin: 
+pgadmin: ## Run pgAdmin
 	docker compose up -d pgadmin
 
 .PHONY: logs-dev logs-prod logs-tests logs-styles logs-storybook logs-playwright logs-playwright-ui
-logs-dev:
+logs-dev: ## View log for dev container
 	docker logs groc-dev
 
-logs-prod:
+logs-prod: ## View log for production container
 	docker logs groc-prod
 
-logs-tests:
+logs-tests: ## View log for tests container
 	docker logs groc-tests
 
-logs-styles:
+logs-styles: ## View log for styles container
 	docker logs groc-styles
 
-logs-storybook:
+logs-storybook: ## View log for Storybook container
 	docker logs groc-storybook
 
-logs-playwright:
+logs-playwright: ## View log for Playwright container
 	docker logs groc-playwright
+
+.PHONY: help
+help: ## Show all commands list
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	
+.DEFAULT_GOAL := help
