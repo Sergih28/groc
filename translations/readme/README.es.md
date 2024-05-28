@@ -7,6 +7,11 @@
 ![🇯🇵 Japanese][5] ·
 ![🇰🇷 Korean][6]
 
+## ⏰ Decripción general
+
+GROC es un proyecto web diseñado para ayudar a los usuarios a gestionar su
+tiempo utilizando la técnica Pomodoro.
+
 ## 🚀 Aplicación
 
 Puedes revisar el [README de la aplicación](../../app/README.md) para más
