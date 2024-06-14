@@ -14,6 +14,8 @@ const useGetAnimatedCounterContent = (counterContent: string) => {
     style: { opacity: SpringValue<number>; transform: SpringValue<string> },
     digit: string,
   ) => {
+    // The issue with the test warnings is here:
+    // we need to add a key to the animated <span> elements
     return (
       <animated.span className="tabular-nums" style={style}>
         {digit}
