@@ -8,5 +8,9 @@
   "button.reset": "리셋",
   "theme.light": "밝은",
   "theme.dark": "어두운",
-  "theme.system": "시스템"
+  "theme.system": "시스템",
+  "phaseDialog.title": "단계를 변경하시겠습니까?",
+  "phaseDialog.description": "단계를 변경하시겠습니까? 진행 상황이 사라집니다",
+  "phaseDialog.cancel": "취소",
+  "phaseDialog.action": "계속"
 }
