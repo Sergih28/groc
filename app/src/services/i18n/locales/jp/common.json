@@ -8,5 +8,9 @@
   "button.reset": "リセットする",
   "theme.light": "明るい",
   "theme.dark": "暗い",
-  "theme.system": "システム"
+  "theme.system": "システム",
+  "phaseDialog.title": "フェーズを変更しますか？",
+  "phaseDialog.description": "フェーズを変更してもよろしいですか？ 進行状況が失われます",
+  "phaseDialog.cancel": "キャンセル",
+  "phaseDialog.action": "続行"
 }

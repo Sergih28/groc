@@ -8,5 +8,9 @@
   "button.reset": "Reset",
   "theme.light": "Light",
   "theme.dark": "Dark",
-  "theme.system": "System"
+  "theme.system": "System",
+  "phaseDialog.title": "Change phase?",
+  "phaseDialog.description": "Are you sure you want to switch phase? You will lose your progress",
+  "phaseDialog.cancel": "Cancel",
+  "phaseDialog.action": "Continue"
 }
