@@ -1,6 +1,5 @@
 name: '🔧 General Request'
 description: Create a general request (any other type of request that has no template for it)
-title: ""
 labels: ["status: waiting", "priority: low"]
 body:
 - type: textarea

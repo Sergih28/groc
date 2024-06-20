@@ -1,6 +1,5 @@
 name: '🌐 Translation Request'
 description: Request a translation for content
-title: ""
 labels: ["type: translation", "status: waiting", "priority: low"]
 body:
 - type: textarea

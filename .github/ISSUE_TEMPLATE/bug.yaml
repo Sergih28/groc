@@ -1,6 +1,5 @@
 name: '🐞 Bug'
 description: File a bug/issue
-title: ""
 labels: ["type: bug", "status: waiting", "priority: low"]
 body:
 - type: checkboxes
