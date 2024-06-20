@@ -15,6 +15,7 @@ export type StateType = {
   fillColor: string
   showPercentage: boolean
   phase: PhaseType
+  sound: boolean
 }
 
 export type ActionType = {

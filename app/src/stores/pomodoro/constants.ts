@@ -15,4 +15,5 @@ export const DEFAULT_STATE_VALUES: StateType = {
   fillColor: 'yellow',
   showPercentage: false,
   phase: 'pomodoro',
+  sound: true,
 } as const

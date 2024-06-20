@@ -1,26 +1,49 @@
+import { useStore } from '@nanostores/react'
 import { match } from 'ts-pattern'
+// @ts-expect-error There are no types for this dependency
+import useSound from 'use-sound'
 
 import type { PlayPauseButtonProps } from '../types'
 
 import { Button } from '@components/elements/button'
 
-import { BUTTON_TEXT } from './constants'
+import { pomodoroStore } from '@store/pomodoro'
+
+/*Sounds effects sourced from: https://pixabay.com/sound-effects/interface-124464/ 
+and https://pixabay.com/sound-effects/button-124476/ respectively**/
+import pauseSound from '@assets/pause-sound.mp3'
+import playSound from '@assets/play-sound.mp3'
+
+import { AUDIO_VOLUME, BUTTON_TEXT } from './constants'
 
 const PlayPauseButton = ({
   hasStarted = false,
   isPaused = true,
   handleClick = () => {},
 }: PlayPauseButtonProps) => {
-  const buttonText = match({ hasStarted, isPaused })
-    .with({ hasStarted: false, isPaused: true }, () => BUTTON_TEXT.START)
-    .with({ hasStarted: true, isPaused: true }, () => BUTTON_TEXT.CONTINUE)
-    .otherwise(() => BUTTON_TEXT.PAUSE)
+  const { sound } = useStore(pomodoroStore.state)
+  const { buttonText, audioFile } = match({ hasStarted, isPaused })
+    .with({ hasStarted: false, isPaused: true }, () => {
+      return { buttonText: BUTTON_TEXT.START, audioFile: playSound }
+    })
+    .with({ hasStarted: true, isPaused: true }, () => {
+      return { buttonText: BUTTON_TEXT.CONTINUE, audioFile: playSound }
+    })
+    .otherwise(() => {
+      return {
+        buttonText: BUTTON_TEXT.PAUSE,
+        audioFile: pauseSound,
+      }
+    })
 
-  return (
-    <Button onClick={handleClick} className="">
-      {buttonText}
-    </Button>
-  )
+  const [play] = useSound(audioFile, { volume: sound ? AUDIO_VOLUME : 0 })
+
+  const onClick = () => {
+    handleClick()
+    play()
+  }
+
+  return <Button {...{ onClick }}>{buttonText}</Button>
 }
 
 export default PlayPauseButton

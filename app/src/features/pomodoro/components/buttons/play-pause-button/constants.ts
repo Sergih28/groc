@@ -8,3 +8,5 @@ export const BUTTON_TEXT = {
   PAUSE: t('button.pause'),
   CONTINUE: t('button.continue'),
 } as const
+
+export const AUDIO_VOLUME = 0.5
