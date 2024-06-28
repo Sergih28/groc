@@ -10,7 +10,7 @@
 - [ ] 🚑 Hotfix
 - [ ] 🧪 Test
 - [ ] 🌐 Localization/Internationalization
-- [ ] ⚙️  Configuration and Environment
+- [ ] ⚙️ Configuration and Environment
 - [ ] 🚫 Deprecation or Removal
 - [ ] 📦 Release
 - [ ] ⏪ Revert
@@ -53,7 +53,12 @@ Please link related issues by removing lines that are not applicable.
 
 - [ ] Added screenshots or recordings to demonstrate UI-related changes (if applicable).
 
+### Updated changelog with the PR changes?
+
+- [ ] ✅ Yes
+- [ ] 🙅 No, I don't think these changes should be reflected on the changelog
+- [ ] 🙋‍♂️ No, I need help
+
 ## Additional Information
 
 Replace this text with any additional information.
-
