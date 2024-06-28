@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Changelog section to the PR template ([#193](https://github.com/Sergih28/groc/pull/193))
+
 ## [0.0.1] (June 20, 2024)
 
 ### Added
