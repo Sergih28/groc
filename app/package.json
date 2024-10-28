@@ -2,7 +2,7 @@
   "name": "groc",
   "version": "0.0.1",
   "scripts": {
-    "prepare": "cd .. && husky install",
+    "prepare": "cd .. && husky",
     "dev": "tmuxinator start --project-config=./config/tmuxinator.yml",
     "dev:all": "concurrently \"pnpm start\" \"pnpm tailwind\" \"pnpm storybook\"",
     "test:unit": "vitest --run",
@@ -101,6 +101,6 @@
     "vite": "5.0.7"
   },
   "optionalDependencies": {
-    "husky": "8.0.3"
+    "husky": "9.0.6"
   }
 }
