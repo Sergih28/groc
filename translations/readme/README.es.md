@@ -29,7 +29,7 @@ estándares de comportamiento para todos los involucrados.
 
 ## 🙏 Agradecimientos especiales
 
-Gracias a ![Enrique Hidalgo][7] por su trabajo en el proyecto durante sus prácticas
+Gracias a [Enrique Hidalgo][7] por su trabajo en el proyecto durante sus prácticas
 de empresa.
 
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644
