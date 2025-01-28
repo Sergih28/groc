@@ -27,7 +27,7 @@ GROC는 사용자가 포모도로 기법을 사용하여 시간을 관리할 수
 
 ## 🙏 특별한 감사
 
-인턴십 기간 동안 프로젝트에 참여해준 ![Enrique Hidalgo][7]에게 감사드립니다.
+인턴십 기간 동안 프로젝트에 참여해준 [Enrique Hidalgo][7]에게 감사드립니다.
 
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644
 [2]: https://img.shields.io/github/languages/code-size/sergih28/groc?style=for-the-badge&logo=visualstudiocode&label=Code&labelColor=0078d7&color=gray

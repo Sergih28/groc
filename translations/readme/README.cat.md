@@ -29,7 +29,7 @@ estàndards de comportament per a tots els involucrats.
 
 ## 🙏 Agraïments especials
 
-Gràcies a ![Enrique Hidalgo][7] pel seu treball en el projecte durant la seva
+Gràcies a [Enrique Hidalgo][7] pel seu treball en el projecte durant la seva
 pràctica.
 
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644

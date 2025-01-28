@@ -29,7 +29,7 @@ for everyone involved.
 
 ## 🙏 Special thanks
 
-Thanks to ![Enrique Hidalgo][7] for his work on the project during his
+Thanks to [Enrique Hidalgo][7] for his work on the project during his
 internship
 
 [1]: https://img.shields.io/github/repo-size/sergih28/groc?style=for-the-badge&logo=github&label=Repo&labelColor=333&color=6cc644
