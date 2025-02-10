@@ -2,10 +2,10 @@
 
 ## _Read this in [other languages](translations/readme/)._
 
-![🇦🇩 Catalan][4] ·
-![🇯🇵 Japanese][5] ·
-![🇰🇷 Korean][6] ·
-![🇪🇸 Spanish][3]
+[Catalan][4] ·
+[Japanese][5] ·
+[Korean][6] ·
+[Spanish][3]
 
 ## ⏰ Overview
 
