@@ -2,10 +2,10 @@
 
 ## _Lee esto en [otros idiomas](./)._
 
-![🇦🇩 Catalan][3] ·
-![🇬🇧 English][4] ·
-![🇯🇵 Japanese][5] ·
-![🇰🇷 Korean][6]
+[Catalan][3] ·
+[English][4] ·
+[Japanese][5] ·
+[Korean][6]
 
 ## ⏰ Decripción general
 
